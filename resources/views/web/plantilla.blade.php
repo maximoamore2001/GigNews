@@ -65,7 +65,7 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="/"  class="<?php echo (Request::path() == "/") ? 'active' : ""; ?> ">Inicio</a></li>
-                      <li><a href="/propiedad" class="<?php echo (Request::path() == "/propiedad") ? 'active' : ""; ?>">Propiedades</a></li>
+                      <li><a href="/propiedad" class="<?php echo (Request::path() == "propiedad") ? 'active' : ""; ?>">Propiedades</a></li>
                       <li><a href="/contacto"><i class="fa fa-calendar"></i> Solicitar una visita</a></li>
                   </ul>   
                     <a class='menu-trigger'>
