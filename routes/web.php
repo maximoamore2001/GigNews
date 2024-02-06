@@ -24,11 +24,11 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 
     Route::get('/', 'ControladorWebHome@index');
 
-    Route::get('/menu', 'ControladorWebMenu@index');//HECHO
-    Route::post('/menu', 'ControladorWebMenu@insertar');//HECHO
+    Route::get('/propiedades', 'ControladorWebPropiedades@index');//HECHO
+    Route::post('/propiedades', 'ControladorWebPropiedades@insertar');//HECHO
 
-    Route::get('/servicios', 'ControladorWebServicios@index');//HECHO
-    Route::post('/servicios', 'ControladorWebServicios@insertar');//HECHO
+    Route::get('/propiedad-detallada', 'ControladorWebPropiedadDetallada@index');//HECHO
+    Route::post('/propiedad-detallada', 'ControladorWebPropiedadDetallada@insertar');//HECHO
 
     Route::get('/nosotros', 'ControladorWebNosotros@index');//HECHO
     Route::post('/nosotros', 'ControladorWebNosotros@insertarPostulacion');//HECHO
