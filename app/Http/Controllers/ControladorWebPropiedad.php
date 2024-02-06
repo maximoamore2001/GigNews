@@ -6,7 +6,7 @@ use App\entidades\Producto;
 use App\entidades\sucursal;
 use App\entidades\tipo_producto;
 
-class ControladorWebPropiedades extends Controller
+class ControladorWebPropiedad extends Controller
 {
       public function index()
       {
@@ -22,6 +22,6 @@ class ControladorWebPropiedades extends Controller
             $sucursal = new sucursal();
             $aSucursales = $sucursal->obtenerTodos();
     
-            return view("web.propiedades", compact("aSucursales", 'aCategorias', 'aProductos'));
+            return view("web.propiedad", compact("aSucursales", 'aCategorias', 'aProductos'));
       }
 }

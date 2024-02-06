@@ -59,16 +59,14 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <h1>Villa</h1>
+                        <h1>Salomón</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="/" class="active">Home</a></li>
-                      <li><a href="/propiedades">Properties</a></li>
-                      <li><a href="/propiedad-detallada">Property Details</a></li>
-                      <li><a href="/contacto">Contact Us</a></li>
-                      <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
+                      <li><a href="/"  class="<?php echo (Request::path() == "/") ? 'active' : ""; ?> ">Inicio</a></li>
+                      <li><a href="/propiedad" class="<?php echo (Request::path() == "/propiedad") ? 'active' : ""; ?>">Propiedades</a></li>
+                      <li><a href="/contacto"><i class="fa fa-calendar"></i> Solicitar una visita</a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
