@@ -56,29 +56,57 @@ if (isset($msg)) {
                         <input type="text" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ $producto->precio }}" required>
                   </div>
                   <div class="form-group col-6">
-                        <label>Cantidad: *</label>
-                        <input type="text" id="txtCantidad" name="txtCantidad" class="form-control" value="{{ $producto->cantidad }}" required>
+                        <label>Cantidad Habitaciones: *</label>
+                        <input type="text" id="txtCantidadHabitaciones" name="txtCantidadHabitaciones" class="form-control" value="{{ $producto->cantidadhabitaciones }}" required>
+                  </div>
+                  <div class="form-group col-6">
+                        <label>Cantidad de baños: *</label>
+                        <input type="text" id="txtCantidadBanios" name="txtCantidadBanios" class="form-control" value="{{ $producto->cantidadbanios }}" required>
+                  </div>
+                  <div class="form-group col-6">
+                        <label>cantidad de plantas: *</label>
+                        <input type="text" id="txtCantidadPlantas" name="txtCantidadPlantas" class="form-control" value="{{ $producto->cantidadplantas }}" required>
+                  </div>
+                  <div class="form-group col-6">
+                        <label>pais: *</label>
+                        <input type="text" id="txtPais" name="txtPais" class="form-control" value="{{ $producto->pais }}" required>
+                  </div>
+                  <div class="form-group col-6">
+                        <label>ciudad: *</label>
+                        <input type="text" id="txtCiudad" name="txtCiudad" class="form-control" value="{{ $producto->ciudad }}" required>
+                  </div>
+                  <div class="form-group col-6">
+                        <label>direccion: *</label>
+                        <input type="text" id="txtDireccion" name="txtDireccion" class="form-control" value="{{ $producto->direccion }}" required>
+                  </div>
+                  <div class="form-group col-6">
+                        <label>garage: *</label>
+                        <input type="text" id="txtGarage" name="txtGarage" class="form-control" value="{{ $producto->garage }}" required>
+                  </div>
+                  <div class="form-group col-6">
+                        <label>area de la propiedad: *</label>
+                        <input type="text" id="txtAreaPropiedad" name="txtAreaPropiedad" class="form-control" value="{{ $producto->areapropiedad }}" required>
                   </div>
                   <div class="form-group col-6">
                         <label>Descripción: *</label>
                         <input type="text" id="txtDescripcion" maxlength="92" name="txtDescripcion" class="form-control" value="{{ $producto->descripcion }}">
                   </div>
                   <div class="form-group col-6">
-                        <label>tipoproducto: *</label>
-                        <select type="text" id="lstTipoProducto" name="lstTipoProducto" class="form-control" value="" required>
+                        <label for="imagen">Imagen: (cuadrada 1x1 ) *</label>
+                        <input type="file" class="form-control-file" id="txtImagen" name="txtImagen">
+                  </div>
+                  <div class="form-group col-6">
+                        <label>tipo de propiedad: *</label>
+                        <select type="text" id="lstTipoPropiedad" name="lstTipoPropiedad" class="form-control" value="" required>
                               <option value="" disabled selected>Seleccionar</option>
                               @foreach($aCategorias as $categoria)
-                              @if($categoria->idtipoproducto == $producto->fk_idtipoproducto)
-                              <option selected value="{{$categoria->idtipoproducto}}">{{$categoria->nombre}}</option>
+                              @if($categoria->idtipopropiedad == $producto->fk_idtipopropiedad)
+                              <option selected value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
                               @else
-                              <option value="{{$categoria->idtipoproducto}}">{{$categoria->nombre}}</option>
+                              <option value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
                               @endif
                               @endforeach;
                         </select>
-                  </div>
-                  <div class="form-group col-6">
-                        <label for="imagen">Imagen: (cuadrada 1x1 ) *</label>
-                        <input type="file" class="form-control-file" id="txtImagen" name="txtImagen">
                   </div>
 
             </div>

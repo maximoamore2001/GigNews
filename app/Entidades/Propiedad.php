@@ -11,7 +11,8 @@ class propiedad extends Model
     public $timestamps = false;
 
     protected $fillable = [ //son los campos de la tabla producto en la BBDD
-        'idpropiedad', 'titulo', 'cantidad', 'precio', 'descripcion', 'imagen', 'fk_idtipopropiedad',
+        'idpropiedad', 'titulo', 'precio', 'descripcion', 'imagen', 'fk_idtipopropiedad', 'cantidadhabitaciones', 'cantidadbanios',
+        'cantidadplantas', 'pais' , 'ciudad', 'direccion','garage' , 'areapropiedad',
     ];
 
     protected $hidden = [];
@@ -112,7 +113,6 @@ class propiedad extends Model
         areapropiedad='$this->areapropiedad',
         garage='$this->garage',
         titulo='$this->titulo',
-        cantidad=$this->cantidad,
         precio=$this->precio,
         descripcion='$this->descripcion',
         imagen='$this->imagen',
@@ -140,12 +140,11 @@ class propiedad extends Model
                 areapropiedad,
                 garage,
                 titulo,
-                cantidad,
                 precio,
                 descripcion,
                 imagen,
                 fk_idtipopropiedad
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->cantidadhabitaciones,
             $this->cantidadbanios,
@@ -157,7 +156,6 @@ class propiedad extends Model
             $this->garage,
             $this->titulo,
             $this->precio,
-            $this->cantidad,
             $this->descripcion,
             $this->fk_idtipopropiedad,
             $this->imagen
@@ -170,20 +168,17 @@ class propiedad extends Model
         $request = $_REQUEST;
         $columns = array(
             0 => 'A.titulo',
-            1 => 'A.cantidad',
             2 => 'A.precio',
             3 => 'B.nombre',
             4 => 'A.descripcion',
-            5 => 'A.titulo',
-            6 => 'A.cantidad',
-            7 => 'A.precio',
-            8 => 'B.nombre',
-            9 => 'A.descripcion',
-            10 => 'A.titulo',
-            11 => 'A.cantidad',
-            12 => 'A.precio',
-            13 => 'B.nombre',
-            14 => 'A.descripcion',
+            5 => 'A.cantidadhabitaciones',
+            6 => 'A.cantidadbanios',
+            7 => 'A.cantidadplantas',
+            8 => 'B.pais',
+            9 => 'A.ciudad',
+            10 => 'A.direccion',
+            11 => 'A.areapropiedad',
+            12 => 'A.garage',
         );
         $sql = "SELECT DISTINCT
                 A.idpropiedad,
@@ -196,7 +191,6 @@ class propiedad extends Model
                 A.areapropiedad,
                 A.garage,
                 A.titulo,
-                A.cantidad,
                 A.precio,
                 A.descripcion,
                 A.imagen,
@@ -210,7 +204,6 @@ class propiedad extends Model
         //Realiza el filtrado
         if (!empty($request['search']['value'])) {
             $sql .= " AND ( A.titulo LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR A.cantidad LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR A.precio LIKE '%" . $request['search']['value'] . "%' )";
             $sql .= " OR B.fk_idtipopropiedad LIKE '%" . $request['search']['value'] . "%' )";
             $sql .= " OR A.cantidadhabitaciones LIKE '%" . $request['search']['value'] . "%' )";

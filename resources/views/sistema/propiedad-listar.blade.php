@@ -12,8 +12,7 @@
     <li class="breadcrumb-item active">Productos</a></li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/producto/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
-    <li class="btn-item"><a title="Recargar" href="#" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/productos");'><span>Recargar</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/propiedad/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
 </ol>
 @endsection
 @section('contenido')
@@ -33,6 +32,13 @@ if (isset($msg)) {
                 <th>Tipo de producto</th>
                 <th>Descripción</th>
                 <th>Imágen</th>
+                <th>Título</th>
+                <th>Precio</th>
+                <th>Tipo de producto</th>
+                <th>Descripción</th>
+                <th>Imágen</th>
+                <th>Descripción</th>
+                <th>Imágen</th>
             </tr>
         </thead>
     </table>
@@ -48,7 +54,7 @@ if (isset($msg)) {
         "order": [
             [0, "asc"]
         ],
-        "ajax": "{{ route('producto.cargarGrilla') }}"
+        "ajax": "{{ route('propiedad.cargarGrilla') }}"
     });
 </script>
 @endsection

@@ -8,12 +8,13 @@ use App\entidades\Sistema\Usuario;
 use App\Entidades\Producto;
 use App\Entidades\tipo_producto;
 use App\Entidades\pedido;
-
+use App\entidades\propiedad;
+use App\entidades\tipo_propiedad;
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
 
-class ControladorProducto extends Controller
+class ControladorPropiedad extends Controller
 {
 
     public function nuevo()
@@ -26,11 +27,11 @@ class ControladorProducto extends Controller
                 $mensaje = "No tiene permisos para la operación.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                $producto = new Producto();
+                $producto = new propiedad();
                 $producto->obtenerTodos();
-                $categoria = new tipo_producto();
+                $categoria = new tipo_propiedad();
                 $aCategorias = $categoria->obtenerTodos();
-                return view("sistema.producto-nuevo", compact("titulo", "aCategorias", 'producto'));
+                return view("sistema.propiedad-nuevo", compact("titulo", "aCategorias", 'producto'));
             }
         } else {
             return redirect('admin/login');
@@ -47,12 +48,12 @@ class ControladorProducto extends Controller
                 $mensaje = "No tiene permisos para la operación.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                return view("sistema.producto-listar", compact('titulo'));
+                return view("sistema.propiedad-listar", compact('titulo'));
             }
         } else {
             return redirect('admin/login');
         }
-        return view("sistema.producto-listar", compact('titulo'));
+        return view("sistema.propiedad-listar", compact('titulo'));
     }
 
 
@@ -61,7 +62,7 @@ class ControladorProducto extends Controller
         try {
             //Define la entidad servicio
             $titulo = "Modificar producto";
-            $entidad = new Producto();
+            $entidad = new propiedad();
             $entidad->cargarDesdeRequest($request);
 
             //guardar archivo de imágen adjunta
@@ -75,7 +76,7 @@ class ControladorProducto extends Controller
 
 
             //validaciones
-            if ($entidad->titulo == "" || $entidad->precio == "" || $entidad->cantidad == "" || $entidad->descripcion == "") {
+            if ($entidad->titulo == "" || $entidad->precio == "" || $entidad->descripcion == "") {
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = "Complete todos los datos";
             } else {
@@ -93,28 +94,28 @@ class ControladorProducto extends Controller
                     $msg["MSG"] = OKINSERT;
                 }
 
-                $_POST["id"] = $entidad->idproducto;
-                return view('sistema.producto-listar', compact('titulo', 'msg'));
+                $_POST["id"] = $entidad->idpropiedad;
+                return view('sistema.propiedad-listar', compact('titulo', 'msg'));
             }
         } catch (Exception $e) {
             $msg["ESTADO"] = MSG_ERROR;
             $msg["MSG"] = ERRORINSERT;
         }
 
-        $id = $entidad->idproducto;
-        $producto = new Producto();
+        $id = $entidad->idpropiedad;
+        $producto = new propiedad();
         $producto->obtenerPorId($id);
-        $categoria = new tipo_producto();
+        $categoria = new tipo_propiedad();
         $aCategorias = $categoria->obtenerTodos();
 
-        return view('sistema.producto-nuevo', compact('msg', 'producto', 'titulo', 'aCategorias')) . '?id=' . $producto->idproducto;
+        return view('sistema.propiedad-nuevo', compact('msg', 'producto', 'titulo', 'aCategorias')) . '?id=' . $producto->idpropiedad;
     }
 
     public function cargarGrilla(Request $request)
     {
         $request = $_REQUEST;
 
-        $entidad = new producto();
+        $entidad = new propiedad();
         $aProductos = $entidad->obtenerFiltrado();
 
         $data = array();
@@ -126,11 +127,18 @@ class ControladorProducto extends Controller
 
         for ($i = $inicio; $i < count($aProductos) && $cont < $registros_por_pagina; $i++) {
             $row = array();
-            $row[] = "<a href='/admin/producto/" . $aProductos[$i]->idproducto . "'>" . $aProductos[$i]->titulo . "</a>";
+            $row[] = "<a href='/admin/propiedad/" . $aProductos[$i]->idpropiedad . "'>" . $aProductos[$i]->titulo . "</a>";
             $row[] = ("$") . number_format($aProductos[$i]->precio, 2, ',', '.');
-            $row[] = $aProductos[$i]->cantidad;
-            $row[] = $aProductos[$i]->tipoproducto;
+            $row[] = $aProductos[$i]->cantidadhabitaciones;
             $row[] =  $aProductos[$i]->descripcion;
+            $row[] = $aProductos[$i]->cantidadbanios;
+            $row[] = $aProductos[$i]->cantidadplantas;
+            $row[] = $aProductos[$i]->pais;
+            $row[] = $aProductos[$i]->ciudad;
+            $row[] = $aProductos[$i]->direccion;
+            $row[] = $aProductos[$i]->garage;
+            $row[] = $aProductos[$i]->areapropiedad;
+            $row[] = $aProductos[$i]->fk_idtipopropiedad;
             $row[] = "<img height='100px' width='100px' src='/files/" . $aProductos[$i]->imagen . "'>";
             $cont++;
             $data[] = $row;
@@ -145,7 +153,7 @@ class ControladorProducto extends Controller
         return json_encode($json_data);
     }
 
-    public function editar($idproducto)
+    public function editar($idpropiedad)
     {
         $titulo = "Edicion de producto";
 
@@ -155,11 +163,11 @@ class ControladorProducto extends Controller
                 $mensaje = "No tiene permisos para la operación.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {
-                $producto = new producto();
-                $producto->obtenerPorId($idproducto);
-                $categoria = new tipo_producto();
+                $producto = new propiedad();
+                $producto->obtenerPorId($idpropiedad);
+                $categoria = new tipo_propiedad();
                 $aCategorias = $categoria->obtenerTodos();
-                return view("sistema.producto-nuevo", compact("titulo", "producto", "aCategorias"));
+                return view("sistema.propiedad-nuevo", compact("titulo", "producto", "aCategorias"));
             }
         } else {
             return redirect('admin/login');
@@ -173,17 +181,17 @@ class ControladorProducto extends Controller
                 $resultado["err"] = EXIT_FAILURE;
                 $resultado["mensaje"] = "No tiene permisos para la operación.";
             } else {
-                $idproducto = $request->input("id");
-                $producto = new Producto();
+                $idpropiedad = $request->input("id");
+                $producto = new propiedad();
                 $pedido = new Pedido();
                 //Si el producto tiene un pedido asociado no se tiene que poder eliminar.
-                if ($pedido->existePedidoPorProducto($idproducto)) {
+                if ($pedido->existePedidoPorProducto($idpropiedad)) {
                     $resultado["err"] = EXIT_FAILURE;
                     $resultado["mensaje"] = "No se puede eliminar un producto con pedidos asociados";
                 } else {
                     //Sino si.
-                    $producto = new producto();
-                    $producto->idproducto = $request->input("id");
+                    $producto = new propiedad();
+                    $producto->idpropiedad = $request->input("id");
                     $producto->eliminar();
                     $resultado["err"] = EXIT_SUCCESS;
                     $resultado["mensaje"] = "Registro eliminado exitosamente.";
