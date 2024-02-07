@@ -5,13 +5,13 @@ namespace App\entidades;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-class tipo_producto extends Model
+class tipo_propiedad extends Model
 {
-      protected $table = 'tipo_producto';
+      protected $table = 'tipo_propiedad';
       public $timestamps = false;
 
       protected $fillable = [ //son los campos de la tabla pedido en la BBDD
-            'idtipoproducto', 'nombre',
+            'idtipopropiedad', 'nombre',
       ];
 
       protected $hidden = [];
@@ -19,23 +19,23 @@ class tipo_producto extends Model
       public function obtenerTodos()
       {
             $sql = "SELECT
-                  idtipoproducto,
+                  idtipopropiedad,
                   nombre
-                FROM tipo_producto ORDER BY idtipoproducto ASC";
+                FROM tipo_producto ORDER BY idtipopropiedad ASC";
             $lstRetorno = DB::select($sql);
             return $lstRetorno;
       }
 
-      public function obtenerPorId($idtipoproducto)
+      public function obtenerPorId($idtipopropiedad)
       {
             $sql = "SELECT
-                idtipoproducto,
+                idtipopropiedad,
                 nombre
-                FROM tipo_producto WHERE idtipoproducto = $idtipoproducto";
+                FROM tipo_producto WHERE idtipopropiedad = $idtipopropiedad";
             $lstRetorno = DB::select($sql);
 
             if (count($lstRetorno) > 0) {
-                  $this->idtipoproducto = $lstRetorno[0]->idtipoproducto;
+                  $this->idtipopropiedad = $lstRetorno[0]->idtipopropiedad;
                   $this->nombre = $lstRetorno[0]->nombre;
 
                   return $this;
@@ -48,14 +48,14 @@ class tipo_producto extends Model
       {
             $sql = "UPDATE tipo_producto SET
                 nombre='$this->nombre'
-          WHERE idtipoproducto=?";
-            $affected = DB::update($sql, [$this->idtipoproducto]);
+          WHERE idtipopropiedad=?";
+            $affected = DB::update($sql, [$this->idtipopropiedad]);
       }
 
       public function eliminar()
       {
-            $sql = "DELETE FROM tipo_producto WHERE idtipoproducto=?";
-            $affected = DB::delete($sql, [$this->idtipoproducto]);
+            $sql = "DELETE FROM tipo_producto WHERE idtipopropiedad=?";
+            $affected = DB::delete($sql, [$this->idtipopropiedad]);
       }
 
       public function insertar()
@@ -66,7 +66,7 @@ class tipo_producto extends Model
             $result = DB::insert($sql, [
                   $this->nombre
             ]);
-            return $this->idtipoproducto = DB::getPdo()->lastInsertId();
+            return $this->idtipopropiedad = DB::getPdo()->lastInsertId();
       }
 }
 

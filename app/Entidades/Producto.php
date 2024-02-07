@@ -11,61 +11,68 @@ class Producto extends Model
     public $timestamps = false;
 
     protected $fillable = [ //son los campos de la tabla producto en la BBDD
-        'idproducto', 'titulo', 'cantidad', 'precio', 'descripcion', 'imagen', 'fk_idtipoproducto',
+        'idpropiedad', 'titulo', 'cantidad', 'precio', 'descripcion', 'imagen', 'fk_idtipopropiedad',
     ];
 
     protected $hidden = [];
 
     public function cargarDesdeRequest($request)
     {
-        $this->idproducto = $request->input('id') != "0" ? $request->input('id') : $this->idproducto;
+        $this->idpropiedad = $request->input('id') != "0" ? $request->input('id') : $this->idpropiedad;
         $this->titulo = $request->input('txtTitulo');
         $this->precio = $request->input('txtPrecio');
-        $this->cantidad = $request->input('txtCantidad');
+        $this->cantidadhabitaciones = $request->input('txtCantidadHabitaciones');
+        $this->cantidadbanios = $request->input('txtCantidadBanios');
+        $this->cantidadplantas = $request->input('txtCantidadPlantas');
+        $this->pais = $request->input('txtPais');
+        $this->ciudad = $request->input('txtCiudad');
+        $this->direccion = $request->input('txtDireccion');
+        $this->garage = $request->input('txtGarage');
+        $this->areapropiedad = $request->input('txtAreaPropiedad');
         $this->descripcion = $request->input('txtDescripcion');
         $this->imagen = $request->input('txtImagen');
-        $this->fk_idtipoproducto = $request->input('lstTipoProducto');
+        $this->fk_idtipopropiedad = $request->input('lstTipoPropiedad');
     }
 
     public function obtenerTodos()
     {
         $sql = "SELECT
-                A.idproducto,
+                A.idpropiedad,
                 A.titulo,
                 A.cantidad,
                 A.precio,
                 A.descripcion,
                 A.imagen,
-                A.fk_idtipoproducto,
+                A.fk_idtipopropiedad,
                 B.nombre AS tipoproducto
             FROM productos A
-            INNER JOIN tipo_producto B ON A.fk_idtipoproducto = B.idtipoproducto
-            ORDER BY idproducto ASC";
+            INNER JOIN tipo_producto B ON A.fk_idtipopropiedad = B.idtipoproducto
+            ORDER BY idpropiedad ASC";
             $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
 
-    public function obtenerPorId($idproducto)
+    public function obtenerPorId($idpropiedad)
     {
         $sql = "SELECT
-                idproducto,
+                idpropiedad,
                   titulo,
                   cantidad,
                   precio,
                   descripcion,
                   imagen,
-                  fk_idtipoproducto
-                FROM productos WHERE idproducto = $idproducto";
+                  fk_idtipopropiedad
+                FROM productos WHERE idpropiedad = $idpropiedad";
         $lstRetorno = DB::select($sql);
 
         if (count($lstRetorno) > 0) {
-            $this->idproducto = $lstRetorno[0]->idproducto;
+            $this->idpropiedad = $lstRetorno[0]->idpropiedad;
             $this->titulo = $lstRetorno[0]->titulo;
             $this->cantidad = $lstRetorno[0]->cantidad;
             $this->precio = $lstRetorno[0]->precio;
             $this->descripcion = $lstRetorno[0]->descripcion;
             $this->imagen = $lstRetorno[0]->imagen;
-            $this->fk_idtipoproducto = $lstRetorno[0]->fk_idtipoproducto;
+            $this->fk_idtipopropiedad = $lstRetorno[0]->fk_idtipopropiedad;
             return $this;
         }
         return null;
@@ -80,16 +87,16 @@ class Producto extends Model
           precio=$this->precio,
           descripcion='$this->descripcion',
           imagen='$this->imagen',
-          fk_idtipoproducto=$this->fk_idtipoproducto
-          WHERE idproducto=?";
-        $affected = DB::update($sql, [$this->idproducto]);
+          fk_idtipopropiedad=$this->fk_idtipopropiedad
+          WHERE idpropiedad=?";
+        $affected = DB::update($sql, [$this->idpropiedad]);
     }
 
     public function eliminar()
     {
         $sql = "DELETE FROM productos WHERE
-            idproducto=?";
-        $affected = DB::delete($sql, [$this->idproducto]);
+            idpropiedad=?";
+        $affected = DB::delete($sql, [$this->idpropiedad]);
     }
 
     public function insertar()
@@ -99,7 +106,7 @@ class Producto extends Model
                 precio,
                 cantidad,
                 descripcion,
-                fk_idtipoproducto,
+                fk_idtipopropiedad,
                 imagen
             ) VALUES (?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
@@ -107,10 +114,10 @@ class Producto extends Model
             $this->precio,
             $this->cantidad,
             $this->descripcion,
-            $this->fk_idtipoproducto,
+            $this->fk_idtipopropiedad,
             $this->imagen
         ]);
-        return $this->idproducto = DB::getPdo()->lastInsertId();
+        return $this->idpropiedad = DB::getPdo()->lastInsertId();
     }
 
     public function obtenerFiltrado()
@@ -124,16 +131,16 @@ class Producto extends Model
             4 => 'A.descripcion',
         );
         $sql = "SELECT DISTINCT
-                A.idproducto,
+                A.idpropiedad,
                 A.titulo,
                 A.cantidad,
                 A.precio,
                 A.descripcion,
                 A.imagen,
-                A.fk_idtipoproducto,
+                A.fk_idtipopropiedad,
                 B.nombre AS tipoproducto
             FROM productos A
-            INNER JOIN tipo_producto B ON A.fk_idtipoproducto = B.idtipoproducto
+            INNER JOIN tipo_producto B ON A.fk_idtipopropiedad = B.idtipoproducto
             WHERE 1=1
                 ";
 
@@ -142,7 +149,7 @@ class Producto extends Model
             $sql .= " AND ( A.titulo LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR A.cantidad LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR A.precio LIKE '%" . $request['search']['value'] . "%' )";
-            $sql .= " OR B.fk_idtipoproducto LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR B.fk_idtipopropiedad LIKE '%" . $request['search']['value'] . "%' )";
             $sql .= " OR A.descripcion LIKE '%" . $request['search']['value'] . "%' )";
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
