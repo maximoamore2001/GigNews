@@ -5,9 +5,9 @@ namespace App\entidades;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-class Producto extends Model
+class propiedad extends Model
 {
-    protected $table = 'productos';
+    protected $table = 'propiedades';
     public $timestamps = false;
 
     protected $fillable = [ //son los campos de la tabla producto en la BBDD
@@ -21,6 +21,8 @@ class Producto extends Model
         $this->idpropiedad = $request->input('id') != "0" ? $request->input('id') : $this->idpropiedad;
         $this->titulo = $request->input('txtTitulo');
         $this->precio = $request->input('txtPrecio');
+        $this->descripcion = $request->input('txtDescripcion');
+        $this->imagen = $request->input('txtImagen');
         $this->cantidadhabitaciones = $request->input('txtCantidadHabitaciones');
         $this->cantidadbanios = $request->input('txtCantidadBanios');
         $this->cantidadplantas = $request->input('txtCantidadPlantas');
@@ -29,8 +31,6 @@ class Producto extends Model
         $this->direccion = $request->input('txtDireccion');
         $this->garage = $request->input('txtGarage');
         $this->areapropiedad = $request->input('txtAreaPropiedad');
-        $this->descripcion = $request->input('txtDescripcion');
-        $this->imagen = $request->input('txtImagen');
         $this->fk_idtipopropiedad = $request->input('lstTipoPropiedad');
     }
 
@@ -38,31 +38,47 @@ class Producto extends Model
     {
         $sql = "SELECT
                 A.idpropiedad,
+                A.cantidadhabitaciones,
+                A.cantidadbanios,
+                A.cantidadplantas,
+                A.pais,
+                A.ciudad,
+                A.direccion,
+                A.areapropiedad,
+                A.garage,
                 A.titulo,
                 A.cantidad,
                 A.precio,
                 A.descripcion,
                 A.imagen,
                 A.fk_idtipopropiedad,
-                B.nombre AS tipoproducto
-            FROM productos A
-            INNER JOIN tipo_producto B ON A.fk_idtipopropiedad = B.idtipoproducto
+                B.nombre AS tipopropiedad
+            FROM propiedades A
+            INNER JOIN tipo_propiedad B ON A.fk_idtipopropiedad = B.idtipopropiedad
             ORDER BY idpropiedad ASC";
-            $lstRetorno = DB::select($sql);
+        $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
 
     public function obtenerPorId($idpropiedad)
     {
         $sql = "SELECT
-                idpropiedad,
-                  titulo,
-                  cantidad,
-                  precio,
-                  descripcion,
-                  imagen,
-                  fk_idtipopropiedad
-                FROM productos WHERE idpropiedad = $idpropiedad";
+                    idpropiedad,
+                    cantidadhabitaciones,
+                    cantidadbanios,
+                    cantidadplantas,
+                    pais,
+                    ciudad,
+                    direccion,
+                    areapropiedad,
+                    garage,
+                    titulo,
+                    cantidad,
+                    precio,
+                    descripcion,
+                    imagen,
+                    fk_idtipopropiedad
+                FROM propiedades WHERE idpropiedad = $idpropiedad";
         $lstRetorno = DB::select($sql);
 
         if (count($lstRetorno) > 0) {
@@ -81,35 +97,59 @@ class Producto extends Model
 
     public function guardar()
     {
-        $sql = "UPDATE productos SET
-          titulo='$this->titulo',
-          cantidad=$this->cantidad,
-          precio=$this->precio,
-          descripcion='$this->descripcion',
-          imagen='$this->imagen',
-          fk_idtipopropiedad=$this->fk_idtipopropiedad
+        $sql = "UPDATE propiedades SET
+        cantidadhabitaciones='$this->cantidadhabitaciones',
+        cantidadbanios='$this->cantidadbanios',
+        cantidadplantas='$this->cantidadplantas',
+        pais='$this->pais',
+        ciudad='$this->ciudad',
+        direccion='$this->direccion',
+        areapropiedad='$this->areapropiedad',
+        garage='$this->garage',
+        titulo='$this->titulo',
+        cantidad=$this->cantidad,
+        precio=$this->precio,
+        descripcion='$this->descripcion',
+        imagen='$this->imagen',
+        fk_idtipopropiedad=$this->fk_idtipopropiedad
           WHERE idpropiedad=?";
         $affected = DB::update($sql, [$this->idpropiedad]);
     }
 
     public function eliminar()
     {
-        $sql = "DELETE FROM productos WHERE
+        $sql = "DELETE FROM propiedades WHERE
             idpropiedad=?";
         $affected = DB::delete($sql, [$this->idpropiedad]);
     }
 
     public function insertar()
     {
-        $sql = "INSERT INTO productos (
+        $sql = "INSERT INTO propiedades (
+                cantidadhabitaciones,
+                cantidadbanios,
+                cantidadplantas,
+                pais,
+                ciudad,
+                direccion,
+                areapropiedad,
+                garage,
                 titulo,
-                precio,
                 cantidad,
+                precio,
                 descripcion,
-                fk_idtipopropiedad,
-                imagen
-            ) VALUES (?, ?, ?, ?, ?, ?);";
+                imagen,
+                fk_idtipopropiedad
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
+            $this->cantidadhabitaciones,
+            $this->cantidadbanios,
+            $this->cantidadplantas,
+            $this->pais,
+            $this->ciudad,
+            $this->direccion,
+            $this->areapropiedad,
+            $this->garage,
             $this->titulo,
             $this->precio,
             $this->cantidad,
@@ -129,18 +169,36 @@ class Producto extends Model
             2 => 'A.precio',
             3 => 'B.nombre',
             4 => 'A.descripcion',
+            5 => 'A.titulo',
+            6 => 'A.cantidad',
+            7 => 'A.precio',
+            8 => 'B.nombre',
+            9 => 'A.descripcion',
+            10 => 'A.titulo',
+            11 => 'A.cantidad',
+            12 => 'A.precio',
+            13 => 'B.nombre',
+            14 => 'A.descripcion',
         );
         $sql = "SELECT DISTINCT
                 A.idpropiedad,
+                A.cantidadhabitaciones,
+                A.cantidadbanios,
+                A.cantidadplantas,
+                A.pais,
+                A.ciudad,
+                A.direccion,
+                A.areapropiedad,
+                A.garage,
                 A.titulo,
                 A.cantidad,
                 A.precio,
                 A.descripcion,
                 A.imagen,
                 A.fk_idtipopropiedad,
-                B.nombre AS tipoproducto
-            FROM productos A
-            INNER JOIN tipo_producto B ON A.fk_idtipopropiedad = B.idtipoproducto
+                B.nombre AS tipopropiedad
+            FROM propiedades A
+            INNER JOIN tipo_propiedad B ON A.fk_idtipopropiedad = B.idtipopropiedad
             WHERE 1=1
                 ";
 
@@ -150,7 +208,14 @@ class Producto extends Model
             $sql .= " OR A.cantidad LIKE '%" . $request['search']['value'] . "%' ";
             $sql .= " OR A.precio LIKE '%" . $request['search']['value'] . "%' )";
             $sql .= " OR B.fk_idtipopropiedad LIKE '%" . $request['search']['value'] . "%' )";
-            $sql .= " OR A.descripcion LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR A.cantidadhabitaciones LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR A.cantidadbanios LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR A.cantidadplantas LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR A.pais LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR A.ciudad LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR A.direccion LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR A.areapropiedad LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR A.garage LIKE '%" . $request['search']['value'] . "%' )";
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
 
