@@ -21,7 +21,7 @@ class tipo_propiedad extends Model
             $sql = "SELECT
                   idtipopropiedad,
                   nombre
-                FROM tipo_producto ORDER BY idtipopropiedad ASC";
+                FROM tipo_propiedad ORDER BY idtipopropiedad ASC";
             $lstRetorno = DB::select($sql);
             return $lstRetorno;
       }
@@ -31,7 +31,7 @@ class tipo_propiedad extends Model
             $sql = "SELECT
                 idtipopropiedad,
                 nombre
-                FROM tipo_producto WHERE idtipopropiedad = $idtipopropiedad";
+                FROM tipo_propiedad WHERE idtipopropiedad = $idtipopropiedad";
             $lstRetorno = DB::select($sql);
 
             if (count($lstRetorno) > 0) {
@@ -46,7 +46,7 @@ class tipo_propiedad extends Model
 
       public function guardar()
       {
-            $sql = "UPDATE tipo_producto SET
+            $sql = "UPDATE tipo_propiedad SET
                 nombre='$this->nombre'
           WHERE idtipopropiedad=?";
             $affected = DB::update($sql, [$this->idtipopropiedad]);
@@ -54,13 +54,13 @@ class tipo_propiedad extends Model
 
       public function eliminar()
       {
-            $sql = "DELETE FROM tipo_producto WHERE idtipopropiedad=?";
+            $sql = "DELETE FROM tipo_propiedad WHERE idtipopropiedad=?";
             $affected = DB::delete($sql, [$this->idtipopropiedad]);
       }
 
       public function insertar()
       {
-            $sql = "INSERT INTO tipo_producto (
+            $sql = "INSERT INTO tipo_propiedad (
                 nombre
             ) VALUES (?);";
             $result = DB::insert($sql, [

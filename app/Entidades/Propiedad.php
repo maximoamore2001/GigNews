@@ -47,7 +47,6 @@ class propiedad extends Model
                 A.areapropiedad,
                 A.garage,
                 A.titulo,
-                A.cantidad,
                 A.precio,
                 A.descripcion,
                 A.imagen,
@@ -73,7 +72,6 @@ class propiedad extends Model
                     areapropiedad,
                     garage,
                     titulo,
-                    cantidad,
                     precio,
                     descripcion,
                     imagen,
@@ -82,14 +80,21 @@ class propiedad extends Model
         $lstRetorno = DB::select($sql);
 
         if (count($lstRetorno) > 0) {
-            $this->idpropiedad = $lstRetorno[0]->idpropiedad;
-            $this->titulo = $lstRetorno[0]->titulo;
-            $this->cantidad = $lstRetorno[0]->cantidad;
-            $this->precio = $lstRetorno[0]->precio;
-            $this->descripcion = $lstRetorno[0]->descripcion;
-            $this->imagen = $lstRetorno[0]->imagen;
-            $this->fk_idtipopropiedad = $lstRetorno[0]->fk_idtipopropiedad;
-            return $this;
+        $this->idpropiedad = $lstRetorno[0]->idpropiedad;
+        $this->titulo = $lstRetorno[0]->titulo;
+        $this->precio = $lstRetorno[0]->precio;
+        $this->descripcion = $lstRetorno[0]->descripcion;
+        $this->imagen = $lstRetorno[0]->imagen;
+        $this->cantidadhabitaciones = $lstRetorno[0]->cantidadhabitaciones;
+        $this->cantidadbanios = $lstRetorno[0]->cantidadbanios;
+        $this->cantidadplantas = $lstRetorno[0]->cantidadplantas;
+        $this->pais = $lstRetorno[0]->pais;
+        $this->ciudad = $lstRetorno[0]->ciudad;
+        $this->direccion = $lstRetorno[0]->direccion;
+        $this->garage = $lstRetorno[0]->garage;
+        $this->areapropiedad = $lstRetorno[0]->areapropiedad;
+        $this->fk_idtipopropiedad = $lstRetorno[0]->fk_idtipopropiedad;
+        return $this;
         }
         return null;
     }
