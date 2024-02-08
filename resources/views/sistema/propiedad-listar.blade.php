@@ -29,7 +29,6 @@ if (isset($msg)) {
                 <th>Título</th>
                 <th>Precio</th>
                 <th>cantidadhabitaciones</th>
-                <th>descripcion</th>
                 <th>cantidadbanios</th>
                 <th>cantidadplantas</th>
                 <th>pais</th>

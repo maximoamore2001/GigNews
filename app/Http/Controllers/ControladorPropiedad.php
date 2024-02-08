@@ -130,7 +130,6 @@ class ControladorPropiedad extends Controller
             $row[] = "<a href='/admin/propiedad/" . $aProductos[$i]->idpropiedad . "'>" . $aProductos[$i]->titulo . "</a>";
             $row[] = ("$") . number_format($aProductos[$i]->precio, 2, ',', '.');
             $row[] = $aProductos[$i]->cantidadhabitaciones;
-            $row[] =  $aProductos[$i]->descripcion;
             $row[] = $aProductos[$i]->cantidadbanios;
             $row[] = $aProductos[$i]->cantidadplantas;
             $row[] = $aProductos[$i]->pais;

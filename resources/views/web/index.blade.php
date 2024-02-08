@@ -31,7 +31,7 @@
 
 <div class="featured section">
   @foreach($aPropiedades as $propiedad)
-  @if($propiedad->idpropiedad && $propiedad->idpropiedad == "1")
+  @if($propiedad->idpropiedad && $propiedad->idpropiedad == "80")
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
@@ -179,8 +179,8 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="section-heading">
-          <h6>| Best Deal</h6>
-          <h2>Find Your Best Deal Right Now!</h2>
+          <h6>| Tipos de propiedades</h6>
+          <h2>Tenemos todo lo que necesitas</h2>
         </div>
       </div>
       <div class="col-lg-12">
@@ -189,92 +189,111 @@
             <div class="nav-wrapper ">
               <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#appartment" type="button" role="tab" aria-controls="appartment" aria-selected="true">Appartment</button>
+                  <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#appartment" type="button" role="tab" aria-controls="appartment" aria-selected="true">Departamentos</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#villa" type="button" role="tab" aria-controls="villa" aria-selected="false">Villa House</button>
+                  <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#villa" type="button" role="tab" aria-controls="villa" aria-selected="false">Casas</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#penthouse" type="button" role="tab" aria-controls="penthouse" aria-selected="false">Penthouse</button>
+                  <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#penthouse" type="button" role="tab" aria-controls="penthouse" aria-selected="false">Oficinas</button>
                 </li>
               </ul>
             </div>
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="appartment" role="tabpanel" aria-labelledby="appartment-tab">
                 <div class="row">
+                  @foreach($aPropiedades as $propiedad)
+                  @if($propiedad->idpropiedad && $propiedad->idpropiedad == "79")
                   <div class="col-lg-3">
                     <div class="info-table">
                       <ul>
-                        <li>Total Flat Space <span>185 m2</span></li>
-                        <li>Floor number <span>26th</span></li>
-                        <li>Number of rooms <span>4</span></li>
-                        <li>Parking Available <span>Yes</span></li>
-                        <li>Payment Process <span>Bank</span></li>
+                        <li>Superficie <span>{{ $propiedad->areapropiedad }} m2</span></li>
+                        <li>Baños <span>{{ $propiedad->cantidadbanios }}</span></li>
+                        <li>Habitaciones <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
+                        <li>Garages <span>{{ $propiedad->garage }}</span></li>
+                        <li>Ciudad <span>{{ $propiedad->ciudad }}</span></li>
                       </ul>
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <img src="/web/assets/images/deal-01.jpg" alt="">
+                    <img src="/files/{{ $propiedad->imagen }}" alt="">
                   </div>
                   <div class="col-lg-3">
-                    <h4>Extra Info About Property</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse.
-                      <br><br>When you need free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Portfolio, TemplateMo One Page Layouts, etc.
+                    <h4>Información extra</h4>
+                    <p>{{ $propiedad->descripcion }}
+                      <br>
                     </p>
                     <div class="icon-button">
-                      <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                      <a href="property-details.html"><i class="fa fa-calendar"></i> Contactar</a>
                     </div>
                   </div>
+                  @else ("")
+                  @endif
+                  @endforeach
                 </div>
               </div>
               <div class="tab-pane fade" id="villa" role="tabpanel" aria-labelledby="villa-tab">
                 <div class="row">
+                @foreach($aPropiedades as $propiedad)
+                  @if($propiedad->idpropiedad && $propiedad->idpropiedad == "77")
                   <div class="col-lg-3">
                     <div class="info-table">
                       <ul>
-                        <li>Total Flat Space <span>250 m2</span></li>
-                        <li>Floor number <span>26th</span></li>
-                        <li>Number of rooms <span>5</span></li>
-                        <li>Parking Available <span>Yes</span></li>
-                        <li>Payment Process <span>Bank</span></li>
+                      <li>Superficie <span>{{ $propiedad->areapropiedad }} m2</span></li>
+                        <li>Baños <span>{{ $propiedad->cantidadbanios }}</span></li>
+                        <li>Habitaciones <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
+                        <li>Garages <span>{{ $propiedad->garage }}</span></li>
+                        <li>Ciudad <span>{{ $propiedad->ciudad }}</span></li>
                       </ul>
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <img src="/web/assets/images/deal-02.jpg" alt="">
+                    <img src="/files/{{ $propiedad->imagen }}" alt="">
                   </div>
                   <div class="col-lg-3">
-                    <h4>Detail Info About Villa</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                    <h4>Información extra</h4>
+                    <p>{{ $propiedad->descripcion }}
+                      <br>
+                    </p>
                     <div class="icon-button">
-                      <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                      <a href="property-details.html"><i class="fa fa-calendar"></i> Contactar</a>
                     </div>
                   </div>
+                  @else ("")
+                  @endif
+                  @endforeach
                 </div>
               </div>
               <div class="tab-pane fade" id="penthouse" role="tabpanel" aria-labelledby="penthouse-tab">
                 <div class="row">
+                @foreach($aPropiedades as $propiedad)
+                  @if($propiedad->idpropiedad && $propiedad->idpropiedad == "72")
                   <div class="col-lg-3">
                     <div class="info-table">
                       <ul>
-                        <li>Total Flat Space <span>320 m2</span></li>
-                        <li>Floor number <span>34th</span></li>
-                        <li>Number of rooms <span>6</span></li>
-                        <li>Parking Available <span>Yes</span></li>
-                        <li>Payment Process <span>Bank</span></li>
+                        <li>Superficie <span>{{ $propiedad->areapropiedad }} m2</span></li>
+                        <li>Baños <span>{{ $propiedad->cantidadbanios }}</span></li>
+                        <li>Habitaciones <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
+                        <li>Garages <span>{{ $propiedad->garage }}</span></li>
+                        <li>Ciudad <span>{{ $propiedad->ciudad }}</span></li>
                       </ul>
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <img src="/web/assets/images/deal-03.jpg" alt="">
+                    <img src="/files/{{ $propiedad->imagen }}" alt="">
                   </div>
                   <div class="col-lg-3">
-                    <h4>Extra Info About Penthouse</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                    <h4>Información extra</h4>
+                    <p>{{ $propiedad->descripcion }}
+                      <br>
+                    </p>
                     <div class="icon-button">
-                      <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                      <a href="property-details.html"><i class="fa fa-calendar"></i> Contactar</a>
                     </div>
                   </div>
+                  @else ("")
+                  @endif
+                  @endforeach
                 </div>
               </div>
             </div>

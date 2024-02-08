@@ -33,10 +33,10 @@
           <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
           <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
           <ul>
-            <li>Habitaciones: <span>{{ $propiedad->cantidadbanios }}</span></li>
-            <li>Baños: <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
+          <li>Habitaciones: <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
+            <li>Baños: <span>{{ $propiedad->cantidadbanios }}</span></li>
             <li>Área: <span>{{ $propiedad->areapropiedad }} m2</span></li>
-            <li>Plantas: <span>3</span></li>
+            <li>Plantas: <span>{{ $propiedad->cantidadplantas }}</span></li>
             <li>Garages: <span>{{ $propiedad->garage }}</span></li>
           </ul>
           <div class="main-button">
