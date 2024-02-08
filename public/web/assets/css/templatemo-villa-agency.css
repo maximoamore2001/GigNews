@@ -130,7 +130,7 @@ body {
 }
 
 .section {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
 .section-heading {
@@ -745,7 +745,7 @@ Banner Style
 }
 
 .main-banner .item-1 {
-  background-image: url(../images/banner-01.jpg);
+   background-image: url(../images/banner-01.jpg);
 }
 
 .main-banner .item-2 {
@@ -1060,7 +1060,7 @@ Best Deal Style
 */
 
 .best-deal {
-  background-color: #fafafa;
+  background-color: #fff;
   padding: 100px 0px;
 }
 
@@ -1222,7 +1222,7 @@ Contact Style
 */
 
 .contact {
-  background-image: url(../images/contact-bg.jpg);
+  background: #f35525;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1379,7 +1379,7 @@ Page Header Style
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 110px 0px;
+  padding: 50px 0px;
   text-align: center;
 }
 

@@ -92,22 +92,40 @@ if (isset($msg)) {
                         <input type="text" id="txtDescripcion" maxlength="1200" name="txtDescripcion" class="form-control" value="{{ $producto->descripcion }}">
                   </div>
                   <div class="form-group col-6">
-                        <label for="imagen">Imagen: (cuadrada 1x1 ) *</label>
+                  <label>tipo de propiedad: *</label>
+                  <select type="text" id="lstTipoPropiedad" name="lstTipoPropiedad" class="form-control" value="" required>
+                        <option value="" disabled selected>Seleccionar</option>
+                        @foreach($aCategorias as $categoria)
+                        @if($categoria->idtipopropiedad == $producto->fk_idtipopropiedad)
+                        <option selected value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
+                        @else
+                        <option value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
+                        @endif
+                        @endforeach
+                  </select>
+                  </div>
+                  <div class="form-group col-6">
+                        <label for="imagen">Imagen: ( 4x3 ) *</label>
                         <input type="file" class="form-control-file" id="txtImagen" name="txtImagen">
                   </div>
                   <div class="form-group col-6">
-    <label>tipo de propiedad: *</label>
-    <select type="text" id="lstTipoPropiedad" name="lstTipoPropiedad" class="form-control" value="" required>
-        <option value="" disabled selected>Seleccionar</option>
-        @foreach($aCategorias as $categoria)
-            @if($categoria->idtipopropiedad == $producto->fk_idtipopropiedad)
-                <option selected value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
-            @else
-                <option value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
-            @endif
-        @endforeach
-    </select>
-</div>
+                        <label for="imagen">Imagen 2: ( 4x3 ) *</label>
+                        <input type="file" class="form-control-file" id="txtImagen2" name="txtImagen2">
+                  </div>
+                  <div class="form-group col-6">
+                        <label for="imagen">Imagen 3: ( 4x3 ) *</label>
+                        <input type="file" class="form-control-file" id="txtImagen3" name="txtImagen3">
+                  </div>
+                  <div class="form-group col-6">
+                        <label for="imagen">Imagen 4: ( 4x3 ) *</label>
+                        <input type="file" class="form-control-file" id="txtImagen4" name="txtImagen4">
+                  </div>
+                  <div class="form-group col-6">
+                        <label for="imagen">Imagen 5: ( 4x3 ) *</label>
+                        <input type="file" class="form-control-file" id="txtImagen5" name="txtImagen5">
+                  </div>
+                  <div class="form-group col-6">
+                  </div>
 
             </div>
       </form>

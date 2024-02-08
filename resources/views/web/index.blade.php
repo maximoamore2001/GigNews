@@ -27,150 +27,6 @@
 @endsection
 
 @section("contenido")
-<!-- featured section -->
-
-<div class="featured section">
-  @foreach($aPropiedades as $propiedad)
-  @if($propiedad->idpropiedad && $propiedad->idpropiedad == "80")
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="left-image">
-          <img src="/files/{{ $propiedad->imagen }}" style="" alt="">
-          <a href="property-details.html"><img src="/web/assets/images/featured-icon.png" alt="" style="max-width: 60px; padding: 0px;"></a>
-        </div>
-      </div>
-      <div class="col-lg-5">
-        <div class="section-heading">
-          <h6>| Destacado</h6>
-          <h2>{{ $propiedad->titulo }}</h2>
-        </div>
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Best useful links ?
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                {{ $propiedad->descripcion }}
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                How does this work ?
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Why is Villa Agency the best ?
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="info-table">
-          <ul>
-            <li>
-              <img src="/files/superficie.png" alt="" style="max-width: 52px;">
-              <h4>{{ $propiedad->areapropiedad }}m2 <br><span>Superficie Total</span></h4>
-            </li>
-            <li>
-              <img src="/files/habitaciones.png" alt="" style="max-width: 52px;">
-              <h4>{{ $propiedad->cantidadhabitaciones }}<br><span>Habitaciones</span></h4>
-            </li>
-            <li>
-              <img src="/files/baños.png" alt="" style="max-width: 52px;">
-              <h4>{{ $propiedad->cantidadbanios }}<br><span>Baños</span></h4>
-            </li>
-            <li>
-              <img src="/files/ciudad.png" alt="" style="max-width: 52px;">
-              <h4>{{ $propiedad->ciudad }}<br><span>Ciudad</span></h4>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  @else("")
-  @endif
-  @endforeach
-</div>
-
-<!-- video section -->
-
-<div class="video section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 offset-lg-4">
-        <div class="section-heading text-center">
-          <h6>| Video View</h6>
-          <h2>Get Closer View & Different Feeling</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="video-content">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <div class="video-frame">
-          <img src="/web/assets/images/video-frame.jpg" alt="">
-          <a href="https://youtube.com" target="_blank"><i class="fa fa-play"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="fun-facts">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="wrapper">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="counter">
-                <h2 class="timer count-title count-number" data-to="34" data-speed="1000"></h2>
-                <p class="count-text ">Buildings<br>Finished Now</p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="counter">
-                <h2 class="timer count-title count-number" data-to="12" data-speed="1000"></h2>
-                <p class="count-text ">Years<br>Experience</p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="counter">
-                <h2 class="timer count-title count-number" data-to="24" data-speed="1000"></h2>
-                <p class="count-text ">Awwards<br>Won 2023</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- best-deal section -->
 
@@ -304,6 +160,133 @@
   </div>
 </div>
 
+<div class="properties section">
+  <div class="container">
+  <div class="row">
+      <div class="col-lg-4 offset-lg-4">
+        <div class="section-heading text-center">
+          <h2>| Propiedades</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      @foreach($aPropiedades as $propiedad)
+      @if($propiedad->fk_idtipopropiedad)
+      <div class="col-lg-4 col-md-6">
+        <div class="item" style="min-height: 570px;">
+          <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'>" ?>  ><img style="max-width: 100%;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
+          <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
+          <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
+          <ul>
+            <li>Habitaciones: <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
+            <li>Baños: <span>{{ $propiedad->cantidadbanios }}</span></li>
+            <li>Área: <span>{{ $propiedad->areapropiedad }} m2</span></li>
+            <li>Plantas: <span>{{ $propiedad->cantidadplantas }}</span></li>
+            <li>Garages: <span>{{ $propiedad->garage }}</span></li>
+          </ul>
+          <div class="main-button">
+            <a href="property-details.html">Contactarse</a>
+          </div>
+        </div>
+      </div>
+      @else("")
+      @endif
+      @endforeach
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- featured section 
+
+<div class="featured section">
+  @foreach($aPropiedades as $propiedad)
+  @if($propiedad->idpropiedad && $propiedad->idpropiedad == "80")
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="left-image">
+          <img src="/files/{{ $propiedad->imagen }}" style="" alt="">
+          <a href="property-details.html"><img src="/web/assets/images/featured-icon.png" alt="" style="max-width: 60px; padding: 0px;"></a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="section-heading">
+          <h6>| Destacado</h6>
+          <h2>{{ $propiedad->titulo }}</h2>
+        </div>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Best useful links ?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                {{ $propiedad->descripcion }}
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                How does this work ?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Why is Villa Agency the best ?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="info-table">
+          <ul>
+            <li>
+              <img src="/files/superficie.png" alt="" style="max-width: 52px;">
+              <h4>{{ $propiedad->areapropiedad }}m2 <br><span>Superficie Total</span></h4>
+            </li>
+            <li>
+              <img src="/files/habitaciones.png" alt="" style="max-width: 52px;">
+              <h4>{{ $propiedad->cantidadhabitaciones }}<br><span>Habitaciones</span></h4>
+            </li>
+            <li>
+              <img src="/files/baños.png" alt="" style="max-width: 52px;">
+              <h4>{{ $propiedad->cantidadbanios }}<br><span>Baños</span></h4>
+            </li>
+            <li>
+              <img src="/files/ciudad.png" alt="" style="max-width: 52px;">
+              <h4>{{ $propiedad->ciudad }}<br><span>Ciudad</span></h4>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  @else("")
+  @endif
+  @endforeach
+</div>
+-->
+
 <!-- contact section -->
 
 <div class="contact section">
@@ -311,8 +294,7 @@
     <div class="row">
       <div class="col-lg-4 offset-lg-4">
         <div class="section-heading text-center">
-          <h6>| Contact Us</h6>
-          <h2>Get In Touch With Our Agents</h2>
+          <h2>| Contacto</h2>
         </div>
       </div>
     </div>
@@ -330,13 +312,13 @@
           <div class="col-lg-6">
             <div class="item phone">
               <img src="/web/assets/images/phone-icon.png" alt="" style="max-width: 52px;">
-              <h6>010-020-0340<br><span>Phone Number</span></h6>
+              <h6>0800-2020-2020<br><span>Numero telefónico</span></h6>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="item email">
               <img src="/web/assets/images/email-icon.png" alt="" style="max-width: 52px;">
-              <h6>info@villa.co<br><span>Business Email</span></h6>
+              <h6>info@salomon.co<br><span>Email</span></h6>
             </div>
           </div>
         </div>
@@ -346,31 +328,27 @@
           <div class="row">
             <div class="col-lg-12">
               <fieldset>
-                <label for="name">Full Name</label>
-                <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
+                <input type="text" name="name" id="name" placeholder="nombre..." autocomplete="on" required>
               </fieldset>
             </div>
             <div class="col-lg-12">
               <fieldset>
-                <label for="email">Email Address</label>
-                <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
+                <input type="text" name="apellido" id="apellido" placeholder="apellido..." autocomplete="on" required>
               </fieldset>
             </div>
             <div class="col-lg-12">
               <fieldset>
-                <label for="subject">Subject</label>
-                <input type="subject" name="subject" id="subject" placeholder="Subject..." autocomplete="on">
+                <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="correo electrónico..." required="">
               </fieldset>
             </div>
             <div class="col-lg-12">
               <fieldset>
-                <label for="message">Message</label>
-                <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                <textarea name="message" id="message" placeholder="mensaje..."></textarea>
               </fieldset>
             </div>
             <div class="col-lg-12">
               <fieldset>
-                <button type="submit" id="form-submit" class="orange-button">Send Message</button>
+                <button type="submit" id="form-submit" class="orange-button">Enviar</button>
               </fieldset>
             </div>
           </div>

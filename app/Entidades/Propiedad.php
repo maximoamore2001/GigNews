@@ -12,7 +12,7 @@ class propiedad extends Model
 
     protected $fillable = [ //son los campos de la tabla producto en la BBDD
         'idpropiedad', 'titulo', 'precio', 'descripcion', 'imagen', 'fk_idtipopropiedad', 'cantidadhabitaciones', 'cantidadbanios',
-        'cantidadplantas', 'pais' , 'ciudad', 'direccion','garage' , 'areapropiedad',
+        'cantidadplantas', 'pais', 'ciudad', 'direccion', 'garage', 'areapropiedad','imagen2', 'imagen3', 'imagen4', 'imagen5',
     ];
 
     protected $hidden = [];
@@ -24,6 +24,10 @@ class propiedad extends Model
         $this->precio = $request->input('txtPrecio');
         $this->descripcion = $request->input('txtDescripcion');
         $this->imagen = $request->input('txtImagen');
+        $this->imagen2 = $request->input('txtImagen2');
+        $this->imagen3 = $request->input('txtImagen3');
+        $this->imagen4 = $request->input('txtImagen4');
+        $this->imagen5 = $request->input('txtImagen5');
         $this->cantidadhabitaciones = $request->input('txtCantidadHabitaciones');
         $this->cantidadbanios = $request->input('txtCantidadBanios');
         $this->cantidadplantas = $request->input('txtCantidadPlantas');
@@ -51,6 +55,10 @@ class propiedad extends Model
                 A.precio,
                 A.descripcion,
                 A.imagen,
+                A.imagen2,
+                A.imagen3,
+                A.imagen4,
+                A.imagen5,
                 A.fk_idtipopropiedad,
                 B.nombre AS tipopropiedad
             FROM propiedades A
@@ -76,26 +84,34 @@ class propiedad extends Model
                     precio,
                     descripcion,
                     imagen,
+                    imagen2,
+                    imagen3,
+                    imagen4,
+                    imagen5,
                     fk_idtipopropiedad
                 FROM propiedades WHERE idpropiedad = $idpropiedad";
         $lstRetorno = DB::select($sql);
 
         if (count($lstRetorno) > 0) {
-        $this->idpropiedad = $lstRetorno[0]->idpropiedad;
-        $this->titulo = $lstRetorno[0]->titulo;
-        $this->precio = $lstRetorno[0]->precio;
-        $this->descripcion = $lstRetorno[0]->descripcion;
-        $this->imagen = $lstRetorno[0]->imagen;
-        $this->cantidadhabitaciones = $lstRetorno[0]->cantidadhabitaciones;
-        $this->cantidadbanios = $lstRetorno[0]->cantidadbanios;
-        $this->cantidadplantas = $lstRetorno[0]->cantidadplantas;
-        $this->pais = $lstRetorno[0]->pais;
-        $this->ciudad = $lstRetorno[0]->ciudad;
-        $this->direccion = $lstRetorno[0]->direccion;
-        $this->garage = $lstRetorno[0]->garage;
-        $this->areapropiedad = $lstRetorno[0]->areapropiedad;
-        $this->fk_idtipopropiedad = $lstRetorno[0]->fk_idtipopropiedad;
-        return $this;
+            $this->idpropiedad = $lstRetorno[0]->idpropiedad;
+            $this->titulo = $lstRetorno[0]->titulo;
+            $this->precio = $lstRetorno[0]->precio;
+            $this->descripcion = $lstRetorno[0]->descripcion;
+            $this->imagen = $lstRetorno[0]->imagen;
+            $this->imagen2 = $lstRetorno[0]->imagen2;
+            $this->imagen3 = $lstRetorno[0]->imagen3;
+            $this->imagen4 = $lstRetorno[0]->imagen4;
+            $this->imagen5 = $lstRetorno[0]->imagen5;
+            $this->cantidadhabitaciones = $lstRetorno[0]->cantidadhabitaciones;
+            $this->cantidadbanios = $lstRetorno[0]->cantidadbanios;
+            $this->cantidadplantas = $lstRetorno[0]->cantidadplantas;
+            $this->pais = $lstRetorno[0]->pais;
+            $this->ciudad = $lstRetorno[0]->ciudad;
+            $this->direccion = $lstRetorno[0]->direccion;
+            $this->garage = $lstRetorno[0]->garage;
+            $this->areapropiedad = $lstRetorno[0]->areapropiedad;
+            $this->fk_idtipopropiedad = $lstRetorno[0]->fk_idtipopropiedad;
+            return $this;
         }
         return null;
     }
@@ -116,6 +132,10 @@ class propiedad extends Model
         precio=$this->precio,
         descripcion='$this->descripcion',
         imagen='$this->imagen',
+        imagen2='$this->imagen2',
+        imagen3='$this->imagen3',
+        imagen4='$this->imagen4',
+        imagen5='$this->imagen5',
         fk_idtipopropiedad=$this->fk_idtipopropiedad
           WHERE idpropiedad=?";
         $affected = DB::update($sql, [$this->idpropiedad]);
@@ -143,22 +163,30 @@ class propiedad extends Model
                 precio,
                 descripcion,
                 imagen,
+                imagen2,
+                imagen3,
+                imagen4,
+                imagen5,
                 fk_idtipopropiedad
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-            $result = DB::insert($sql, [
-                $this->cantidadhabitaciones,
-                $this->cantidadbanios,
-                $this->cantidadplantas,
-                $this->pais,
-                $this->ciudad,
-                $this->direccion,
-                $this->areapropiedad,
-                $this->garage,
-                $this->titulo,
-                $this->precio,
-                $this->descripcion,
-                $this->imagen,
-                $this->fk_idtipopropiedad
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        $result = DB::insert($sql, [
+            $this->cantidadhabitaciones,
+            $this->cantidadbanios,
+            $this->cantidadplantas,
+            $this->pais,
+            $this->ciudad,
+            $this->direccion,
+            $this->areapropiedad,
+            $this->garage,
+            $this->titulo,
+            $this->precio,
+            $this->descripcion,
+            $this->imagen,
+            $this->imagen2,
+            $this->imagen3,
+            $this->imagen4,
+            $this->imagen5,
+            $this->fk_idtipopropiedad
         ]);
         return $this->idpropiedad = DB::getPdo()->lastInsertId();
     }
@@ -194,6 +222,10 @@ class propiedad extends Model
                 A.precio,
                 A.descripcion,
                 A.imagen,
+                A.imagen2,
+                A.imagen3,
+                A.imagen4,
+                A.imagen5,
                 A.fk_idtipopropiedad,
                 B.nombre AS tipopropiedad
             FROM propiedades A

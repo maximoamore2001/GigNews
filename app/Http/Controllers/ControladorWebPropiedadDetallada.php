@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\entidades\sucursal;
 use App\entidades\carrito;
+use App\entidades\categoria;
 use App\Entidades\propiedad;
 use App\entidades\tipo_propiedad;
 use Illuminate\Http\Request;
@@ -30,49 +31,25 @@ class ControladorWebPropiedadDetallada extends Controller
     }
 
 
-    public function insertar(request $request)
+    public function ver($idpropiedad)
     {
-        $idcliente = Session::get("idcliente");
+                $titulo = "ver de producto";
 
-        $producto = new propiedad();
-        $aProductos = $producto->obtenerTodos();
+                $producto = new propiedad();
+                $producto->obtenerPorId($idpropiedad);
 
-        $categoria = new tipo_propiedad();
-        $aCategorias = $categoria->obtenerTodos();
 
-        $idproducto = $request->input("txtProducto");
-        $cantidad = $request->input("txtCantidad");
-
-        $sucursal = new sucursal();
-        $aSucursales = $sucursal->obtenerTodos();
-
-        $idproducto = $request->input("txtProducto");
-        $cantidad = $request->input("txtCantidad");
-
-        if (isset($idcliente) && $idcliente > 0) {
-            if (isset($cantidad) && $cantidad > 0) {
-                $carrito = new carrito();
-                $carrito->fk_idcliente = $idcliente;
-                $carrito->fk_idproducto = $idproducto;
-                $carrito->cantidad = $cantidad;
-                $carrito->insertar();
-
-                $msg["ESTADO"] = MSG_SUCCESS;
-                $msg["MSG"] = "producto agregado al carrito";
-                return view("web.takeaway", compact('msg', "aCategorias", "aProductos", "aSucursales"));
-            } else {
-                $msg["ESTADO"] = MSG_ERROR;
-                $msg["MSG"] = "no se agregó ningún producto al carrito";
-                return view("web.takeaway", compact('msg', "aCategorias", "aProductos", "aSucursales"));
-            }
-        } else {
-            $msg["ESTADO"] = MSG_ERROR;
-            $msg["MSG"] = "Debe iniciar sesión para realizar un pedido";
-            return view("web.takeaway", compact('msg', "aCategorias", "aProductos", "aSucursales"));
-        }
+                $categoria = new categoria();
+                $categoria->obtenerPorId($idpropiedad);
 
 
 
-        //return view("web.Takeaway", compact("aCategorias"));
+                $propiedad = new propiedad();
+                $aPropiedades = $propiedad->obtenerTodos(); 
+
+                return view("web.propiedad-detallada", compact("titulo", "producto", "categoria", "aPropiedades"));
+            
     }
+
+    
 }

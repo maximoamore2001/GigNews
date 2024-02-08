@@ -16,20 +16,11 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-lg-4 offset-lg-4">
-        <div class="section-heading text-center">
-          <h6>| Departamentos</h6>
-          <h2>Encontrá tu casa soñada</h2>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
       @foreach($aPropiedades as $propiedad)
       @if($propiedad->idpropiedad && $propiedad->fk_idtipopropiedad == "2")
       <div class="col-lg-4 col-md-6">
         <div class="item" style="min-height: 570px;">
-          <a href="property-details.html"><img style="max-width: 100%;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
+        <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'>" ?>  ><img style="max-width: 100%;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
           <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
           <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
           <ul>

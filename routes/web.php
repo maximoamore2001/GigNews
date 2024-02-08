@@ -235,5 +235,11 @@ Route::post('/admin/rubro/nuevo', 'ControladorRubro@guardar');
 Route::get('/admin/rubros', 'ControladorRubro@index');
 Route::get('/admin/sistema/rubros/cargarGrilla', 'ControladorRubro@cargarGrilla')->name('rubros.cargarGrilla');
 Route::get('/admin/rubro/eliminar', 'ControladorRubro@eliminar');
-Route::get('/admin/rubro/{idrubeo}', 'ControladorRubro@editar');
+Route::get('/admin/rubro/{idrubro}', 'ControladorRubro@editar');
 Route::post('/admin/rubro/{idrubro}', 'ControladorRubro@guardar');
+
+/* --------------------------------------------- */
+/* CONTROLADOR CASAS                           */
+/* --------------------------------------------- */
+
+Route::get('/propiedad-detallada/{idpropiedad}', 'ControladorWebPropiedadDetallada@ver');

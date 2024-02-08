@@ -20,73 +20,56 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="main-image">
-          <img src="/web/assets/images/single-property.jpg" alt="">
+          <div class="main-banner">
+            <div class="owl-carousel owl-banner">
+              <img src="/files/{{ $producto->imagen }}" alt="">
+              <img src="/files/{{ $producto->imagen2 }}" alt="">
+              <img src="/files/{{ $producto->imagen3 }}" alt="">
+              <img src="/files/{{ $producto->imagen4 }}" alt="">
+              <img src="/files/{{ $producto->imagen5 }}" alt="">
+            </div>
+          </div>
         </div>
         <div class="main-content">
-          <span class="category">Apparment</span>
-          <h4>24 New Street Miami, OR 24560</h4>
-          <p>Get <strong>the best villa agency</strong> HTML CSS Bootstrap Template for your company website. TemplateMo provides you the <a href="https://www.google.com/search?q=best+free+css+templates" target="_blank">best free CSS templates</a> in the world. Please tell your friends about it. Thank you. Cloud bread kogi bitters pitchfork shoreditch tumblr yr succulents single-origin coffee schlitz enamel pin you probably haven't heard of them ugh hella.
-
-            <br><br>When you look for free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Digital Marketing, TemplateMo Corporate Layouts, etc. Master cleanse +1 intelligentsia swag post-ironic, slow-carb chambray knausgaard PBR&B DSA poutine neutra cardigan hoodie pop-up.
-          </p>
-        </div>
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Best useful links ?
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice, chillwave vexillologist incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                How does this work ?
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice, chillwave vexillologist incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Why is Villa the best ?
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice, chillwave vexillologist incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-          </div>
+          <span class="category">{{ $producto->direccion }}</span>
+          <h4> {{ $producto->titulo }} </h4>
+          <p style="font-size: 1.3em;"> {{ $producto->descripcion }} </p>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="info-table">
           <ul>
             <li>
-              <img src="/web/assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
-              <h4><br><span>Total Flat Space</span></h4>
+              <img src="/files/bolsa-de-dinero.png" alt="" style="max-width: 52px;">
+              <h4>{{ number_format($producto->precio, 0, ',', '.') }}<br><span>Precio</span></h4>
             </li>
             <li>
-              <img src="/web/assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
-              <h4>Contract<br><span>Contract Ready</span></h4>
+              <img src="/files/superficie.png" alt="" style="max-width: 52px;">
+              <h4>{{ $producto->areapropiedad }}m2 <br><span>Superficie Total</span></h4>
             </li>
             <li>
-              <img src="/web/assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
-              <h4>Payment<br><span>Payment Process</span></h4>
+              <img src="/files/habitaciones.png" alt="" style="max-width: 52px;">
+              <h4>{{ $producto->cantidadhabitaciones }}<br><span>Habitaciones</span></h4>
             </li>
             <li>
-              <img src="/web/assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
-              <h4>Safety<br><span>24/7 Under Control</span></h4>
+              <img src="/files/baños.png" alt="" style="max-width: 52px;">
+              <h4>{{ $producto->cantidadbanios }}<br><span>Baños</span></h4>
+            </li>
+            <li>
+              <img src="/files/garage.png" alt="" style="max-width: 52px;">
+              <h4>{{ $producto->garage }}<br><span>Vehículos</span></h4>
+            </li>
+            <li>
+              <img src="/files/ciudad.png" alt="" style="max-width: 52px;">
+              <h4>{{ $producto->ciudad }}<br><span>Ciudad</span></h4>
+            </li>
+            <li>
+              <img src="/files/pais.png" alt="" style="max-width: 52px;">
+              <h4>{{ $producto->pais }}<br><span>País</span></h4>
+            </li>
+            <li>
+              <img src="/files/plantas.png" alt="" style="max-width: 52px;">
+              <h4>{{ $producto->cantidadplantas }}<br><span>Plantas</span></h4>
             </li>
           </ul>
         </div>
@@ -95,109 +78,4 @@
   </div>
 </div>
 
-<div class="section best-deal">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="section-heading">
-          <h6>| Best Deal</h6>
-          <h2>Find Your Best Deal Right Now!</h2>
-        </div>
-      </div>
-      <div class="col-lg-12">
-        <div class="tabs-content">
-          <div class="row">
-            <div class="nav-wrapper ">
-              <ul class="nav nav-tabs" role="tablist">
-              </ul>
-            </div>
-            <div class="tab-content" id="myTabContent">
-              
-            @foreach($aPropiedades as $propiedad)
-                        @if($propiedad->idpropiedad == 1)
-              <div class="tab-pane fade show active" id="appartment" role="tabpanel" aria-labelledby="appartment-tab">
-                <div class="row">
-                  <div class="col-lg-3">
-                    <div class="info-table">
-                      <ul>
-                        <li>Támaño completo <span>{{ $propiedad->areapropiedad }}</span></li>
-                        <li>Número de plantas  <span>{{ $propiedad->cantidadplantas }}</span></li>
-                        <li>Cantidad de habitaciones <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
-                        <li>Plazas de garages <span>{{ $propiedad->garage }}</span></li>
-                        <li>Cantidad de baños <span>{{ $propiedad->cantidadbanios }}</span></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <img src="/files/{{ $propiedad->imagen; }}" alt="">
-                  </div>
-                  <div class="col-lg-3">
-                    <h4>Información acerca de la propiedad</h4>
-                    <p>{{ $propiedad->descripcion }}</p>
-                    <div class="icon-button">
-                      <a href="#"><i class="fa fa-calendar"></i> Solicitar una visita</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              @else("")
-                        @endif
-                        @endforeach
-              <div class="tab-pane fade" id="villa" role="tabpanel" aria-labelledby="villa-tab">
-                <div class="row">
-                  <div class="col-lg-3">
-                    <div class="info-table">
-                      <ul>
-                        <li>Total Flat Space <span></span></li>
-                        <li>Floor number <span>26th</span></li>
-                        <li>Number of rooms <span>5</span></li>
-                        <li>Parking Available <span>Yes</span></li>
-                        <li>Payment Process <span>Bank</span></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <img src="/web/assets/images/deal-02.jpg" alt="">
-                  </div>
-                  <div class="col-lg-3">
-                    <h4>Detail Info About New Villa</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
-                    <div class="icon-button">
-                      <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="penthouse" role="tabpanel" aria-labelledby="penthouse-tab">
-                <div class="row">
-                  <div class="col-lg-3">
-                    <div class="info-table">
-                      <ul>
-                        <li>Total Flat Space <span>320 m2</span></li>
-                        <li>Floor number <span>34th</span></li>
-                        <li>Number of rooms <span>6</span></li>
-                        <li>Parking Available <span>Yes</span></li>
-                        <li>Payment Process <span>Bank</span></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <img src="/web/assets/images/deal-03.jpg" alt="">
-                  </div>
-                  <div class="col-lg-3">
-                    <h4>Extra Info About Penthouse</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut Kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice, chillwave vexillologistlabore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
-                    <div class="icon-button">
-                      <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 @endsection
