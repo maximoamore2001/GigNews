@@ -24,7 +24,9 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 
     Route::get('/', 'ControladorWebHome@index');
 
-    Route::get('/propiedad', 'ControladorWebPropiedad@index');//HECHO
+    Route::get('/casas', 'ControladorWebCasas@index');//CASAS
+    Route::get('/departamentos', 'ControladorWebDepartamentos@index');//DEPARTAMENTOS
+    Route::get('/oficinas', 'ControladorWebOficinas@index');//OFICINAS
 
     Route::get('/propiedad-detallada', 'ControladorWebPropiedadDetallada@index');//HECHO
     Route::post('/propiedad-detallada', 'ControladorWebPropiedadDetallada@insertar');//HECHO

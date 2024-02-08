@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\entidades\Producto;
 use App\entidades\propiedad;
 use App\entidades\sucursal;
-use App\entidades\tipo_producto;
 use App\entidades\tipo_propiedad;
 
 class ControladorWebHome extends Controller
@@ -16,16 +14,16 @@ class ControladorWebHome extends Controller
         
         $titulo = "Listado de categorias";
 
-        $producto = new propiedad();
-        $aProductos = $producto->obtenerTodos();
-
+        $propiedad = new propiedad();
+        $aPropiedades = $propiedad->obtenerTodos();
+        
         $categoria = new tipo_propiedad();
         $aCategorias = $categoria->obtenerTodos();
 
         $sucursal = new sucursal();
         $aSucursales = $sucursal->obtenerTodos();
 
-        return view("web.index", compact("aSucursales", 'aCategorias', 'aProductos'));
+        return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades'));
     }
 
     
