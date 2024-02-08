@@ -181,14 +181,6 @@ class ControladorPropiedad extends Controller
                 $resultado["err"] = EXIT_FAILURE;
                 $resultado["mensaje"] = "No tiene permisos para la operación.";
             } else {
-                $idpropiedad = $request->input("id");
-                $producto = new propiedad();
-                $pedido = new Pedido();
-                //Si el producto tiene un pedido asociado no se tiene que poder eliminar.
-                if ($pedido->existePedidoPorProducto($idpropiedad)) {
-                    $resultado["err"] = EXIT_FAILURE;
-                    $resultado["mensaje"] = "No se puede eliminar un producto con pedidos asociados";
-                } else {
                     //Sino si.
                     $producto = new propiedad();
                     $producto->idpropiedad = $request->input("id");
@@ -196,7 +188,7 @@ class ControladorPropiedad extends Controller
                     $resultado["err"] = EXIT_SUCCESS;
                     $resultado["mensaje"] = "Registro eliminado exitosamente.";
                 }
-            }
+            
         } else {
             $resultado["err"] = EXIT_FAILURE;
             $resultado["mensaje"] = "Usuario no autenticado.";

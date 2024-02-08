@@ -28,16 +28,16 @@ if (isset($msg)) {
             <tr>
                 <th>Título</th>
                 <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Tipo de producto</th>
-                <th>Descripción</th>
-                <th>Imágen</th>
-                <th>Título</th>
-                <th>Precio</th>
-                <th>Tipo de producto</th>
-                <th>Descripción</th>
-                <th>Imágen</th>
-                <th>Descripción</th>
+                <th>cantidadhabitaciones</th>
+                <th>descripcion</th>
+                <th>cantidadbanios</th>
+                <th>cantidadplantas</th>
+                <th>pais</th>
+                <th>ciudad</th>
+                <th>direccion</th>
+                <th>garage</th>
+                <th>areapropiedad</th>
+                <th>fk_idtipopropiedad</th>
                 <th>Imágen</th>
             </tr>
         </thead>

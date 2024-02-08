@@ -6,19 +6,19 @@ Nuevo Producto
 
 @section('scripts')
 <script>
-      globalId = '<?php echo isset($producto->idproducto) && $producto->idproducto > 0 ? $producto->idproducto : 0; ?>';
-      <?php $globalId = isset($producto->idproducto) ? $producto->idproducto : "0"; ?>
+      globalId = '<?php echo isset($producto->idpropiedad) && $producto->idpropiedad > 0 ? $producto->idpropiedad : 0; ?>';
+      <?php $globalId = isset($producto->idpropiedad) ? $producto->idpropiedad : "0"; ?>
 </script>
 @endsection
 
 @section('breadcrumb')
 <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-      <li class="breadcrumb-item"><a href="/admin/productos">Productos</a></li>
+      <li class="breadcrumb-item"><a href="/admin/propiedades">propiedades</a></li>
       <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-      <li class="btn-item"><a title="Nuevo" href="/admin/producto/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+      <li class="btn-item"><a title="Nuevo" href="/admin/propiedad/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
       <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
       </li>
       @if($globalId > 0)
@@ -49,7 +49,7 @@ if (isset($msg)) {
                   <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
                   <div class="form-group col-6">
                         <label>Título: *</label>
-                        <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" value="{{ $producto->titulo }}" required>
+                        <input type="text" id="txtTitulo" name="txtTitulo" maxlength="50" class="form-control" value="{{ $producto->titulo }}" required>
                   </div>
                   <div class="form-group col-6">
                         <label>Precio: *</label>
@@ -89,25 +89,25 @@ if (isset($msg)) {
                   </div>
                   <div class="form-group col-6">
                         <label>Descripción: *</label>
-                        <input type="text" id="txtDescripcion" maxlength="92" name="txtDescripcion" class="form-control" value="{{ $producto->descripcion }}">
+                        <input type="text" id="txtDescripcion" maxlength="1200" name="txtDescripcion" class="form-control" value="{{ $producto->descripcion }}">
                   </div>
                   <div class="form-group col-6">
                         <label for="imagen">Imagen: (cuadrada 1x1 ) *</label>
                         <input type="file" class="form-control-file" id="txtImagen" name="txtImagen">
                   </div>
                   <div class="form-group col-6">
-                        <label>tipo de propiedad: *</label>
-                        <select type="text" id="lstTipoPropiedad" name="lstTipoPropiedad" class="form-control" value="" required>
-                              <option value="" disabled selected>Seleccionar</option>
-                              @foreach($aCategorias as $categoria)
-                              @if($categoria->idtipopropiedad == $producto->fk_idtipopropiedad)
-                              <option selected value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
-                              @else
-                              <option value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
-                              @endif
-                              @endforeach;
-                        </select>
-                  </div>
+    <label>tipo de propiedad: *</label>
+    <select type="text" id="lstTipoPropiedad" name="lstTipoPropiedad" class="form-control" value="" required>
+        <option value="" disabled selected>Seleccionar</option>
+        @foreach($aCategorias as $categoria)
+            @if($categoria->idtipopropiedad == $producto->fk_idtipopropiedad)
+                <option selected value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
+            @else
+                <option value="{{$categoria->idtipopropiedad}}">{{$categoria->nombre}}</option>
+            @endif
+        @endforeach
+    </select>
+</div>
 
             </div>
       </form>
@@ -129,7 +129,7 @@ if (isset($msg)) {
             function eliminar() {
                   $.ajax({
                         type: "GET",
-                        url: "{{ asset('admin/producto/eliminar') }}",
+                        url: "{{ asset('admin/propiedad/eliminar') }}",
                         data: {
                               id: globalId
                         },

@@ -145,20 +145,20 @@ class propiedad extends Model
                 imagen,
                 fk_idtipopropiedad
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-        $result = DB::insert($sql, [
-            $this->cantidadhabitaciones,
-            $this->cantidadbanios,
-            $this->cantidadplantas,
-            $this->pais,
-            $this->ciudad,
-            $this->direccion,
-            $this->areapropiedad,
-            $this->garage,
-            $this->titulo,
-            $this->precio,
-            $this->descripcion,
-            $this->fk_idtipopropiedad,
-            $this->imagen
+            $result = DB::insert($sql, [
+                $this->cantidadhabitaciones,
+                $this->cantidadbanios,
+                $this->cantidadplantas,
+                $this->pais,
+                $this->ciudad,
+                $this->direccion,
+                $this->areapropiedad,
+                $this->garage,
+                $this->titulo,
+                $this->precio,
+                $this->descripcion,
+                $this->imagen,
+                $this->fk_idtipopropiedad
         ]);
         return $this->idpropiedad = DB::getPdo()->lastInsertId();
     }

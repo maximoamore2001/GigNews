@@ -15,8 +15,8 @@ class ControladorWebPropiedad extends Controller
         
             $titulo = "Listado de categorias";
     
-            $producto = new propiedad();
-            $aProductos = $producto->obtenerTodos();
+            $propiedad = new propiedad();
+            $aPropiedades = $propiedad->obtenerTodos(); 
     
             $categoria = new tipo_propiedad();
             $aCategorias = $categoria->obtenerTodos();
@@ -24,6 +24,6 @@ class ControladorWebPropiedad extends Controller
             $sucursal = new sucursal();
             $aSucursales = $sucursal->obtenerTodos();
     
-            return view("web.propiedad", compact("aSucursales", 'aCategorias', 'aProductos'));
+            return view("web.propiedad", compact("aSucursales", 'aCategorias', 'aPropiedades',));
       }
 }

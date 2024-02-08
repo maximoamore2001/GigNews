@@ -17,8 +17,8 @@ class ControladorWebPropiedadDetallada extends Controller
         
         $titulo = "Listado de categorias";
 
-        $producto = new propiedad();
-        $aProductos = $producto->obtenerTodos();
+        $propiedad = new propiedad();
+        $aPropiedades = $propiedad->obtenerTodos(); 
 
         $categoria = new tipo_propiedad();
         $aCategorias = $categoria->obtenerTodos();
@@ -26,7 +26,7 @@ class ControladorWebPropiedadDetallada extends Controller
         $sucursal = new sucursal();
         $aSucursales = $sucursal->obtenerTodos();
 
-        return view("web.propiedad-detallada", compact("titulo", "aCategorias", "aProductos" , "aSucursales"));
+        return view("web.propiedad-detallada", compact("titulo", "aCategorias", "aPropiedades" , "aSucursales"));
     }
 
 
@@ -34,10 +34,10 @@ class ControladorWebPropiedadDetallada extends Controller
     {
         $idcliente = Session::get("idcliente");
 
-        $producto = new producto();
+        $producto = new propiedad();
         $aProductos = $producto->obtenerTodos();
 
-        $categoria = new tipo_producto();
+        $categoria = new tipo_propiedad();
         $aCategorias = $categoria->obtenerTodos();
 
         $idproducto = $request->input("txtProducto");
