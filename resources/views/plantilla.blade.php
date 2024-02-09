@@ -87,7 +87,7 @@
 
 
   <body id="page-top">
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand navbar-dark static-top" style="background-color: #000;">
       <a class="navbar-brand mr-1" href="/">Administración</a>
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -105,7 +105,7 @@
             <i class="fas fa-user-circle fa-fw"></i> {{ Session::get("usuario_nombre") }}
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="/usuarios/{{ Session::get("usuario") }}">Cuenta de usuario</a>
+            <a class="dropdown-item" href="/admin/usuarios/{{ Session::get("usuario") }}">Cuenta de usuario</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">Cerrar sesi&oacute;n</a>
           </div>
@@ -115,21 +115,21 @@
 
     <!--Side bar -->
     <div id="wrapper">
-      <ul class="sidebar navbar-nav">
+      <ul class="sidebar  navbar-nav" style="background-color: #84b6f4;">
       @for ($i = 0; Session::get('array_menu') && $i < count(Session::get('array_menu')); $i++)
           @if (Session::get('array_menu')[$i]->id_padre == 0)
               
               @if(Session::get('array_menu')[$i]->url != "")
               <li class="nav-item">
                 <a class="nav-link" href="{{ Session::get('array_menu')[$i]->url }}">
-                  <i class="{{ Session::get('array_menu')[$i]->css }}"></i>
-                  <span>{{ Session::get('array_menu')[$i]->nombre }}</span>
+                  <i style="color:#000; font-weight: 800; font-size: 17px; " class="{{ Session::get('array_menu')[$i]->css }}"></i>
+                  <span style="color:#000; font-weight: 800;"> {{ Session::get('array_menu')[$i]->nombre }}</span>
                 </a>
               @else
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  href="#" id="{{ Session::get('array_menu')[$i]->idmenu }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="{{ Session::get('array_menu')[$i]->css }}"></i>
-                  <span>{{ Session::get('array_menu')[$i]->nombre }}</span>
+                  <i style="color:#000; font-weight: 800; font-size: 17px; " class="{{ Session::get('array_menu')[$i]->css }}"></i>
+                  <span  style="color:#000; font-weight: 800;"> {{ Session::get('array_menu')[$i]->nombre }}</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="{{ Session::get('array_menu')[$i]->idmenu }}">
                  @for ($j = 0; $j < count(Session::get('array_menu')); $j++)
@@ -263,5 +263,4 @@
     }
     </script>
   </body>
-  -->
 </html>

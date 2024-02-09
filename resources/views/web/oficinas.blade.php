@@ -21,8 +21,8 @@
       @foreach($aPropiedades as $propiedad)
       @if($propiedad->idpropiedad && $propiedad->fk_idtipopropiedad == "3")
       <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 570px;">
-        <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'>" ?>  ><img style="max-width: 100%;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
+        <div class="item" style="min-height: 600px;">
+        <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'>" ?>  ><img style="max-width: 100%; height: 267px;"  src="/files/{{ $propiedad->imagen; }}" alt=""></a>
           <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
           <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
           <ul>
