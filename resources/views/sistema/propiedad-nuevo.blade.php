@@ -109,22 +109,6 @@ if (isset($msg)) {
                         <input type="file" class="form-control-file" id="txtImagen" name="txtImagen">
                   </div>
                   <div class="form-group col-6">
-                        <label for="imagen">Imagen 2: ( 4x3 ) *</label>
-                        <input type="file" class="form-control-file" id="txtImagen2" name="txtImagen2">
-                  </div>
-                  <div class="form-group col-6">
-                        <label for="imagen">Imagen 3: ( 4x3 ) *</label>
-                        <input type="file" class="form-control-file" id="txtImagen3" name="txtImagen3">
-                  </div>
-                  <div class="form-group col-6">
-                        <label for="imagen">Imagen 4: ( 4x3 ) *</label>
-                        <input type="file" class="form-control-file" id="txtImagen4" name="txtImagen4">
-                  </div>
-                  <div class="form-group col-6">
-                        <label for="imagen">Imagen 5: ( 4x3 ) *</label>
-                        <input type="file" class="form-control-file" id="txtImagen5" name="txtImagen5">
-                  </div>
-                  <div class="form-group col-6">
                   </div>
 
             </div>

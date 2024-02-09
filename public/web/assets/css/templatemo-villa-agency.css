@@ -450,7 +450,7 @@ Header Style
   padding-left: 20px;
   padding-right: 20px;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 17px;
   height: 40px;
   line-height: 40px;
   text-transform: capitalize;
@@ -1375,11 +1375,11 @@ Page Header Style
 */
 
 .page-heading {
-  background-image: url(../images/page-heading-bg.jpg);
+  background: #f35525;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 0px;
+  padding: 30px 0px;
   text-align: center;
 }
 
@@ -1724,6 +1724,9 @@ body {
   }
   .header-area .main-nav .nav li:last-child {
     display: none;
+  }
+  .page-heading h3 {
+    font-size: 35px;
   }
 }
 

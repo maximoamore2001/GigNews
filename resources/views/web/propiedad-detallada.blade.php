@@ -23,10 +23,6 @@
           <div class="main-banner">
             <div class="owl-carousel owl-banner">
               <img src="/files/{{ $producto->imagen }}" alt="">
-              <img src="/files/{{ $producto->imagen2 }}" alt="">
-              <img src="/files/{{ $producto->imagen3 }}" alt="">
-              <img src="/files/{{ $producto->imagen4 }}" alt="">
-              <img src="/files/{{ $producto->imagen5 }}" alt="">
             </div>
           </div>
         </div>

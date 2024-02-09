@@ -68,7 +68,7 @@ class ControladorPropiedad extends Controller
             //guardar archivo de imágen adjunta
             if ($_FILES["txtImagen"]["error"] === UPLOAD_ERR_OK) {
                 $extension = pathinfo($_FILES["txtImagen"]["name"], PATHINFO_EXTENSION);
-                $nombre = date("Ymdhmsi") . ".$extension"  . "1";
+                $nombre = date("Ymdhmsi") . ".$extension";
                 $archivo = $_FILES["txtImagen"]["tmp_name"];
                 move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre"); //guardar el archivo
                 $entidad->imagen = $nombre;
