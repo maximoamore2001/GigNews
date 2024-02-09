@@ -8,8 +8,8 @@
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
-    <li class="breadcrumb-item active">Productos</a></li>
+    <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
+    <li class="breadcrumb-item active">Propiedades</a></li>
 </ol>
 <ol class="toolbar">
     <li class="btn-item"><a title="Nuevo" href="/admin/propiedad/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
@@ -24,20 +24,15 @@ if (isset($msg)) {
 }
 ?>
 <!-- escritorio -->
-    <table id="grilla" class="display bg-dark">
+    <table id="grilla" class=" display bg-dark">
         <thead>
             <tr style="color: white;">
                 <th>Título</th>
                 <th>Precio</th>
-                <th>cantidadhabitaciones</th>
-                <th>cantidadbanios</th>
-                <th>cantidadplantas</th>
-                <th>pais</th>
+                <th>país</th>
                 <th>ciudad</th>
-                <th>direccion</th>
-                <th>garage</th>
-                <th>areapropiedad</th>
-                <th>fk_idtipopropiedad</th>
+                <th>dirección</th>
+                <th>área</th>
                 <th>Imágen</th>
             </tr>
         </thead>

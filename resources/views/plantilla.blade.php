@@ -122,13 +122,13 @@
               @if(Session::get('array_menu')[$i]->url != "")
               <li class="nav-item">
                 <a class="nav-link" href="{{ Session::get('array_menu')[$i]->url }}">
-                  <i style="color:#000; font-weight: 800; font-size: 17px; " class="{{ Session::get('array_menu')[$i]->css }}"></i>
+                  <i style="color:#000; font-weight: 800; font-size: 17px; background:white; padding: 8px; border-radius: 100%; " class="{{ Session::get('array_menu')[$i]->css }}"></i>
                   <span style="color:#000; font-weight: 800;"> {{ Session::get('array_menu')[$i]->nombre }}</span>
                 </a>
               @else
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  href="#" id="{{ Session::get('array_menu')[$i]->idmenu }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i style="color:#000; font-weight: 800; font-size: 17px; " class="{{ Session::get('array_menu')[$i]->css }}"></i>
+                  <i style="color:#000; font-weight: 800; font-size: 17px; background:white; padding: 8px; border-radius: 100% ;" class="{{ Session::get('array_menu')[$i]->css }}"></i>
                   <span  style="color:#000; font-weight: 800;"> {{ Session::get('array_menu')[$i]->nombre }}</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="{{ Session::get('array_menu')[$i]->idmenu }}">
@@ -143,11 +143,11 @@
           @endif
       @endfor
       </ul>
-      <div id="content-wrapper">
+      <div style="background-color: #c5c5c5;" id="content-wrapper">
         <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">@yield('titulo')</h1>
+                <h1 style="color: white;" class="page-header">@yield('titulo')</h1>
             </div>
         </div>
         <div class="row">
@@ -161,13 +161,7 @@
         <!-- /.container-flui -->
 
         <!-- Sticky Footer -->
-        <footer class="sticky-footer">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>{{ env('APP_NAME') }} - {{ env('ORG_NAME') }}</span>
-            </div>
-          </div>
-        </footer>
+        
 
       </div>
       <!-- /.content-wrapper -->

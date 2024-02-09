@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Villa Agency - Real Estate HTML5 Template</title>
+    <title>Terranova</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/web/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,7 +40,7 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="/" class="logo">
-                        <h1>Salomón</h1>
+                        <h1>Terranova</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->

@@ -19,7 +19,7 @@ class ControladorPropiedad extends Controller
 
     public function nuevo()
     {
-        $titulo = "Nuevo Producto";
+        $titulo = "Nueva propiedad";
 
         if (Usuario::autenticado() == true) {
             if (!Patente::autorizarOperacion("PRODUCTOSALTA")) {
@@ -41,7 +41,7 @@ class ControladorPropiedad extends Controller
     public function index()
     {
 
-        $titulo = "Listado de productos";
+        $titulo = "Listado de propiedades";
         if (Usuario::autenticado() == true) {
             if (!Patente::autorizarOperacion("PRODUCTOCONSULTA")) {
                 $codigo = "PRODUCTOCONSULTA";
@@ -61,7 +61,7 @@ class ControladorPropiedad extends Controller
     {
         try {
             //Define la entidad servicio
-            $titulo = "Modificar producto";
+            $titulo = "Modificar propiedad";
             $entidad = new propiedad();
             $entidad->cargarDesdeRequest($request);
 
@@ -129,16 +129,11 @@ class ControladorPropiedad extends Controller
             $row = array();
             $row[] = "<a href='/admin/propiedad/" . $aProductos[$i]->idpropiedad . "'>" . $aProductos[$i]->titulo . "</a>";
             $row[] = ("$") . number_format($aProductos[$i]->precio, 2, ',', '.');
-            $row[] = $aProductos[$i]->cantidadhabitaciones;
-            $row[] = $aProductos[$i]->cantidadbanios;
-            $row[] = $aProductos[$i]->cantidadplantas;
             $row[] = $aProductos[$i]->pais;
             $row[] = $aProductos[$i]->ciudad;
             $row[] = $aProductos[$i]->direccion;
-            $row[] = $aProductos[$i]->garage;
             $row[] = $aProductos[$i]->areapropiedad;
-            $row[] = $aProductos[$i]->fk_idtipopropiedad;
-            $row[] = "<img height='100px' width='100px' src='/files/" . $aProductos[$i]->imagen . "'>";
+            $row[] = "<img width='200px' src='/files/" . $aProductos[$i]->imagen . "'>";
             $cont++;
             $data[] = $row;
         }
@@ -154,7 +149,7 @@ class ControladorPropiedad extends Controller
 
     public function editar($idpropiedad)
     {
-        $titulo = "Edicion de producto";
+        $titulo = "Edicion de propiedad";
 
         if (Usuario::autenticado() == true) {
             if (!Patente::autorizarOperacion("PRODUCTOEDITAR")) {
