@@ -289,6 +289,11 @@ label {
     list-style: none;
     background-color: white !important;
 }
+
+.breadcrumb li{
+    color: #000 !important;
+}
+
 .listamultiple{
     height: 20rem !important;
 }
