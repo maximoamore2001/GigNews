@@ -239,7 +239,18 @@ Route::get('/admin/rubro/{idrubro}', 'ControladorRubro@editar');
 Route::post('/admin/rubro/{idrubro}', 'ControladorRubro@guardar');
 
 /* --------------------------------------------- */
-/* CONTROLADOR CASAS                           */
+/* CONTROLADOR propiedades                           */
 /* --------------------------------------------- */
 
 Route::get('/propiedad-detallada/{idpropiedad}', 'ControladorWebPropiedadDetallada@ver');
+
+/* --------------------------------------------- */
+/* CONTROLADOR imagenes                           */
+/* --------------------------------------------- */
+Route::get('/admin/imagen/nuevo', 'ControladorImagen@nuevo');
+Route::post('/admin/imagen/nuevo', 'ControladorImagen@guardar');
+Route::get('/admin/imagenes', 'ControladorImagen@index');
+Route::get('/admin/sistema/imagenes/cargarGrilla', 'ControladorImagen@cargarGrilla')->name('imagenes.cargarGrilla');
+Route::get('/admin/imagen/eliminar', 'ControladorImagen@eliminar');
+Route::get('/admin/imagen/{idimagen}', 'ControladorImagen@editar');
+Route::post('/admin/imagen/{idimagen}', 'ControladorImagen@guardar');
