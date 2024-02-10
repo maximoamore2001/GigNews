@@ -10,8 +10,6 @@ class ControladorWebCasas extends Controller
 {
       public function index()
       {
-            $imagen = new Imagen();
-            $aImagenes = $imagen->obtenerTodos();
 
             $titulo = "Listado de categorias";
     
@@ -24,6 +22,6 @@ class ControladorWebCasas extends Controller
             $sucursal = new sucursal();
             $aSucursales = $sucursal->obtenerTodos();
     
-            return view("web.Casas", compact("aSucursales", 'aCategorias', 'aPropiedades', 'aImagenes'));
+            return view("web.Casas", compact("aSucursales", 'aCategorias', 'aPropiedades'));
       }
 }
