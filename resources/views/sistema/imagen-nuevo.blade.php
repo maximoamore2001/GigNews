@@ -58,9 +58,9 @@ if (isset($msg)) {
                         <option value="" disabled selected>Seleccionar</option>
                         @foreach($aPropiedades as $propiedad)
                         @if($propiedad->idpropiedad == $imagen->fk_idpropiedad)
-                        <option selected value="{{$propiedad->idpropiedad}}">{{$propiedad->idpropiedad}}</option>
+                        <option selected value="{{$propiedad->idpropiedad}}">{{$propiedad->titulo}} (id={{$propiedad->idpropiedad}})</option>
                         @else
-                        <option value="{{$propiedad->idpropiedad}}">{{$propiedad->idpropiedad}}</option>
+                        <option value="{{$propiedad->idpropiedad}}">{{$propiedad->titulo}} | {{$propiedad->idpropiedad}}</option>
                         @endif
                         @endforeach
                   </select>

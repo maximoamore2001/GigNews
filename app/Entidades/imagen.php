@@ -31,7 +31,7 @@ class Imagen extends Model
                   nombre,
                   imagen,
                   fk_idpropiedad
-                FROM imagenes ORDER BY nombre ASC";
+                FROM imagenes ORDER BY idimagen ASC";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
