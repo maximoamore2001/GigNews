@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
 
-class ControladorImagenes extends Controller
+class ControladorImagen extends Controller
 {
 
     public function nuevo()
@@ -18,15 +18,9 @@ class ControladorImagenes extends Controller
         $titulo = "Nueva galería";
 
         if (Usuario::autenticado() == true) {
-            if (!Patente::autorizarOperacion("IMAGENESALTA")) {
-                $codigo = "IMAGENESSALTA";
-                $mensaje = "No tiene permisos para la operación.";
-                return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
-            } else {
                 $imagen = new imagen();
                 $imagen->obtenerTodos();
                 return view("sistema.imagenes-nuevo", compact("titulo", 'imagen'));
-            }
         } else {
             return redirect('admin/login');
         }
