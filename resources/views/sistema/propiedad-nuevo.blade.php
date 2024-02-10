@@ -111,7 +111,8 @@ if (isset($msg)) {
                   <div class="form-group col-6">
                   </div>
                   <div class="form-group col-12">
-                        <img style="width: 20%;" src="/files/{{ $producto->imagen }}" alt="">
+                        <img style="width: 30%; border: solid 4px #84B6F4;" src="/files/{{ $producto->imagen }}" alt="">
+                        <p>{{ $producto->imagen }}</p>
                   </div>
 
             </div>
