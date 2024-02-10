@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\entidades\sucursal;
 use App\entidades\carrito;
 use App\entidades\categoria;
+use App\entidades\Imagen;
 use App\Entidades\propiedad;
 use App\entidades\tipo_propiedad;
 use Illuminate\Http\Request;
@@ -18,6 +19,9 @@ class ControladorWebPropiedadDetallada extends Controller
         
         $titulo = "Listado de categorias";
 
+        $imagenes = new Imagen();
+        $aImagenes = $imagenes->obtenerTodos(); 
+
         $propiedad = new propiedad();
         $aPropiedades = $propiedad->obtenerTodos(); 
 
@@ -27,7 +31,7 @@ class ControladorWebPropiedadDetallada extends Controller
         $sucursal = new sucursal();
         $aSucursales = $sucursal->obtenerTodos();
 
-        return view("web.propiedad-detallada", compact("titulo", "aCategorias", "aPropiedades" , "aSucursales"));
+        return view("web.propiedad-detallada", compact("titulo", "aCategorias", "aPropiedades" , "aSucursales", "aImagenes"));
     }
 
 

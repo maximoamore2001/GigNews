@@ -19,7 +19,7 @@ class Imagen extends Model
     public function cargarDesdeRequest($request)
     {
         $this->idimagenes = $request->input('id') != "0" ? $request->input('id') : $this->idimagenes;
-        $this->imagen = $request->input('txtImagen');
+        $this->imagen = $request->input('txtImagenes');
         $this->nombre = $request->input('txtNombre');
         $this->fk_idpropiedad = $request->input('lstIdpropiedad');
     }

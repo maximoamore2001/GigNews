@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\entidades\Sistema\Patente;
 use App\entidades\Sistema\Usuario;
 use App\entidades\imagen;
-
+use App\entidades\propiedad;
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
@@ -20,7 +20,11 @@ class ControladorImagen extends Controller
         if (Usuario::autenticado() == true) {
                 $imagen = new imagen();
                 $imagen->obtenerTodos();
-                return view("sistema.imagenes-nuevo", compact("titulo", 'imagen'));
+                
+                $propiedad = new propiedad();
+                $aPropiedades = $propiedad->obtenerTodos();
+
+                return view("sistema.imagenes-nuevo", compact("titulo", 'imagen', "aPropiedades"));
         } else {
             return redirect('admin/login');
         }
@@ -49,26 +53,17 @@ class ControladorImagen extends Controller
     {
         try {
             //Define la entidad servicio
-            $titulo = "Modificar imágenes";
+            $titulo = "Modificar imagen";
             $entidad = new imagen();
             $entidad->cargarDesdeRequest($request);
-        
-            // Guardar archivos de imágenes adjuntas
-            if (!empty($_FILES["txtImagenes"]["name"])) {
-                $imagenes = $_FILES["txtImagenes"];
-        
-                // Iterar sobre el array de imágenes
-                foreach ($imagenes['tmp_name'] as $key => $tmp_name) {
-                    // Verificar si hay un error en la subida de la imagen
-                    if ($imagenes["error"][$key] === UPLOAD_ERR_OK) {
-                        $extension = pathinfo($imagenes["name"][$key], PATHINFO_EXTENSION);
-                        $nombre = date("Ymdhmsi") . "_$key.$extension";
-                        $archivo = $tmp_name;
-                        move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre"); // Guardar el archivo
-                        // Guardar el nombre del archivo en la entidad o hacer lo que sea necesario
-                        $entidad->imagenes[] = $nombre;
-                    }
-                }
+
+            //guardar archivo de imágen adjunta
+            if ($_FILES["txtImagenes"]["error"] === UPLOAD_ERR_OK) {
+                $extension = pathinfo($_FILES["txtImagenes"]["name"], PATHINFO_EXTENSION);
+                $nombreimagen = date("Ymdhmsi") . ".$extension" . '7';
+                $archivo = $_FILES["txtImagenes"]["tmp_name"];
+                move_uploaded_file($archivo, env('APP_PATH') . "/public/files/galeria/$nombreimagen"); //guardar el archivo
+                $entidad->imagen = $nombreimagen;
             }
 
             //validaciones
@@ -101,8 +96,10 @@ class ControladorImagen extends Controller
         $id = $entidad->idimagenes;
         $imagen = new imagen();
         $imagen->obtenerPorId($id);
+        $propiedad = new propiedad();
+        $aPropiedades = $propiedad->obtenerTodos();
 
-        return view('sistema.imagenes-nuevo', compact('msg', 'imagen', 'titulo',)) . '?id=' . $imagen->idimagenes;
+        return view('sistema.imagenes-nuevo', compact('msg', 'imagen', 'titulo', 'aPropiedades')) . '?id=' . $imagen->idimagenes;
     }
 
     public function cargarGrilla(Request $request)

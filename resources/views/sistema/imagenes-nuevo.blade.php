@@ -1,24 +1,24 @@
 @extends("plantilla")
 
 @section('titulo')
-Nuevo Producto
+Nuevo imagen
 @endsection
 
 @section('scripts')
 <script>
-      globalId = '<?php echo isset($producto->idpropiedad) && $producto->idpropiedad > 0 ? $producto->idpropiedad : 0; ?>';
-      <?php $globalId = isset($producto->idpropiedad) ? $producto->idpropiedad : "0"; ?>
+      globalId = '<?php echo isset($imagen->idimagenes) && $imagen->idimagenes > 0 ? $imagen->idimagenes : 0; ?>';
+      <?php $globalId = isset($imagen->idimagenes) ? $imagen->idimagenes : "0"; ?>
 </script>
 @endsection
 
 @section('breadcrumb')
 <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-      <li class="breadcrumb-item"><a href="/admin/propiedades">propiedades</a></li>
+      <li class="breadcrumb-item"><a href="/admin/imagenes">propiedades</a></li>
       <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-      <li class="btn-item"><a title="Nuevo" href="/admin/propiedad/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+      <li class="btn-item"><a title="Nuevo" href="/admin/imagen/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
       <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
       </li>
       @if($globalId > 0)
@@ -28,7 +28,7 @@ Nuevo Producto
 </ol>
 <script>
       function fsalir() {
-            location.href = "/admin/productos";
+            location.href = "/admin/imagenes";
       }
 </script>
 @endsection
@@ -47,17 +47,33 @@ if (isset($msg)) {
             <div class="row">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
                   <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
-                  <div class="form-group col-6">
-                        <label>Título: *</label>
+                  <div class="form-group col-12">
+                        <label>Nombre: *</label>
                         <input type="text" id="txtTitulo" name="txtTitulo" maxlength="50" class="form-control" value="{{ $imagen->nombre }}" required>
                   </div>
-                  <div class="form-group col-6">
-                        <label>Precio: *</label>
-                        <input type="text" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ $imagen->imagen }}" required>
-                  </div>
-                  <div class="form-group col-6">
+
+
+
+                  <div class="form-group col-12">
                   <label>ID propiedad: *</label>
-                  <input type="text" id="txtPrecio" name="txtPrecio" class="form-control" value="{{ $imagen->imagen }}" required>
+                  <select type="text" id="lstidimagenes" name="lstidimagenes" class="form-control" value="" required>
+                        <option value="" disabled selected>Seleccionar</option>
+                        @foreach($aPropiedades as $propiedad)
+                        @if($propiedad->idimagenes == $imagen->fk_idimagenes)
+                        <option selected value="{{$propiedad->idimagenes}}">{{$propiedad->titulo}}</option>
+                        @else
+                        <option value="{{$propiedad->idimagenes}}">{{$propiedad->titulo}}</option>
+                        @endif
+                        @endforeach
+                  </select>
+                  
+                  </div>
+
+
+
+                  <div class="form-group col-12">
+                        <label for="imagen">Imágen: ( 4x3 ) *</label>
+                        <input type="file" class="form-control-file" id="txtImagenes" name="txtImagenes">
                   </div>
             </div>
       </form>
