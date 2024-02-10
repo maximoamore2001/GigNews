@@ -15,7 +15,6 @@ Nuevo imagen
 <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
       <li class="breadcrumb-item"><a href="/admin/imagenes">propiedades</a></li>
-      <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
       <li class="btn-item"><a title="Nuevo" href="/admin/imagen/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
@@ -25,6 +24,7 @@ Nuevo imagen
       <li class="btn-item"><a title="Guardar" href="#" class="fa fa-trash-o" aria-hidden="true" onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a></li>
       @endif
       <li class="btn-item"><a title="Salir" href="#" class="fa fa-arrow-circle-o-left" aria-hidden="true" onclick="javascript: $('#modalSalir').modal('toggle');"><span>Salir</span></a></li>
+      <li class="btn-item"><a title="Recargar" href="#" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/imagen/nuevo");'><span>Recargar</span></a></li>
 </ol>
 <script>
       function fsalir() {
@@ -67,7 +67,7 @@ if (isset($msg)) {
                   
                   </div>
                   <div class="form-group col-12">
-                        <label for="imagen">Imágen: ( 4x3 ) *</label>
+                        <label for="imagen">Imágen: <span style="color: red;">( 4x3 )</span> *</label>
                         <input type="file" class="form-control-file" id="txtImagenes" name="txtImagenes">
                   </div>
                   <div class="form-group col-12">
