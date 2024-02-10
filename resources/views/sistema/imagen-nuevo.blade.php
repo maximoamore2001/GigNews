@@ -6,8 +6,8 @@ Nuevo imagen
 
 @section('scripts')
 <script>
-      globalId = '<?php echo isset($imagen->idimagenes) && $imagen->idimagenes > 0 ? $imagen->idimagenes : 0; ?>';
-      <?php $globalId = isset($imagen->idimagenes) ? $imagen->idimagenes : "0"; ?>
+      globalId = '<?php echo isset($imagen->idimagen) && $imagen->idimagen > 0 ? $imagen->idimagen : 0; ?>';
+      <?php $globalId = isset($imagen->idimagen) ? $imagen->idimagen : "0"; ?>
 </script>
 @endsection
 
@@ -46,34 +46,32 @@ if (isset($msg)) {
       <form ty id="form1" method="POST" enctype="multipart/form-data">
             <div class="row">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-                  <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+                  <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" >
                   <div class="form-group col-12">
                         <label>Nombre: *</label>
-                        <input type="text" id="txtTitulo" name="txtTitulo" maxlength="50" class="form-control" value="{{ $imagen->nombre }}" required>
+                        <input type="text" id="txtNombre" name="txtNombre" maxlength="50" class="form-control" value="{{ $imagen->nombre }}" >
                   </div>
-
-
 
                   <div class="form-group col-12">
                   <label>ID propiedad: *</label>
-                  <select type="text" id="lstidimagenes" name="lstidimagenes" class="form-control" value="" required>
+                  <select type="text" id="lstIdpropiedad" name="lstIdpropiedad" class="form-control" value="" >
                         <option value="" disabled selected>Seleccionar</option>
                         @foreach($aPropiedades as $propiedad)
-                        @if($propiedad->idimagenes == $imagen->fk_idimagenes)
-                        <option selected value="{{$propiedad->idimagenes}}">{{$propiedad->titulo}}</option>
+                        @if($propiedad->idpropiedad == $imagen->fk_idpropiedad)
+                        <option selected value="{{$propiedad->idpropiedad}}">{{$propiedad->idpropiedad}}</option>
                         @else
-                        <option value="{{$propiedad->idimagenes}}">{{$propiedad->titulo}}</option>
+                        <option value="{{$propiedad->idpropiedad}}">{{$propiedad->idpropiedad}}</option>
                         @endif
                         @endforeach
                   </select>
                   
                   </div>
-
-
-
                   <div class="form-group col-12">
                         <label for="imagen">Imágen: ( 4x3 ) *</label>
                         <input type="file" class="form-control-file" id="txtImagenes" name="txtImagenes">
+                  </div>
+                  <div class="form-group col-12">
+                        <img style="width: 20%;" src="/files/{{ $imagen->imagen }}" alt="">
                   </div>
             </div>
       </form>
@@ -95,7 +93,7 @@ if (isset($msg)) {
             function eliminar() {
                   $.ajax({
                         type: "GET",
-                        url: "{{ asset('admin/propiedad/eliminar') }}",
+                        url: "{{ asset('admin/imagen/eliminar') }}",
                         data: {
                               id: globalId
                         },

@@ -12,8 +12,8 @@
     <li class="breadcrumb-item active">Propiedades</a></li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/imagenes/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
-    <li class="btn-item"><a title="Recargar" href="#" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/imagenes");'><span>Recargar</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/imagen/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Recargar" href="#" class="fa fa-refresh" aria-hidden="true" onclick='window.location.replace("/admin/imagen");'><span>Recargar</span></a></li>
 </ol>
 @endsection
 @section('contenido')

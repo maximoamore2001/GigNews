@@ -1,16 +1,6 @@
 @extends("web.plantilla")
 @section("banner")
 
-<div class="page-heading header-text">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <span class="breadcrumb"><a href="#">Home</a> / Single Property</span>
-        <h3>Single Property</h3>
-      </div>
-    </div>
-  </div>
-</div>
 
 @endsection
 @section("contenido")
@@ -23,6 +13,12 @@
           <div class="main-banner">
             <div class="owl-carousel owl-banner">
               <img src="/files/{{ $producto->imagen }}" alt="">
+              @foreach($aImagenes as $imagen)
+              @if($producto->idpropiedad == $imagen->fk_idpropiedad )
+              <img src="/files/{{ $imagen->imagen }}" alt="">
+              @else ''
+              @endif
+              @endforeach
             </div>
           </div>
         </div>

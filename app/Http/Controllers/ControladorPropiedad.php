@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\entidades\Sistema\Patente;
 use App\entidades\Sistema\Usuario;
 
-use App\Entidades\Producto;
-use App\Entidades\tipo_producto;
-use App\Entidades\pedido;
 use App\entidades\propiedad;
 use App\entidades\tipo_propiedad;
 use Illuminate\Http\Request;

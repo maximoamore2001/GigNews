@@ -144,7 +144,7 @@ class propiedad extends Model
                 descripcion,
                 imagen,
                 fk_idtipopropiedad
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->cantidadhabitaciones,
             $this->cantidadbanios,

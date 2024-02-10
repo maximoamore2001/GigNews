@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\entidades\Producto;
 use App\entidades\propiedad;
 use App\entidades\sucursal;
-use App\entidades\tipo_producto;
 use App\entidades\tipo_propiedad;
 
 class ControladorWebCasas extends Controller
 {
       public function index()
       {
-        
+            $imagen = new Imagen();
+            $aImagenes = $imagen->obtenerTodos();
+
             $titulo = "Listado de categorias";
     
             $propiedad = new propiedad();
@@ -24,6 +24,6 @@ class ControladorWebCasas extends Controller
             $sucursal = new sucursal();
             $aSucursales = $sucursal->obtenerTodos();
     
-            return view("web.Casas", compact("aSucursales", 'aCategorias', 'aPropiedades',));
+            return view("web.Casas", compact("aSucursales", 'aCategorias', 'aPropiedades', 'aImagenes'));
       }
 }

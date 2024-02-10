@@ -11,14 +11,14 @@ class Imagen extends Model
     public $timestamps = false;
 
     protected $fillable = [ //son los campos de la tabla imagenes en la BBDD
-        'idimagenes', 'imagen', 'nombre' , 'fk_idpropiedad',
+        'idimagen', 'imagen', 'nombre' , 'fk_idpropiedad',
     ];
 
     protected $hidden = [];
 
     public function cargarDesdeRequest($request)
     {
-        $this->idimagenes = $request->input('id') != "0" ? $request->input('id') : $this->idimagenes;
+        $this->idimagen = $request->input('id') != "0" ? $request->input('id') : $this->idimagen;
         $this->imagen = $request->input('txtImagenes');
         $this->nombre = $request->input('txtNombre');
         $this->fk_idpropiedad = $request->input('lstIdpropiedad');
@@ -27,7 +27,7 @@ class Imagen extends Model
     public function obtenerTodos()
     {
         $sql = "SELECT
-                  idimagenes,
+                  idimagen,
                   nombre,
                   imagen,
                   fk_idpropiedad
@@ -36,18 +36,18 @@ class Imagen extends Model
         return $lstRetorno;
     }
 
-    public function obtenerPorId($idimagenes)
+    public function obtenerPorId($idimagen)
     {
         $sql = "SELECT
-                  idimagenes,
-                  imagen,
+                  idimagen,
                   nombre,
+                  imagen,
                   fk_idpropiedad
-                FROM imagenes WHERE idimagenes = $idimagenes";
+                FROM imagenes WHERE idimagen = $idimagen";
         $lstRetorno = DB::select($sql);
 
         if (count($lstRetorno) > 0) {
-            $this->idimagenes = $lstRetorno[0]->idimagenes;
+            $this->idimagen = $lstRetorno[0]->idimagen;
             $this->nombre = $lstRetorno[0]->nombre;
             $this->imagen = $lstRetorno[0]->imagen;
             $this->fk_idpropiedad = $lstRetorno[0]->fk_idpropiedad;
@@ -62,16 +62,16 @@ class Imagen extends Model
         $sql = "UPDATE imagenes SET
           nombre='$this->nombre',
           imagen='$this->imagen',
-          fk_idpropiedad=$this->fk_idpropiedad,
-          WHERE idimagenes=?";
-        $affected = DB::update($sql, [$this->idimagenes]);
+          fk_idpropiedad=$this->fk_idpropiedad
+          WHERE idimagen=?";
+        $affected = DB::update($sql, [$this->idimagen]);
     }
 
     public function eliminar()
     {
         $sql = "DELETE FROM imagenes WHERE
-            idimagenes=?";
-        $affected = DB::delete($sql, [$this->idimagenes]);
+            idimagen=?";
+        $affected = DB::delete($sql, [$this->idimagen]);
     }
 
     public function insertar()
@@ -80,13 +80,13 @@ class Imagen extends Model
                 nombre,
                 imagen,
                 fk_idpropiedad
-            ) VALUES (?, ?, ?,);";
+            ) VALUES (?, ?, ?);";
         $result = DB::insert($sql, [
             $this->nombre,
             $this->imagen,
-            $this->fk_idpropiedad,
+            $this->fk_idpropiedad
         ]);
-        return $this->idimagenes = DB::getPdo()->lastInsertId();
+        return $this->idimagen = DB::getPdo()->lastInsertId();
     }
 
     public function obtenerFiltrado()
@@ -98,7 +98,7 @@ class Imagen extends Model
             2 => 'fk_idpropiedad',
         );
         $sql = "SELECT DISTINCT
-                  idimagenes,
+                  idimagen,
                   nombre,
                   imagen,
                   fk_idpropiedad

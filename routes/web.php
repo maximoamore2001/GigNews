@@ -247,8 +247,8 @@ Route::get('/propiedad-detallada/{idpropiedad}', 'ControladorWebPropiedadDetalla
 /* --------------------------------------------- */
 /* CONTROLADOR imagenes                           */
 /* --------------------------------------------- */
-Route::get('/admin/imagenes/nuevo', 'ControladorImagen@nuevo');
-Route::post('/admin/imagenes/nuevo', 'ControladorImagen@guardar');
+Route::get('/admin/imagen/nuevo', 'ControladorImagen@nuevo');
+Route::post('/admin/imagen/nuevo', 'ControladorImagen@guardar');
 Route::get('/admin/imagenes', 'ControladorImagen@index');
 Route::get('/admin/sistema/imagenes/cargarGrilla', 'ControladorImagen@cargarGrilla')->name('imagenes.cargarGrilla');
 Route::get('/admin/imagen/eliminar', 'ControladorImagen@eliminar');
