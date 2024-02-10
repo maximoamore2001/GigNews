@@ -24,9 +24,9 @@ if (isset($msg)) {
 }
 ?>
 <!-- escritorio -->
-    <table id="grilla" class=" display bg-dark">
-        <thead>
-            <tr style="color: white;">
+<table style="background-color: #84B6F4;"  id="grilla" class="display">
+    <thead>
+    <tr style="color: #000;">
                 <th>Título</th>
                 <th>Precio</th>
                 <th>país</th>

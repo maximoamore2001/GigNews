@@ -23,9 +23,9 @@ if (isset($msg)) {
     echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
 }
 ?>
-<table id="grilla" class="display bg-dark">
+<table style="background-color: #84B6F4;"  id="grilla" class="display">
     <thead>
-    <tr style="color: white;">
+    <tr style="color: #000;">
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Whatsapp</th>

@@ -214,7 +214,11 @@ body, span, a, td, select, option, .filter-option-inner-inner {
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+
 .dropdown-menu .dropdown-item {
+    font-weight: 500;
+    color: #000;
         display: block;
     white-space: pre;
     min-height: 1.2em;
@@ -223,6 +227,13 @@ body, span, a, td, select, option, .filter-option-inner-inner {
     --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
         font-size: 0.9rem !important;
 }
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #84B6F4;
+    color: #000;
+}
+
+
 textarea {
     height: 5rem !important;
 }
