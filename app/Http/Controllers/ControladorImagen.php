@@ -119,7 +119,7 @@ class ControladorImagen extends Controller
         for ($i = $inicio; $i < count($aImagenes) && $cont < $registros_por_pagina; $i++) {
             $row = array();
             $row[] = "<a href='/admin/imagen/" . $aImagenes[$i]->idimagen . "'>" . $aImagenes[$i]->nombre . "</a>";
-            $row[] = "<img width='200px' src='/files/" . $aImagenes[$i]->imagen . "'>";
+            $row[] = "<img width='60px' src='/files/" . $aImagenes[$i]->imagen . "'>";
             $row[] = $aImagenes[$i]->fk_idpropiedad;
             $cont++;
             $data[] = $row;
@@ -153,17 +153,12 @@ class ControladorImagen extends Controller
     public function eliminar(request $request)
     {
         if (Usuario::autenticado() == true) {
-            if (!Patente::autorizarOperacion("IMAGENESBAJA")) {
-                $resultado["err"] = EXIT_FAILURE;
-                $resultado["mensaje"] = "No tiene permisos para la operación.";
-            } else {
                     //Sino si.
                     $imagen = new imagen();
                     $imagen->idimagen = $request->input("id");
                     $imagen->eliminar();
                     $resultado["err"] = EXIT_SUCCESS;
                     $resultado["mensaje"] = "Registro eliminado exitosamente.";
-                }
             
         } else {
             $resultado["err"] = EXIT_FAILURE;

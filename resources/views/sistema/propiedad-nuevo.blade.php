@@ -1,7 +1,7 @@
 @extends("plantilla")
 
 @section('titulo')
-Nuevo Producto
+Nueva Propiedad
 @endsection
 
 @section('scripts')
@@ -105,7 +105,8 @@ if (isset($msg)) {
                   </select>
                   </div>
                   <div class="form-group col-6">
-                        <label for="imagen">Imagen: ( 4x3 ) *</label>
+                        <label for="imagen">Imagen: <span style="color: black;">(Formato: 4:3 )</span>*</label>
+                        <p style="font-size: 1em;"><a href="https://compressnow.com/es/" target="_blank"> Compresor de imágenes</a> (seleccionar <b>70%</b> de compresión)</p>
                         <input type="file" class="form-control-file" id="txtImagen" name="txtImagen">
                   </div>
                   <div class="form-group col-6">

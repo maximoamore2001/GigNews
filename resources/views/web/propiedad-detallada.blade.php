@@ -5,7 +5,7 @@
 @endsection
 @section("contenido")
 
-<div class="single-property section">
+<div style="margin-top: 18px;" class="single-property">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
@@ -33,11 +33,11 @@
           <ul>
             <li>
               <img src="/files/bolsa-de-dinero.png" alt="" style="max-width: 52px;">
-              <h4>{{ number_format($producto->precio, 0, ',', '.') }}<br><span>Precio</span></h4>
+              <h4>U$S {{ number_format($producto->precio, 0, ',', '.') }}<br><span>Precio</span></h4>
             </li>
             <li>
               <img src="/files/superficie.png" alt="" style="max-width: 52px;">
-              <h4>{{ $producto->areapropiedad }}m2 <br><span>Superficie Total</span></h4>
+              <h4>{{ $producto->areapropiedad }} m2 <br><span>Superficie Total</span></h4>
             </li>
             <li>
               <img src="/files/habitaciones.png" alt="" style="max-width: 52px;">

@@ -13,13 +13,13 @@
     <div class="item item-2">
       <div class="header-text">
         <span class="category">Montevideo, <em>Uruguay</em></span>
-        <h2>Comprá<br> el mejor <br>departamento para ti</h2>
+        <h2>Comprá<br> el mejor loft<br> para ti</h2>
       </div>
     </div>
     <div class="item item-3">
       <div class="header-text">
         <span class="category">Rosario, <em>Argentina</em></span>
-        <h2>Comprá <br> la mejor <br>oficina para trabajar</h2>
+        <h2>Comprá <br> la oficina <br>de tus sueños</h2>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@
                         <li>Superficie <span>{{ $propiedad->areapropiedad }} m2</span></li>
                         <li>Baños <span>{{ $propiedad->cantidadbanios }}</span></li>
                         <li>Habitaciones <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
-                        <li>Garages <span>{{ $propiedad->garage }}</span></li>
+                        <li>País <span>{{ $propiedad->pais }}</span></li>
                         <li>Ciudad <span>{{ $propiedad->ciudad }}</span></li>
                       </ul>
                     </div>
@@ -76,11 +76,11 @@
                   </div>
                   <div class="col-lg-3">
                     <h4>Información extra</h4>
-                    <p>{{ $propiedad->descripcion }}
+                    <p class="text__description">{{ $propiedad->descripcion }}
                       <br>
                     </p>
-                    <div class="icon-button">
-                      <a href="property-details.html"><i class="fa fa-calendar"></i> Contactar</a>
+                    <div class="btn__more">
+                      <a href="/propiedad-detallada/{{ $propiedad->idpropiedad }}"></i> Ver propiedad</a>
                     </div>
                   </div>
                   @else ("")
@@ -98,7 +98,7 @@
                       <li>Superficie <span>{{ $propiedad->areapropiedad }} m2</span></li>
                         <li>Baños <span>{{ $propiedad->cantidadbanios }}</span></li>
                         <li>Habitaciones <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
-                        <li>Garages <span>{{ $propiedad->garage }}</span></li>
+                        <li>País <span>{{ $propiedad->pais }}</span></li>
                         <li>Ciudad <span>{{ $propiedad->ciudad }}</span></li>
                       </ul>
                     </div>
@@ -108,11 +108,11 @@
                   </div>
                   <div class="col-lg-3">
                     <h4>Información extra</h4>
-                    <p>{{ $propiedad->descripcion }}
+                    <p class="text__description">{{ $propiedad->descripcion }}
                       <br>
                     </p>
-                    <div class="icon-button">
-                      <a href="property-details.html"><i class="fa fa-calendar"></i> Contactar</a>
+                    <div class="btn__more">
+                      <a href="/propiedad-detallada/{{ $propiedad->idpropiedad }}"></i> Ver propiedad</a>
                     </div>
                   </div>
                   @else ("")
@@ -123,14 +123,14 @@
               <div class="tab-pane fade" id="penthouse" role="tabpanel" aria-labelledby="penthouse-tab">
                 <div class="row">
                 @foreach($aPropiedades as $propiedad)
-                  @if($propiedad->idpropiedad && $propiedad->idpropiedad == "72")
+                  @if($propiedad->idpropiedad && $propiedad->idpropiedad == "82")
                   <div class="col-lg-3">
                     <div class="info-table">
                       <ul>
                         <li>Superficie <span>{{ $propiedad->areapropiedad }} m2</span></li>
                         <li>Baños <span>{{ $propiedad->cantidadbanios }}</span></li>
                         <li>Habitaciones <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
-                        <li>Garages <span>{{ $propiedad->garage }}</span></li>
+                        <li>País <span>{{ $propiedad->pais }}</span></li>
                         <li>Ciudad <span>{{ $propiedad->ciudad }}</span></li>
                       </ul>
                     </div>
@@ -140,11 +140,11 @@
                   </div>
                   <div class="col-lg-3">
                     <h4>Información extra</h4>
-                    <p>{{ $propiedad->descripcion }}
+                    <p class="text__description">{{ $propiedad->descripcion }}
                       <br>
                     </p>
-                    <div class="icon-button">
-                      <a href="property-details.html"><i class="fa fa-calendar"></i> Contactar</a>
+                    <div class="btn__more">
+                      <a href="/propiedad-detallada/{{ $propiedad->idpropiedad }}"></i> Ver propiedad</a>
                     </div>
                   </div>
                   @else ("")
@@ -173,16 +173,14 @@
       @foreach($aPropiedades as $propiedad)
       @if($propiedad->fk_idtipopropiedad)
       <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 600px;">
-          <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'>" ?>  ><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
+        <div class="item" style="min-height: 500px;">
+          <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
           <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
           <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
           <ul>
             <li>Habitaciones: <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
             <li>Baños: <span>{{ $propiedad->cantidadbanios }}</span></li>
             <li>Área: <span>{{ $propiedad->areapropiedad }} m2</span></li>
-            <li>Plantas: <span>{{ $propiedad->cantidadplantas }}</span></li>
-            <li>Garages: <span>{{ $propiedad->garage }}</span></li>
           </ul>
           <div class="main-button">
             <a href="property-details.html">Contactarse</a>
@@ -289,7 +287,7 @@
 
 <!-- contact section -->
 
-<div class="contact section">
+<div class="contact" style="margin-top: 50px;">
   <div class="container">
     <div class="row">
       <div class="col-lg-4 offset-lg-4">

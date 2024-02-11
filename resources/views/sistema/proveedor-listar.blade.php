@@ -23,9 +23,9 @@ if (isset($msg)) {
     echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
 }
 ?>
-<table id="grilla" class="display">
+<table style="background-color: #32753f;"  id="grilla" class="display">
     <thead>
-        <tr>
+    <tr style="color: #fff;">
             <th>Nombre</th>
             <th>domicilio</th>
             <th>cuit</th>

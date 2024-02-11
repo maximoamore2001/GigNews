@@ -24,9 +24,9 @@ if (isset($msg)) {
 }
 ?>
 <!-- escritorio -->
-<table style="background-color: #84B6F4;"  id="grilla" class="display">
+<table style="background-color: #32753f;"  id="grilla" class="display">
     <thead>
-    <tr style="color: #000;">
+    <tr style="color: #fff;">
                 <th>nombre</th>
                 <th>imagen</th>
                 <th>fk_idpropiedad</th>
