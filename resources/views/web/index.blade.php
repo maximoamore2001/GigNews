@@ -173,7 +173,7 @@
       @foreach($aPropiedades as $propiedad)
       @if($propiedad->fk_idtipopropiedad)
       <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 400px;">
+        <div class="item" style="min-height: 450px;">
           <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
           <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
           <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
@@ -183,7 +183,7 @@
             <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedad->cantidadbanios }}</span></li>
             <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedad->garage }}</span></li>
           </ul>
-          <div class="btn__contact">
+          <div class="btn__contact mt-2">
           <a href="/contacto">Contactar</a>
           </div>
         </div>
