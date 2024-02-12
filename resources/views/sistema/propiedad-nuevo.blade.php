@@ -14,8 +14,7 @@ Nueva Propiedad
 @section('breadcrumb')
 <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-      <li class="breadcrumb-item"><a href="/admin/propiedades">propiedades</a></li>
-      <li class="breadcrumb-item active">Modificar</li>
+      <li class="breadcrumb-item"><a href="/admin/productos">propiedades</a></li>
 </ol>
 <ol class="toolbar">
       <li class="btn-item"><a title="Nuevo" href="/admin/propiedad/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
