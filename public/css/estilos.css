@@ -3,7 +3,7 @@ h1{
 }
 @media (min-width: 768px){
 .sidebar {
-    width: 215px !important;
+    width: 235px !important;
 }
 }
 #lstAsig,#lstNoAsig{

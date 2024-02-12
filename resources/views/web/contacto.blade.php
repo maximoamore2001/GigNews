@@ -55,12 +55,12 @@
     <div class="row text-center">
       <div class="col-12 col-lg-6 p-4">
         <div class="card shadow p-5">
-          <h6>0800-2020-2020<br><span style="color: #42bc5aa4;">Numero telefónico</span></h6>
+          <h6>0800-2020-2020<br><span class="colour__primary">Numero telefónico</span></h6>
         </div>
       </div>
       <div class="col-12 col-lg-6 p-4">
         <div class="card shadow p-5">
-          <h6>Terranova@gmail.com<br><span style="color: #42bc5aa4;">Correo electrónico</span></h6>
+          <h6>Terranova@gmail.com<br><span class="colour__primary">Correo electrónico</span></h6>
         </div>
       </div>
       <div class="col-lg-12 ">

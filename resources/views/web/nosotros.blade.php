@@ -62,35 +62,49 @@
     </div>
   </div>
 
-  <div class="fun-facts">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="wrapper">
+  <div class="container contact-page section">
+  <div class="row">
+  <div class="d-none d-sm-none d-md-block col-lg-3"></div>
+      <div class="col-lg-6 col-12 pt-5 mb-0">
+        <div>
+          <form id="contact-form" class="m-0" action="" method="post">
             <div class="row">
-              <div class="col-lg-4">
-                <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="34" data-speed="1000"></h2>
-                   <p class="count-text ">Edificios<br>Terminados</p>
-                </div>
+              <div class="col-lg-12">
+                  <h5 class="pb-4">Trabajá con nosotros:</h5>
+                <fieldset>
+                  <input type="name" name="name" id="name" placeholder="Nombre..." autocomplete="on" required>
+                </fieldset>
               </div>
-              <div class="col-lg-4">
-                <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="12" data-speed="1000"></h2>
-                  <p class="count-text ">Años<br>de experiencia</p>
-                </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <input type="subject" name="subject" id="subject" placeholder="Apellido..." autocomplete="on">
+                </fieldset>
               </div>
-              <div class="col-lg-4">
-                <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="24" data-speed="1000"></h2>
-                  <p class="count-text ">Premios<br> 2023</p>
-                </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Mail..." required="">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <input type="puesto" name="subject" id="subject" placeholder="puesto de trabajo..." autocomplete="on" >
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                  <input style="background: none;" type="file" name="file" id="file" required="">
+              </div>
+              
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="orange-button">ENVIAR</button>
+                </fieldset>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
+      <div class="d-none d-sm-none d-md-block col-lg-3"></div>
     </div>
-  </div>
+    </div>
 
 @endsection

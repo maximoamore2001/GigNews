@@ -40,7 +40,7 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="/" class="logo">
-                        <h1>Terra<span style="color: #42bc5a;">nova</span></h1>
+                        <h1>Terra<span class="colour__primary">nova</span></h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -67,10 +67,10 @@ https://templatemo.com/tm-591-villa-agency
   @yield("contenido")
 
   <footer>
-    <div class="container">
+    <div class="container py-5">
       <div class="col-lg-8">
         <p>Copyright © 2024 Terranova Company. Todos los derechos reservados por:
-         <a style="color: #42bc5a;" href="http://digitex.com.ar">DigitexArgentina</a> </p>
+         <a class="colour__primary" href="http://digitex.com.ar">DigitexArgentina</a> </p>
       </div>
     </div>
   </footer>
