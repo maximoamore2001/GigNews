@@ -5,7 +5,7 @@
 @endsection
 @section("contenido")
 
-<div style="margin-top: 18px;" class="single-property">
+<div class="single-property section">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
@@ -23,9 +23,9 @@
           </div>
         </div>
         <div class="main-content">
-          <span class="category">{{ $producto->direccion }}</span>
+          <span class="category mt-0">{{ $producto->direccion }} | {{ $producto->ciudad }} | {{ $producto->pais }}</span>
           <h4> {{ $producto->titulo }} </h4>
-          <p style="font-size: 1.3em;"> {{ $producto->descripcion }} </p>
+          <p style="font-size: 1.1em; width: 95%;"> {{ $producto->descripcion }} </p>
         </div>
       </div>
       <div class="col-lg-4">
@@ -50,14 +50,6 @@
             <li>
               <img src="/files/garage.png" alt="" style="max-width: 52px;">
               <h4>{{ $producto->garage }}<br><span>Vehículos</span></h4>
-            </li>
-            <li>
-              <img src="/files/ciudad.png" alt="" style="max-width: 52px;">
-              <h4>{{ $producto->ciudad }}<br><span>Ciudad</span></h4>
-            </li>
-            <li>
-              <img src="/files/pais.png" alt="" style="max-width: 52px;">
-              <h4>{{ $producto->pais }}<br><span>País</span></h4>
             </li>
             <li>
               <img src="/files/plantas.png" alt="" style="max-width: 52px;">

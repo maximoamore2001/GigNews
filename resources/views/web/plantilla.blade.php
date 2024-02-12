@@ -49,7 +49,7 @@ https://templatemo.com/tm-591-villa-agency
                       <li><a href="/casas" class="<?php echo (Request::path() == "casas") ? 'active' : ""; ?>">Casas</a></li>
                       <li><a href="/departamentos" class="<?php echo (Request::path() == "departamentos") ? 'active' : ""; ?>">Departamentos</a></li>
                       <li><a href="/oficinas" class="<?php echo (Request::path() == "oficinas") ? 'active' : ""; ?>">Oficinas</a></li>
-                      <li><a href="/nosotros"  class="<?php echo (Request::path() == "/nosotros") ? 'active' : ""; ?> ">Nosotros</a></li>
+                      <li><a href="/nosotros"  class="<?php echo (Request::path() == "nosotros") ? 'active' : ""; ?> ">Nosotros</a></li>
                       <li><a href="/contacto" class="<?php echo (Request::path() == "contacto") ? 'active' : ""; ?>"><i style="color: #fff;" class="fa fa-calendar"></i> Contactarse</a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -69,9 +69,8 @@ https://templatemo.com/tm-591-villa-agency
   <footer>
     <div class="container">
       <div class="col-lg-8">
-        <p>Copyright © 2048 Villa Agency Co., Ltd. All rights reserved. 
-        
-        Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution: <a href="https://themewagon.com">ThemeWagon</a></p>
+        <p>Copyright © 2024 Terranova Company. Todos los derechos reservados por:
+         <a style="color: #42bc5a;" href="http://digitex.com.ar">DigitexArgentina</a> </p>
       </div>
     </div>
   </footer>

@@ -187,10 +187,22 @@ body {
   transition: ease-in-out .3s;
 }
 .btn__more a:hover{ 
-  background-color: #000000;
+  background-color: #1e1e1e;
   color: white;
   padding: 10px;
   border-radius: 4px;
+  transition: ease-in-out .3s;
+}
+
+.btn__contact a{
+  background-color: #1e1e1e;
+  color: white;
+  padding: 10px;
+  transition: ease-in-out .3s;
+}
+
+.btn__contact a:hover{ 
+  background-color: #42BC5A;
   transition: ease-in-out .3s;
 }
 
@@ -229,7 +241,7 @@ body {
 }
 
 .main-button a:hover {
-  background-color: #32753f;
+  background-color: #42BC5A;
   color: #fff;
 }
 
@@ -490,7 +502,7 @@ Header Style
 }
 
 .header-area .main-nav .nav li:last-child a {
-  background-color: #000;
+  background-color: #1e1e1e;
   color: #fff;
   font-size: 15px;
   font-weight: 400;
@@ -670,7 +682,7 @@ Header Style
     font-weight: 400;
     color: #1e1e1e;
     background-color: #fff;
-     border-radius: 0px 0px 25px 25px;
+     border-radius: 0px;
   }
   .background-header .main-nav .nav li,
   .header-area .main-nav .nav li {
@@ -845,7 +857,7 @@ Banner Style
   line-height: 50px;
   font-size: 24px;
   display: inline-block;
-  color: #000;
+  color: #1e1e1e;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   opacity: 1;
@@ -1183,19 +1195,16 @@ Properties Style
 */
 
 .properties{
-  margin-top: 150px;
 }
 
 .properties .item {
-  background-color: #e7e7e7;
+  background-color: #1e1e1e1b;
   border-radius: 10px;
   padding: 30px;
   margin-bottom: 30px;
+  max-height: 500px;
 }
 
-.properties .item img {
-  border-radius: 10px;
-}
 
 .properties .item span.category {
   background-color: #fbd9cf;
@@ -1210,7 +1219,7 @@ Properties Style
 
 .properties .item h4 {
   font-size: 19px;
-  margin: 25px 0px;
+  margin: 10px 0px 0 0;
 }
 
 .properties .item h4 a {
@@ -1231,21 +1240,18 @@ Properties Style
 }
 
 .properties .item ul {
-  border-bottom: 1px solid #eaeaea;
-  margin-bottom: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
 
 .properties .item h6 {
-  font-size: 19px;
-  color: #42bc5a;
-  background-color: #fff;
+  font-size: 18px;
+  color: #fff;
+  background-color: #42bc5a;
   padding: 8px 8px 6px 8px;
-  border-radius: 10px;
   margin-top: 6px;
   display: inline-block;
   float: right;
-  margin-top: 30px;
+  margin-top: 0px;
 }
 
 .properties .item .main-button {
@@ -1413,7 +1419,8 @@ Page Header Style
 */
 
 .page-heading {
-  background: #32753f;
+  background: #1E1E1E;
+  border-bottom: solid 3px #42BC5A;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1533,18 +1540,16 @@ Single Page Style
 .single-property .main-content h4 {
   font-size: 25px;
   margin-top: 25px;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #eee;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
 }
 
 .single-property .main-content span.category {
-  background-color: #fbd9cf;
+  background-color: #42BC5A;
   font-weight: 500;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #1e1e1e;
-  padding: 5px 12px;
+  font-size: 16px;
+  color: #fff;
+  padding: 5px 20px;
   display: inline-block;
   margin-top: 40px;
 }

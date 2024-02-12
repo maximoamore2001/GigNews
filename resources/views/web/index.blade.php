@@ -13,13 +13,13 @@
     <div class="item item-2">
       <div class="header-text">
         <span class="category">Montevideo, <em>Uruguay</em></span>
-        <h2>Comprá<br> el mejor loft<br> para ti</h2>
+        <h2>Conseguí<br> el mejor<br> loft<br> para ti</h2>
       </div>
     </div>
     <div class="item item-3">
       <div class="header-text">
         <span class="category">Rosario, <em>Argentina</em></span>
-        <h2>Comprá <br> la oficina <br>de tus sueños</h2>
+        <h2>Adquirí <br> la oficina <br>de tus<br> sueños</h2>
       </div>
     </div>
   </div>
@@ -173,17 +173,18 @@
       @foreach($aPropiedades as $propiedad)
       @if($propiedad->fk_idtipopropiedad)
       <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 500px;">
+        <div class="item" style="min-height: 400px;">
           <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
           <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
           <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
           <ul>
-            <li>Habitaciones: <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
-            <li>Baños: <span>{{ $propiedad->cantidadbanios }}</span></li>
-            <li>Área: <span>{{ $propiedad->areapropiedad }} m2</span></li>
+          <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedad->areapropiedad }} m2</span></li>
+            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
+            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedad->cantidadbanios }}</span></li>
+            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedad->garage }}</span></li>
           </ul>
-          <div class="main-button">
-            <a href="property-details.html">Contactarse</a>
+          <div class="btn__contact">
+          <a href="/contacto">Contactar</a>
           </div>
         </div>
       </div>
@@ -304,7 +305,7 @@
     <div class="row">
       <div class="col-lg-7">
         <div id="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12469.776493332698!2d-80.14036379941481!3d25.907788681148624!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x88d9add4b4ac788f%3A0xe77469d09480fcdb!2sSunny%20Isles%20Beach!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth" width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d66903.23202208424!2d-60.766331442890476!3d-32.933850152152964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab16355e7da7%3A0x46ca798240386515!2sCrestale%20Propiedades!5e1!3m2!1sen!2sth!4v1707725135145!5m2!1sen!2sth" width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
         </div>
         <div class="row">
           <div class="col-lg-6">

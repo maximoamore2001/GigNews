@@ -10,9 +10,7 @@ class ControladorWebNosotros extends Controller
 {
     public function index()
     {
-        $sucursal = new sucursal();
-        $aSucursales = $sucursal->obtenerTodos();
-        return view("web.Nosotros", compact("aSucursales"));
+        return view("web.nosotros");
     }
 
     public function insertarPostulacion(request $request)

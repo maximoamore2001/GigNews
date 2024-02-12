@@ -21,19 +21,18 @@
       @foreach($aPropiedades as $propiedad)
       @if($propiedad->idpropiedad && $propiedad->fk_idtipopropiedad == "3")
       <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 500px;">
+        <div class="item" style="min-height: 400px;">
         <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'" ?>  ><img style="max-width: 100%; height: 267px;"  src="/files/{{ $propiedad->imagen; }}" alt=""></a>
           <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
           <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
           <ul>
-          <li>Habitaciones: <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
-            <li>Baños: <span>{{ $propiedad->cantidadbanios }}</span></li>
-            <li>Área: <span>{{ $propiedad->areapropiedad }} m2</span></li>
-            <li>Plantas: <span>{{ $propiedad->cantidadplantas }}</span></li>
-            <li>Garages: <span>{{ $propiedad->garage }}</span></li>
+          <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedad->areapropiedad }} m2</span></li>
+            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
+            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedad->cantidadbanios }}</span></li>
+            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedad->garage }}</span></li>
           </ul>
-          <div class="main-button">
-            <a href="property-details.html">Contactarse</a>
+          <div class="btn__contact">
+          <a href="/contacto">Contactar</a>
           </div>
         </div>
       </div>

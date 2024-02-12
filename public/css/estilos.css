@@ -311,3 +311,6 @@ label {
 
 
 
+#grilla_filter label{
+    display: none;
+}
