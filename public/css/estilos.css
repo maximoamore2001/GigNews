@@ -33,6 +33,10 @@ h1{
     width: 160px !important;
 }
 
+.btn{
+    background-color: #32753f;
+}
+
 
 .back-colour, .side__bar{
     background-color: #191C24;

@@ -87,7 +87,7 @@
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <input type="puesto" name="subject" id="subject" placeholder="puesto de trabajo..." autocomplete="on" >
+                  <input type="puesto" name="subject" id="subject" placeholder="Localidad..." autocomplete="on" >
                 </fieldset>
               </div>
               <div class="col-lg-12">

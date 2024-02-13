@@ -89,8 +89,6 @@
   <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark static-top" style="background-color: #000;">
       <a class="navbar-brand mr-1" href="/">Administración</a>
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-        <i class="fas fa-bars"></i>
       </button>
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto">
