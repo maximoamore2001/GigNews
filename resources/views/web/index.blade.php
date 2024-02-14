@@ -172,8 +172,8 @@
 
     <div>
       <form action="{{ url()->current() }}" method="GET">
-        <div class="row pb-3">
-          <div class="col-3">
+        <div class="row pb-3 px-2">
+          <div class="col-6">
             <label for="orden">PRECIO:</label>
             <select class="form-control" name="orden" id="orden">
               <option value="" disabled selected>Seleccionar</option>
@@ -181,6 +181,8 @@
               <option value="desc">Mayor a Menor</option>
             </select>
           </div>
+
+          <!--
           <div class="col-3">
             <label for="orden">HABITACIONES:</label>
             <select class="form-control" name="orden" id="orden">
@@ -197,7 +199,8 @@
               <option value="desc">Mayor a Menor</option>
             </select>
           </div>
-          <div class="col-3">
+-->
+          <div class="col-6">
             <br>
             <button style="width: 100%; height: 38px;" type="submit">APLICAR</button>
           </div>
@@ -228,20 +231,20 @@
       @endforeach
     </div>
 
-    @elseif (isset($_POST['asc']))
+    @elseif ($orden == 'asc')
 
     <div class="row">
-      @foreach($aPropiedadesMenorMayor as $propiedad)
+      @foreach($aPropiedadesMenorMayor as $propiedadmenormayor)
       <div class="col-lg-4 col-md-6">
         <div class="item" style="min-height: 450px;">
-          <a <?php echo "<a href='/propiedad-detallada/" . $aPropiedadesMenorMayor->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $aPropiedadesMenorMayor->imagen; }}" alt=""></a>
-          <h6>$ {{ number_format($aPropiedadesMenorMayor->precio, 0, ',', '.') }}</h6>
-          <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $aPropiedadesMenorMayor->titulo }}</a></h4>
+          <a <?php echo "<a href='/propiedad-detallada/" . $propiedadmenormayor->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedadmenormayor->imagen; }}" alt=""></a>
+          <h6>$ {{ number_format($propiedadmenormayor->precio, 0, ',', '.') }}</h6>
+          <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedadmenormayor->titulo }}</a></h4>
           <ul>
-            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $aPropiedadesMenorMayor->areapropiedad }} m2</span></li>
-            <li><i class="fa-solid fa-bed"></i> <span>{{ $aPropiedadesMenorMayor->cantidadhabitaciones }}</span></li>
-            <li><i class="fa-solid fa-bath"></i> <span>{{ $aPropiedadesMenorMayor->cantidadbanios }}</span></li>
-            <li><i class="fa-solid fa-car-side"></i> <span>{{ $aPropiedadesMenorMayor->garage }}</span></li>
+            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedadmenormayor->areapropiedad }} m2</span></li>
+            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmenormayor->cantidadhabitaciones }}</span></li>
+            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedadmenormayor->cantidadbanios }}</span></li>
+            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedadmenormayor->garage }}</span></li>
           </ul>
           <div class="btn__contact mt-2">
             <a href="/contacto">Contactar</a>
@@ -251,7 +254,7 @@
       @endforeach
     </div>
 
-    @else
+    @elseif ($orden == '')
 
     <div class="row">
       @foreach($aPropiedades as $propiedad)

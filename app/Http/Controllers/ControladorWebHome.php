@@ -10,8 +10,6 @@ class ControladorWebHome extends Controller
 {
     public function index()
     {
-
-
         $titulo = "Listado de categorias";
 
         $propiedad = new propiedad();
@@ -32,20 +30,4 @@ class ControladorWebHome extends Controller
         return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades', 'aPropiedadesMayorMenor', 'aPropiedadesMenorMayor'));
     }
 
-    public function ordenar(request $request){
-        
-        $asc = 
-
-
-        $propiedad_mayor_menor = new propiedad();
-        $aPropiedadesMayorMenor = $propiedad_mayor_menor->ordenPrecioMayorMenor();
-
-        $propiedad_menor_mayor = new propiedad();
-        $aPropiedadesMenorMayor = $propiedad_menor_mayor->ordenPrecioMenorMayor();
-
-
-        return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades', 'aPropiedadesMayorMenor', 'aPropiedadesMenorMayor'));
-
-
-    }
 }

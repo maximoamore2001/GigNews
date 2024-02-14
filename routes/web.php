@@ -23,7 +23,6 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 
 
     Route::get('/', 'ControladorWebHome@index');
-    Route::post('/', 'ControladorWebHome@ordenar');
 
     Route::get('/casas', 'ControladorWebCasas@index');//CASAS
     Route::get('/departamentos', 'ControladorWebDepartamentos@index');//DEPARTAMENTOS
