@@ -11,67 +11,41 @@ class ControladorWebHome extends Controller
     public function index()
     {
 
-        
+
         $titulo = "Listado de categorias";
 
         $propiedad = new propiedad();
         $aPropiedades = $propiedad->obtenerTodos();
-        
+
+        $propiedad_mayor_menor = new propiedad();
+        $aPropiedadesMayorMenor = $propiedad_mayor_menor->ordenPrecioMayorMenor();
+
+        $propiedad_menor_mayor = new propiedad();
+        $aPropiedadesMenorMayor = $propiedad_menor_mayor->ordenPrecioMenorMayor();
+
         $categoria = new tipo_propiedad();
         $aCategorias = $categoria->obtenerTodos();
 
         $sucursal = new sucursal();
         $aSucursales = $sucursal->obtenerTodos();
 
-        return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades'));
+        return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades', 'aPropiedadesMayorMenor', 'aPropiedadesMenorMayor'));
     }
 
-    
-    public function insertar(request $request)
-    {
-        $idcliente = Session::get("idcliente");
-
-        $producto = new producto();
-        $aProductos = $producto->obtenerTodos();
-
-        $categoria = new tipo_producto();
-        $aCategorias = $categoria->obtenerTodos();
-
-        $idproducto = $request->input("txtProducto");
-        $cantidad = $request->input("txtCantidad");
-
-        $sucursal = new sucursal();
-        $aSucursales = $sucursal->obtenerTodos();
-
-        $idproducto = $request->input("txtProducto");
-        $cantidad = $request->input("txtCantidad");
-
-        if (isset($idcliente) && $idcliente > 0) {
-            if (isset($cantidad) && $cantidad > 0) {
-                $carrito = new carrito();
-                $carrito->fk_idcliente = $idcliente;
-                $carrito->fk_idproducto = $idproducto;
-                $carrito->cantidad = $cantidad;
-                $carrito->insertar();
-
-                $msg["ESTADO"] = MSG_SUCCESS;
-                $msg["MSG"] = "producto agregado al carrito";
-                return view("web.takeaway", compact('msg', "aCategorias", "aProductos", "aSucursales"));
-            } else {
-                $msg["ESTADO"] = MSG_ERROR;
-                $msg["MSG"] = "no se agregó ningún producto al carrito";
-                return view("web.takeaway", compact('msg', "aCategorias", "aProductos", "aSucursales"));
-            }
-        } else {
-            $msg["ESTADO"] = MSG_ERROR;
-            $msg["MSG"] = "Debe iniciar sesión para realizar un pedido";
-            return view("web.takeaway", compact('msg', "aCategorias", "aProductos", "aSucursales"));
-        }
+    public function ordenar(request $request){
+        
+        $asc = 
 
 
+        $propiedad_mayor_menor = new propiedad();
+        $aPropiedadesMayorMenor = $propiedad_mayor_menor->ordenPrecioMayorMenor();
 
-        //return view("web.Takeaway", compact("aCategorias"));
+        $propiedad_menor_mayor = new propiedad();
+        $aPropiedadesMenorMayor = $propiedad_menor_mayor->ordenPrecioMenorMayor();
+
+
+        return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades', 'aPropiedadesMayorMenor', 'aPropiedadesMenorMayor'));
+
+
     }
 }
-
-

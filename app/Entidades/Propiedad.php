@@ -221,4 +221,57 @@ class propiedad extends Model
 
         return $lstRetorno;
     }
+
+
+    public function ordenPrecioMayorMenor()
+    {
+        $sql = "SELECT
+                A.idpropiedad,
+                A.cantidadhabitaciones,
+                A.cantidadbanios,
+                A.cantidadplantas,
+                A.pais,
+                A.ciudad,
+                A.direccion,
+                A.areapropiedad,
+                A.garage,
+                A.titulo,
+                A.precio,
+                A.descripcion,
+                A.imagen,
+                A.fk_idtipopropiedad,
+                B.nombre AS tipopropiedad
+            FROM propiedades A
+            INNER JOIN tipo_propiedad B ON A.fk_idtipopropiedad = B.idtipopropiedad
+            ORDER BY precio DESC";
+        $lstRetorno = DB::select($sql);
+        return $lstRetorno;
+    }
+
+    public function ordenPrecioMenorMayor()
+    {
+        $sql = "SELECT
+                A.idpropiedad,
+                A.cantidadhabitaciones,
+                A.cantidadbanios,
+                A.cantidadplantas,
+                A.pais,
+                A.ciudad,
+                A.direccion,
+                A.areapropiedad,
+                A.garage,
+                A.titulo,
+                A.precio,
+                A.descripcion,
+                A.imagen,
+                A.fk_idtipopropiedad,
+                B.nombre AS tipopropiedad
+            FROM propiedades A
+            INNER JOIN tipo_propiedad B ON A.fk_idtipopropiedad = B.idtipopropiedad
+            ORDER BY precio ASC";
+        $lstRetorno = DB::select($sql);
+        return $lstRetorno;
+    }
+
+
 }
