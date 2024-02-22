@@ -47,25 +47,26 @@
     @foreach($aPropiedadesMayorMenor as $propiedadmayormenor)
     <div class="p-2">
       <div class="row properties__box">
-        <div class="col-lg-3 col-12 p-0">
-          <div class="propertie__img p-0" style="">
-            <a <?php echo "href=/propiedad-detallada/$propiedadmayormenor->idpropiedad" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>
+        <div class="col-lg-4 col-12 p-0">
+          <div class="propertie__img p-0">
+            <a <?php echo "href=/propiedad-detallada/$propiedadmayormenor->idpropiedad" ?>><img style="width: 412px; height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>
           </div>
         </div>
-        <div class="col-lg-9 col-12 py-4">
-          <div class="propertie__info" style="">
-            <div class="p-1">
-              <h6>${{ number_format($propiedadmayormenor->precio, 0, ',', '.') }}</h6>
+        <div class="col-lg-8 col-12 py-4">
+          <div class="propertie__info">
+            <div class="p-1 pb-0 pt-0">
+              <h6 style="font-size: 22px;">${{ number_format($propiedadmayormenor->precio, 0, ',', '.') }}</h6>
             </div>
-            <div class="p-1">
-              <div><a <?php echo "href='/propiedad-detallada/" . $propiedadmayormenor->idpropiedad . "'" ?>>{{ $propiedadmayormenor->titulo }}</a></div>
+            <div class="p-1 pt-0">
+              <div><a class="propertie__title" <?php echo "href='/propiedad-detallada/" . $propiedadmayormenor->idpropiedad . "'" ?>>{{ $propiedadmayormenor->titulo }}</a></div>
+              <div><b>{{ $propiedadmayormenor->tipopropiedad }} en {{ $propiedadmayormenor->direccion }}.</b></div>
             </div>
             <ul class="row m-1 properties__information">
               <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmayormenor->cantidadhabitaciones }}</li>
               <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bath"></i> {{ $propiedadmayormenor->cantidadbanios }}</li>
               <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-car-side"></i> {{ $propiedadmayormenor->garage }}</li>
               <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmayormenor->cantidadhabitaciones }}</li>
-              <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmayormenor->areapropiedad }}m2</li>
+              <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmayormenor->areapropiedad }}m<sup>2</sup></li>
             </ul>
             <div class="p-1">
               <div class="col-12"><span>{{ $propiedadmayormenor->descripcion }}</span></div>
@@ -81,25 +82,26 @@
     @foreach($aPropiedadesMenorMayor as $propiedadmenormayor)
     <div class="p-2">
       <div class="row properties__box">
-        <div class="col-lg-3 col-12 p-0">
-          <div class="propertie__img p-0" style="">
-            <a <?php echo "href='/propiedad-detallada/" . $propiedadmenormayor->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedadmenormayor->imagen; }}" alt=""></a>
+        <div class="col-lg-4 col-12 p-0">
+          <div class="propertie__img p-0">
+            <a <?php echo "href=/propiedad-detallada/$propiedadmenormayor->idpropiedad" ?>><img style="width: 412px; height: 267px;" src="/files/{{ $propiedadmenormayor->imagen; }}" alt=""></a>
           </div>
         </div>
-        <div class="col-lg-9 col-12 py-4">
-          <div class="propertie__info" style="">
-            <div class="p-1">
-              <h6>${{ number_format($propiedadmenormayor->precio, 0, ',', '.') }}</h6>
+        <div class="col-lg-8 col-12 py-4">
+          <div class="propertie__info">
+            <div class="p-1 pt-0 pb-0">
+              <h6 style="font-size: 22px;">${{ number_format($propiedadmenormayor->precio, 0, ',', '.') }}</h6>
             </div>
-            <div class="p-1">
-              <div><a <?php echo "href=/propiedad-detallada/$propiedadmenormayor->idpropiedad" ?>>{{ $propiedadmenormayor->titulo }}</a></div>
+            <div class="p-1 pt-0">
+              <div><a class="propertie__title" <?php echo "href='/propiedad-detallada/" . $propiedadmenormayor->idpropiedad . "'" ?>>{{ $propiedadmenormayor->titulo }}</a></div>
+              <div><b>{{ $propiedadmenormayor->tipopropiedad }} en {{ $propiedadmenormayor->direccion }}.</b></div>
             </div>
-            <ul class="row p-1">
-              <li class="col-2 col-lg-1"><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmenormayor->cantidadhabitaciones }}</span></li>
-              <li class="col-2 col-lg-1"><i class="fa-solid fa-bath"></i> <span>{{ $propiedadmenormayor->cantidadbanios }}</span></li>
-              <li class="col-2 col-lg-1"><i class="fa-solid fa-car-side"></i> <span>{{ $propiedadmenormayor->garage }}</span></li>
-              <li class="col-2 col-lg-1"><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmenormayor->cantidadhabitaciones }}</span></li>
-              <li class="col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedadmenormayor->areapropiedad }} m2</span></li>
+            <ul class="row m-1 properties__information">
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmenormayor->cantidadhabitaciones }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bath"></i> {{ $propiedadmenormayor->cantidadbanios }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-car-side"></i> {{ $propiedadmenormayor->garage }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmenormayor->cantidadhabitaciones }}</li>
+              <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmenormayor->areapropiedad }}m<sup>2</sup></li>
             </ul>
             <div class="p-1">
               <div class="col-12"><span>{{ $propiedadmenormayor->descripcion }}</span></div>
@@ -132,8 +134,7 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="section-heading">
-          <h6>| Tipos de propiedades</h6>
-          <h2>Tenemos todo lo que necesitas</h2>
+          <h2>| Propiedades destacadas</h2>
         </div>
       </div>
       <div class="col-lg-12">

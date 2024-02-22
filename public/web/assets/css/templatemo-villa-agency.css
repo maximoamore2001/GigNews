@@ -1272,6 +1272,10 @@ Properties Style
     transition: ease-in-out .2s;
 }
 
+.propertie__title{
+  color: #42BC5A;
+}
+
 
 
 
@@ -1283,7 +1287,7 @@ Contact Style
 */
 
 .contact {
-  background: #42BC5A;
+  background: #1E1E1E;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
