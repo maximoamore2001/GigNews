@@ -434,7 +434,7 @@ Header Style
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
   transition: all .5s ease 0s;
-  border-bottom: 3px solid #42BC5A;
+  border-bottom: 3px solid #1E1E1E;
 }
 
 .header-area .main-nav {
@@ -527,7 +527,7 @@ Header Style
 }
 
 .header-area .main-nav .nav li:last-child:hover a {
-  background-color: #42BC5A;
+  background-color: #1E1E1E;
 }
 
 .header-area .main-nav .nav li:last-child:hover a i {
@@ -535,12 +535,12 @@ Header Style
 }
 
 .header-area .main-nav .nav li:hover a {
-  background-color: #42BC5A;
+  background-color: #1E1E1E;
   color: white;
 }
 
 .header-area .main-nav .nav li a.active {
-  background-color: #42BC5A;
+  background-color: #1E1E1E;
   color: white;
 }
 
@@ -1260,6 +1260,22 @@ Properties Style
 .properties .item .main-button {
   text-align: center;
 }
+
+.properties__box{
+  border: solid gray 1px;
+  transition: ease-in-out .2s;
+}
+
+
+.properties__box:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: ease-in-out .2s;
+}
+
+.propertie__info{
+
+}
+
 
 
 /* 

@@ -1,32 +1,139 @@
 @extends("web.plantilla")
 @section("banner")
-<!-- main section -->
 
-<div class="main-banner">
-  <div class="owl-carousel owl-banner">
-    <div class="item item-1">
-      <div class="header-text">
-        <span class="category">Buenos aires, <em>Argentina</em></span>
-        <h2>Comprá <br>la mejor <br>casa para tu familia</h2>
+
+<div class="properties section">
+  <div class="container">
+    <div>
+      <form action="{{ url()->current() }}" method="GET">
+        <div class="row pb-3 px-2">
+          <div class="col-6">
+            <label for="orden">PRECIO:</label>
+            <select class="form-control" name="orden" id="orden">
+              <option value="" disabled selected>Seleccionar</option>
+              <option value="asc">Menor a Mayor</option>
+              <option value="desc">Mayor a Menor</option>
+            </select>
+          </div>
+
+          <!--
+          <div class="col-3">
+            <label for="orden">HABITACIONES:</label>
+            <select class="form-control" name="orden" id="orden">
+              <option value="" disabled selected>Seleccionar</option>
+              <option value="asc">Menor a Mayor</option>
+              <option value="desc">Mayor a Menor</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <label for="orden">TIPO:</label>
+            <select class="form-control" name="orden" id="orden">
+              <option value="" disabled selected>Seleccionar</option>
+              <option value="asc">Menor a Mayor</option>
+              <option value="desc">Mayor a Menor</option>
+            </select>
+          </div>
+-->
+          <div class="col-6">
+            <br>
+            <button style="width: 100%; height: 38px;" type="submit">APLICAR</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <?php $orden = isset($_GET['orden']) ? $_GET['orden'] : 'asc'; ?>
+    @if ($orden == 'desc')
+    <div class="row">
+      @foreach($aPropiedadesMayorMenor as $propiedadmayormenor)
+      <div class="col-lg-4 col-md-6">
+        <div class="item" style="min-height: 450px;">
+          <a <?php echo "<a href='/propiedad-detallada/" . $propiedadmayormenor->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>
+          <h6>$ {{ number_format($propiedadmayormenor->precio, 0, ',', '.') }}</h6>
+             <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedadmayormenor->titulo }}</a></h4>
+          <ul>
+            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedadmayormenor->areapropiedad }} m2</span></li>
+            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmayormenor->cantidadhabitaciones }}</span></li>
+            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedadmayormenor->cantidadbanios }}</span></li>
+            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedadmayormenor->garage }}</span></li>
+          </ul>
+          <div class="btn__contact mt-2">
+            <a href="/contacto">Contactar</a>
+          </div>
+        </div>
+      </div>
+      @endforeach
+    </div>
+
+    @elseif ($orden == 'asc')
+    @foreach($aPropiedadesMenorMayor as $propiedadmenormayor)
+    <div class="p-2">
+      <div class="row properties__box">
+        <div class="col-lg-3 col-12 p-0">
+          <div class="propertie__img p-0" style="">
+            <a <?php echo "href='/propiedad-detallada/" . $propiedadmenormayor->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedadmenormayor->imagen; }}" alt=""></a>
+          </div>
+        </div>
+        <div class="col-lg-9 col-12 py-4">
+          <div class="propertie__info" style="">
+            <div class="p-1">
+              <h6>${{ number_format($propiedadmenormayor->precio, 0, ',', '.') }}</h6>
+            </div>
+            <div class="p-1">
+              <div><a <?php echo "href='/propiedad-detallada/" . $propiedadmenormayor->idpropiedad . "'" ?> >{{ $propiedadmenormayor->titulo }}</a></div>
+            </div>
+            <ul class="row p-1">
+              <li class="col-2 col-lg-1"><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmenormayor->cantidadhabitaciones }}</span></li>
+              <li class="col-2 col-lg-1"><i class="fa-solid fa-bath"></i> <span>{{ $propiedadmenormayor->cantidadbanios }}</span></li>
+              <li class="col-2 col-lg-1"><i class="fa-solid fa-car-side"></i> <span>{{ $propiedadmenormayor->garage }}</span></li>
+              <li class="col-2 col-lg-1"><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmenormayor->cantidadhabitaciones }}</span></li>
+              <li class="col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedadmenormayor->areapropiedad }} m2</span></li>
+            </ul>
+            <div class="p-1">
+              <div class="col-12"><span>{{ $propiedadmenormayor->descripcion }}</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="item item-2">
-      <div class="header-text">
-        <span class="category">Montevideo, <em>Uruguay</em></span>
-        <h2>Conseguí<br> el mejor<br> loft<br> para ti</h2>
+    @endforeach
+    @elseif ($orden == '')
+
+    <div class="row">
+      @foreach($aPropiedades as $propiedad)
+      <div class="col-lg-4 col-md-6">
+        <div class="item" style="min-height: 450px;">
+          <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
+          <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
+          <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
+          <ul>
+            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedad->areapropiedad }} m2</span></li>
+            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
+            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedad->cantidadbanios }}</span></li>
+            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedad->garage }}</span></li>
+          </ul>
+          <div class="btn__contact mt-2">
+            <a href="/contacto">Contactar</a>
+          </div>
+        </div>
       </div>
+      @endforeach
     </div>
-    <div class="item item-3">
-      <div class="header-text">
-        <span class="category">Rosario, <em>Argentina</em></span>
-        <h2>Adquirí <br> la oficina <br>de tus<br> sueños</h2>
-      </div>
-    </div>
+
+    @endif
+
   </div>
 </div>
+
+
+
+
 @endsection
 
 @section("contenido")
+
+
+
 
 <!-- best-deal section -->
 
@@ -159,130 +266,6 @@
     </div>
   </div>
 </div>
-
-<div class="properties section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 offset-lg-4">
-        <div class="section-heading text-center">
-          <h2>| Propiedades</h2>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <form action="{{ url()->current() }}" method="GET">
-        <div class="row pb-3 px-2">
-          <div class="col-6">
-            <label for="orden">PRECIO:</label>
-            <select class="form-control" name="orden" id="orden">
-              <option value="" disabled selected>Seleccionar</option>
-              <option value="asc">Menor a Mayor</option>
-              <option value="desc">Mayor a Menor</option>
-            </select>
-          </div>
-
-          <!--
-          <div class="col-3">
-            <label for="orden">HABITACIONES:</label>
-            <select class="form-control" name="orden" id="orden">
-              <option value="" disabled selected>Seleccionar</option>
-              <option value="asc">Menor a Mayor</option>
-              <option value="desc">Mayor a Menor</option>
-            </select>
-          </div>
-          <div class="col-3">
-            <label for="orden">TIPO:</label>
-            <select class="form-control" name="orden" id="orden">
-              <option value="" disabled selected>Seleccionar</option>
-              <option value="asc">Menor a Mayor</option>
-              <option value="desc">Mayor a Menor</option>
-            </select>
-          </div>
--->
-          <div class="col-6">
-            <br>
-            <button style="width: 100%; height: 38px;" type="submit">APLICAR</button>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <?php $orden = isset($_GET['orden']) ? $_GET['orden'] : 'asc'; ?>
-    @if ($orden == 'desc')
-    <div class="row">
-      @foreach($aPropiedadesMayorMenor as $propiedadmayormenor)
-      <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 450px;">
-          <a <?php echo "<a href='/propiedad-detallada/" . $propiedadmayormenor->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>
-          <h6>$ {{ number_format($propiedadmayormenor->precio, 0, ',', '.') }}</h6>
-          <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedadmayormenor->titulo }}</a></h4>
-          <ul>
-            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedadmayormenor->areapropiedad }} m2</span></li>
-            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmayormenor->cantidadhabitaciones }}</span></li>
-            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedadmayormenor->cantidadbanios }}</span></li>
-            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedadmayormenor->garage }}</span></li>
-          </ul>
-          <div class="btn__contact mt-2">
-            <a href="/contacto">Contactar</a>
-          </div>
-        </div>
-      </div>
-      @endforeach
-    </div>
-
-    @elseif ($orden == 'asc')
-
-    <div class="row">
-      @foreach($aPropiedadesMenorMayor as $propiedadmenormayor)
-      <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 450px;">
-          <a <?php echo "<a href='/propiedad-detallada/" . $propiedadmenormayor->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedadmenormayor->imagen; }}" alt=""></a>
-          <h6>$ {{ number_format($propiedadmenormayor->precio, 0, ',', '.') }}</h6>
-          <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedadmenormayor->titulo }}</a></h4>
-          <ul>
-            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedadmenormayor->areapropiedad }} m2</span></li>
-            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmenormayor->cantidadhabitaciones }}</span></li>
-            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedadmenormayor->cantidadbanios }}</span></li>
-            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedadmenormayor->garage }}</span></li>
-          </ul>
-          <div class="btn__contact mt-2">
-            <a href="/contacto">Contactar</a>
-          </div>
-        </div>
-      </div>
-      @endforeach
-    </div>
-
-    @elseif ($orden == '')
-
-    <div class="row">
-      @foreach($aPropiedades as $propiedad)
-      <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 450px;">
-          <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
-          <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
-          <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
-          <ul>
-            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedad->areapropiedad }} m2</span></li>
-            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
-            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedad->cantidadbanios }}</span></li>
-            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedad->garage }}</span></li>
-          </ul>
-          <div class="btn__contact mt-2">
-            <a href="/contacto">Contactar</a>
-          </div>
-        </div>
-      </div>
-      @endforeach
-    </div>
-
-    @endif
-
-  </div>
-</div>
-
-
 
 
 
