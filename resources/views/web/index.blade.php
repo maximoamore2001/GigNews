@@ -44,28 +44,40 @@
 
     <?php $orden = isset($_GET['orden']) ? $_GET['orden'] : 'asc'; ?>
     @if ($orden == 'desc')
-    <div class="row">
-      @foreach($aPropiedadesMayorMenor as $propiedadmayormenor)
-      <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 450px;">
-          <a <?php echo "<a href='/propiedad-detallada/" . $propiedadmayormenor->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>
-          <h6>$ {{ number_format($propiedadmayormenor->precio, 0, ',', '.') }}</h6>
-             <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedadmayormenor->titulo }}</a></h4>
-          <ul>
-            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedadmayormenor->areapropiedad }} m2</span></li>
-            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmayormenor->cantidadhabitaciones }}</span></li>
-            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedadmayormenor->cantidadbanios }}</span></li>
-            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedadmayormenor->garage }}</span></li>
-          </ul>
-          <div class="btn__contact mt-2">
-            <a href="/contacto">Contactar</a>
+    @foreach($aPropiedadesMayorMenor as $propiedadmayormenor)
+    <div class="p-2">
+      <div class="row properties__box">
+        <div class="col-lg-3 col-12 p-0">
+          <div class="propertie__img p-0" style="">
+            <a <?php echo "href=/propiedad-detallada/$propiedadmayormenor->idpropiedad" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>
+          </div>
+        </div>
+        <div class="col-lg-9 col-12 py-4">
+          <div class="propertie__info" style="">
+            <div class="p-1">
+              <h6>${{ number_format($propiedadmayormenor->precio, 0, ',', '.') }}</h6>
+            </div>
+            <div class="p-1">
+              <div><a <?php echo "href='/propiedad-detallada/" . $propiedadmayormenor->idpropiedad . "'" ?>>{{ $propiedadmayormenor->titulo }}</a></div>
+            </div>
+            <ul class="row m-1 properties__information">
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmayormenor->cantidadhabitaciones }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bath"></i> {{ $propiedadmayormenor->cantidadbanios }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-car-side"></i> {{ $propiedadmayormenor->garage }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmayormenor->cantidadhabitaciones }}</li>
+              <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmayormenor->areapropiedad }}m2</li>
+            </ul>
+            <div class="p-1">
+              <div class="col-12"><span>{{ $propiedadmayormenor->descripcion }}</span></div>
+            </div>
           </div>
         </div>
       </div>
-      @endforeach
     </div>
+    @endforeach
 
     @elseif ($orden == 'asc')
+
     @foreach($aPropiedadesMenorMayor as $propiedadmenormayor)
     <div class="p-2">
       <div class="row properties__box">
@@ -80,7 +92,7 @@
               <h6>${{ number_format($propiedadmenormayor->precio, 0, ',', '.') }}</h6>
             </div>
             <div class="p-1">
-              <div><a <?php echo "href='/propiedad-detallada/" . $propiedadmenormayor->idpropiedad . "'" ?> >{{ $propiedadmenormayor->titulo }}</a></div>
+              <div><a <?php echo "href=/propiedad-detallada/$propiedadmenormayor->idpropiedad" ?>>{{ $propiedadmenormayor->titulo }}</a></div>
             </div>
             <ul class="row p-1">
               <li class="col-2 col-lg-1"><i class="fa-solid fa-bed"></i> <span>{{ $propiedadmenormayor->cantidadhabitaciones }}</span></li>
@@ -97,28 +109,6 @@
       </div>
     </div>
     @endforeach
-    @elseif ($orden == '')
-
-    <div class="row">
-      @foreach($aPropiedades as $propiedad)
-      <div class="col-lg-4 col-md-6">
-        <div class="item" style="min-height: 450px;">
-          <a <?php echo "<a href='/propiedad-detallada/" . $propiedad->idpropiedad . "'" ?>><img style="max-width: 100%; height: 267px;" src="/files/{{ $propiedad->imagen; }}" alt=""></a>
-          <h6>$ {{ number_format($propiedad->precio, 0, ',', '.') }}</h6>
-          <h4 style="min-height: 50px; max-width: 58%;"><a href="property-details.html">{{ $propiedad->titulo }}</a></h4>
-          <ul>
-            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> <span>{{ $propiedad->areapropiedad }} m2</span></li>
-            <li><i class="fa-solid fa-bed"></i> <span>{{ $propiedad->cantidadhabitaciones }}</span></li>
-            <li><i class="fa-solid fa-bath"></i> <span>{{ $propiedad->cantidadbanios }}</span></li>
-            <li><i class="fa-solid fa-car-side"></i> <span>{{ $propiedad->garage }}</span></li>
-          </ul>
-          <div class="btn__contact mt-2">
-            <a href="/contacto">Contactar</a>
-          </div>
-        </div>
-      </div>
-      @endforeach
-    </div>
 
     @endif
 
