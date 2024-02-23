@@ -2,7 +2,7 @@
 @section("banner")
 
 
-<div class="properties section">
+<div class="properties mt-4" >
   <div class="container">
     <div>
       <form action="{{ url()->current() }}" method="GET">
@@ -49,12 +49,12 @@
       <div class="row properties__box">
         <div class="col-lg-4 col-12 p-0">
           <div class="propertie__img p-0">
-            <a <?php echo "href=/propiedad-detallada/$propiedadmayormenor->idpropiedad" ?>><img style="width: 412px; height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>
+            <a <?php echo "href=/propiedad-detallada/$propiedadmayormenor->idpropiedad" ?>><img style="max-width: 412px; max-height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>
           </div>
         </div>
         <div class="col-lg-8 col-12 py-4">
           <div class="propertie__info">
-            <div class="p-1 pb-0 pt-0">
+            <div class="p-1 pt-0 pb-0">
               <h6 style="font-size: 22px;">${{ number_format($propiedadmayormenor->precio, 0, ',', '.') }}</h6>
             </div>
             <div class="p-1 pt-0">
@@ -69,7 +69,11 @@
               <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmayormenor->areapropiedad }}m<sup>2</sup></li>
             </ul>
             <div class="p-1">
-              <div class="col-12"><span>{{ $propiedadmayormenor->descripcion }}</span></div>
+              <div class="col-12"><span>{{ str_limit($propiedadmayormenor->descripcion, $limit = 150, $end = '...') }}</span></div>
+            </div>
+            <div class="btn__properties m-0 pt-3">
+              <a href="/propiedad-detallada/{{ $propiedadmayormenor->idpropiedad }}"></i> ver propiedad</a>
+              <a  href="https://web.whatsapp.com/" target="_blank"></i><i class="fa-brands fa-whatsapp"></i> whatsapp</a>
             </div>
           </div>
         </div>
@@ -84,7 +88,7 @@
       <div class="row properties__box">
         <div class="col-lg-4 col-12 p-0">
           <div class="propertie__img p-0">
-            <a <?php echo "href=/propiedad-detallada/$propiedadmenormayor->idpropiedad" ?>><img style="width: 412px; height: 267px;" src="/files/{{ $propiedadmenormayor->imagen; }}" alt=""></a>
+            <a <?php echo "href=/propiedad-detallada/$propiedadmenormayor->idpropiedad" ?>><img style="max-width: 412px; max-height: 267px;" src="/files/{{ $propiedadmenormayor->imagen; }}" alt=""></a>
           </div>
         </div>
         <div class="col-lg-8 col-12 py-4">
@@ -104,7 +108,11 @@
               <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmenormayor->areapropiedad }}m<sup>2</sup></li>
             </ul>
             <div class="p-1">
-              <div class="col-12"><span>{{ $propiedadmenormayor->descripcion }}</span></div>
+              <div class="col-12"><span>{{ str_limit($propiedadmenormayor->descripcion, $limit = 150, $end = '...') }}</span></div>
+            </div>
+            <div class="btn__properties m-0 pt-3">
+              <a href="/propiedad-detallada/{{ $propiedadmenormayor->idpropiedad }}"></i> ver propiedad</a>
+              <a  href="https://web.whatsapp.com/" target="_blank"></i><i class="fa-brands fa-whatsapp"></i> whatsapp</a>
             </div>
           </div>
         </div>

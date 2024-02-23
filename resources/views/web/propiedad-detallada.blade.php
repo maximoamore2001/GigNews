@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="main-content">
-          <span class="category mt-0">{{ $producto->direccion }} | {{ $producto->ciudad }} | {{ $producto->pais }}</span>
+          <span class="category mt-0">{{ $producto->direccion }} | {{ $producto->ciudad }} | {{ $producto->pais }}</span><button style="height:34px; background:#1e1e1e; color:#fff;" onclick="copiarEnlace()"><i class="fa-solid fa-link"></i></button>
           <h4> {{ $producto->titulo }} </h4>
           <p style="font-size: 1.1em; width: 95%;"> {{ $producto->descripcion }} </p>
         </div>
@@ -62,4 +62,15 @@
   </div>
 </div>
 
+<script>
+  function copiarEnlace() {
+    var tempInput = document.createElement('input');
+    tempInput.value = window.location.href;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert('¡Enlace copiado al portapapeles!');
+  }
+</script>
 @endsection

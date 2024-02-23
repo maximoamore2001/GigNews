@@ -84,7 +84,7 @@ if (isset($msg)) {
                   </div>
                   <div class="form-group col-6">
                         <label>area de la propiedad: *</label>
-                        <input type="text" id="txtAreaPropiedad" name="txtAreaPropiedad" class="form-control" value="{{ $producto->areapropiedad }}" required>
+                        <input type="number" id="txtAreaPropiedad" name="txtAreaPropiedad" class="form-control" value="{{ $producto->areapropiedad }}" required>
                   </div>
                   <div class="form-group col-6">
                         <label>Descripción: *</label>

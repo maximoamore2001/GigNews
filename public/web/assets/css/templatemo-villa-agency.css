@@ -1276,7 +1276,21 @@ Properties Style
   color: #42BC5A;
 }
 
+.btn__properties a{
+  background-color: #1e1e1e;
+  color: white;
+  padding: 6px 9px;
+  border-radius: 4px;
+  transition: ease-in-out .3s;
+  font-size: 17px;
+}
 
+.btn__properties a:hover{
+  background-color: #42BC5A;
+  color: white;
+  border-radius: 4px;
+  transition: ease-in-out .3s;
+}
 
 
 

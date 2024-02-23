@@ -1,19 +1,10 @@
 @extends("web.plantilla")
 @section("banner")
 
-<div class="page-heading header-text">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <span class="breadcrumb"><a href="/">Inicio</a> / Nosotros</span>
-        <h3>Nosotros</h3>
-      </div>
-    </div>
-  </div>
-</div>
+
 @endsection
 @section("contenido")
-<div class="featured section py-5">
+<div class="featured py-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
@@ -24,7 +15,7 @@
         </div>
         <div class="col-lg-8">
           <div class="section-heading mb-2">
-            <h6>| Acerca de</h6>
+            <h6>| Acerca de Terranova</h6>
             <h2>Expertos en asesoramiento inmobiliario</h2>
           </div>
           <div class="px-3">
