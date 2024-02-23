@@ -40,17 +40,14 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="/" class="logo">
-                        <h1>Terra<span class="colour__primary">nova</span></h1>
+                        <h1 style="color: #fff;">Terra<span class="colour__primary">nova</span></h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="/"  class="<?php echo (Request::path() == "/") ? 'active' : ""; ?> ">Inicio</a></li>
-                      <li><a href="/casas" class="<?php echo (Request::path() == "casas") ? 'active' : ""; ?>">Casas</a></li>
-                      <li><a href="/departamentos" class="<?php echo (Request::path() == "departamentos") ? 'active' : ""; ?>">Departamentos</a></li>
-                      <li><a href="/oficinas" class="<?php echo (Request::path() == "oficinas") ? 'active' : ""; ?>">Oficinas</a></li>
                       <li><a href="/nosotros"  class="<?php echo (Request::path() == "nosotros") ? 'active' : ""; ?> ">Nosotros</a></li>
-                      <li><a href="/contacto" class="<?php echo (Request::path() == "contacto") ? 'active' : ""; ?>"><i style="color: #fff;" class="fa fa-calendar"></i> Contactarse</a></li>
+                      <li><a href="/contacto"  class="<?php echo (Request::path() == "contacto") ? 'active' : ""; ?> ">Contacto</a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>

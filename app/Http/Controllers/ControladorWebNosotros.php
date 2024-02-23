@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use App\entidades\sucursal;
 use App\entidades\postulacion;
+use App\entidades\propiedad;
 use Illuminate\Http\Request;
 
 class ControladorWebNosotros extends Controller
 {
     public function index()
     {
-        return view("web.nosotros");
+
+        $propiedad = new propiedad();
+        $aPropiedades = $propiedad->obtenerTodos();
+
+        return view("web.nosotros", compact("aPropiedades"));
     }
 
     public function insertarPostulacion(request $request)

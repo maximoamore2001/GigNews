@@ -1,16 +1,4 @@
 @extends("web.plantilla")
-@section("banner")
-<div class="page-heading header-text">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <span class="breadcrumb"><a href="#">Inicio</a> / Contacto</span>
-        <h3>Contacto</h3>
-      </div>
-    </div>
-  </div>
-</div>
-@endsection
 @section("contenido")
 
 <div class="contact-page section">
@@ -53,13 +41,13 @@
       </div>
     </div>
     <div class="row text-center">
-      <div class="col-12 col-lg-6 p-4">
-        <div class="card shadow p-5">
+      <div class="col-12 col-lg-6  py-3">
+        <div class="shadow p-3">
           <h6>0800-2020-2020<br><span class="colour__primary">Numero telefónico</span></h6>
         </div>
       </div>
-      <div class="col-12 col-lg-6 p-4">
-        <div class="card shadow p-5">
+      <div class="col-12 col-lg-6 py-3">
+        <div class=" shadow p-3">
           <h6>Terranova@gmail.com<br><span class="colour__primary">Correo electrónico</span></h6>
         </div>
       </div>

@@ -107,6 +107,7 @@ if (isset($msg)) {
                         <label for="imagen">Imagen: <span style="color: black;">(Formato: 4:3 )</span>*</label>
                         <p style="font-size: 1em;"><a href="https://compressnow.com/es/" target="_blank"> Compresor de imágenes</a> (seleccionar <b>70%</b> de compresión)</p>
                         <input type="file" class="form-control-file" id="txtImagen" name="txtImagen">
+                        <input hidden type="text" class="form-control-file" value="{{ $producto->imagen }}" id="txtImagen" name="txtImagen"> <!-- [solución a problema de la imagen] -->
                   </div>
                   <div class="form-group col-6">
                   </div>

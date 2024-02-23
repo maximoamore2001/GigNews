@@ -130,6 +130,7 @@ class ControladorPropiedad extends Controller
             $row[] = $aProductos[$i]->ciudad;
             $row[] = $aProductos[$i]->direccion;
             $row[] = $aProductos[$i]->areapropiedad;
+            $row[] = $aProductos[$i]->idpropiedad;
             $row[] = "<img width='100px' src='/files/" . $aProductos[$i]->imagen . "'>";
             $cont++;
             $data[] = $row;

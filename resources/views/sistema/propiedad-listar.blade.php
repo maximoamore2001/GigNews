@@ -33,6 +33,7 @@ if (isset($msg)) {
                 <th>ciudad</th>
                 <th>dirección</th>
                 <th>área</th>
+                <th>ID</th>
                 <th>Imágen</th>
             </tr>
         </thead>
