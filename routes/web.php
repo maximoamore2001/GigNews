@@ -31,11 +31,14 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/propiedad-detallada', 'ControladorWebPropiedadDetallada@index');//HECHO
     Route::post('/propiedad-detallada', 'ControladorWebPropiedadDetallada@insertar');//HECHO
 
-    Route::get('/nosotros', 'ControladorWebNosotros@index');//HECHO
-    Route::post('/nosotros', 'ControladorWebNosotros@insertarPostulacion');//HECHO
+    Route::get('/empresa', 'ControladorWebNosotros@index');//HECHO
+    Route::post('/empresa', 'ControladorWebNosotros@insertarPostulacion');//HECHO
 
     Route::get('/contacto', 'ControladorWebContacto@index');//HECHO
     Route::post('/contacto', 'ControladorWebContacto@enviar');//HECHO
+
+    Route::get('/tasaciones', 'ControladorWebTasaciones@index');//HECHO
+    Route::post('/tasaciones', 'ControladorWebTasaciones@enviar');//HECHO
 
     Route::get('/postulacion-gracias', 'ControladorWebPostulacionGracias@index'); //HECHO
 

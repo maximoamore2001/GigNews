@@ -43,7 +43,7 @@
     <div class="row text-center">
       <div class="col-12 col-lg-6  py-3">
         <div class="shadow p-3">
-          <h6>0800-2020-2020<br><span class="colour__primary">Numero telefónico</span></h6>
+          <h6>0800-2020-2020<br><span class="colour__primary">Número telefónico</span></h6>
         </div>
       </div>
       <div class="col-12 col-lg-6 py-3">

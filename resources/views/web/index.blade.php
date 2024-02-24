@@ -52,9 +52,9 @@
             <div class="p-1">
               <div class="col-12"><span>{{ str_limit($propiedadmayormenor->descripcion, $limit = 150, $end = '...') }}</span></div>
             </div>
-            <div class="btn__properties m-0 pt-3">
-              <a href="/propiedad-detallada/{{ $propiedadmayormenor->idpropiedad }}"></i> ver propiedad</a>
-              <a  href="https://web.whatsapp.com/" target="_blank"></i><i class="fa-brands fa-whatsapp"></i> whatsapp</a>
+            <div class="m-0 pt-3">
+              <a class="btn__viewproperties" href="/propiedad-detallada/{{ $propiedadmayormenor->idpropiedad }}"></i> ver propiedad</a>
+              <a class="btn__whatsapp"  href="https://web.whatsapp.com/" target="_blank"></i><i class="fa-brands fa-whatsapp"></i> whatsapp</a>
             </div>
           </div>
         </div>
@@ -91,9 +91,9 @@
             <div class="p-1">
               <div class="col-12"><span>{{ str_limit($propiedadmenormayor->descripcion, $limit = 150, $end = '...') }}</span></div>
             </div>
-            <div class="btn__properties m-0 pt-3">
-              <a href="/propiedad-detallada/{{ $propiedadmenormayor->idpropiedad }}"></i> ver propiedad</a>
-              <a  href="https://web.whatsapp.com/" target="_blank"></i><i class="fa-brands fa-whatsapp"></i> whatsapp</a>
+            <div class=" m-0 pt-3">
+              <a class="btn__viewproperties" href="/propiedad-detallada/{{ $propiedadmenormayor->idpropiedad }}"></i> ver propiedad</a>
+              <a class="btn__whatsapp"  href="https://web.whatsapp.com/" target="_blank"></i><i class="fa-brands fa-whatsapp"></i> whatsapp</a>
             </div>
           </div>
         </div>

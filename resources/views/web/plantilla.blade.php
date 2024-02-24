@@ -46,7 +46,8 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="/"  class="<?php echo (Request::path() == "/") ? 'active' : ""; ?> ">Inicio</a></li>
-                      <li><a href="/nosotros"  class="<?php echo (Request::path() == "nosotros") ? 'active' : ""; ?> ">Nosotros</a></li>
+                      <li><a href="/tasaciones"  class="<?php echo (Request::path() == "tasaciones") ? 'active' : ""; ?> ">Tasaciones</a></li>
+                      <li><a href="/empresa"  class="<?php echo (Request::path() == "empresa") ? 'active' : ""; ?> ">Empresa</a></li>
                       <li><a href="/contacto"  class="<?php echo (Request::path() == "contacto") ? 'active' : ""; ?> ">Contacto</a></li>
                   </ul>   
                     <a class='menu-trigger'>
