@@ -7,7 +7,7 @@
     <div>
       <form action="{{ url()->current() }}" method="GET">
         <div class="row pb-3 px-2">
-          <div class="col-6">
+          <div class="col-11">
             <label for="orden">PRECIO:</label>
             <select class="form-control" name="orden" id="orden">
               <option value="" disabled selected>Seleccionar</option>
@@ -15,26 +15,7 @@
               <option value="desc">Mayor a Menor</option>
             </select>
           </div>
-
-          <!--
-          <div class="col-3">
-            <label for="orden">HABITACIONES:</label>
-            <select class="form-control" name="orden" id="orden">
-              <option value="" disabled selected>Seleccionar</option>
-              <option value="asc">Menor a Mayor</option>
-              <option value="desc">Mayor a Menor</option>
-            </select>
-          </div>
-          <div class="col-3">
-            <label for="orden">TIPO:</label>
-            <select class="form-control" name="orden" id="orden">
-              <option value="" disabled selected>Seleccionar</option>
-              <option value="asc">Menor a Mayor</option>
-              <option value="desc">Mayor a Menor</option>
-            </select>
-          </div>
--->
-          <div class="col-6">
+          <div class="col-1">
             <br>
             <button style="width: 100%; height: 38px;" type="submit">APLICAR</button>
           </div>
@@ -43,7 +24,7 @@
     </div>
 
     <?php $orden = isset($_GET['orden']) ? $_GET['orden'] : 'asc'; ?>
-    @if ($orden == 'desc')
+    @if ($orden == 'desc') 
     @foreach($aPropiedadesMayorMenor as $propiedadmayormenor)
     <div class="p-2">
       <div class="row properties__box">
