@@ -12,7 +12,7 @@
                         <div>
                               <form id="contact-form" class="m-0" action="" method="post">
                                     <div class="row">
-                                          <label for="">
+                                          <label for="" style="font-weight: 600;">
                                                 Datos de la propiedad
                                           </label>
                                           <div class="col-lg-12">
@@ -35,7 +35,7 @@
                                                       </select>
                                                 </fieldset>
                                           </div>
-                                          <label for="">
+                                          <label for="" style="font-weight: 600;">
                                                 Datos personales
                                           </label>
                                           <div class="col-lg-12">
