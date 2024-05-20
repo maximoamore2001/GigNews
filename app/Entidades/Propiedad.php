@@ -11,7 +11,8 @@ class propiedad extends Model
     public $timestamps = false;
 
     protected $fillable = [ //son los campos de la tabla producto en la BBDD
-        'idpropiedad', 'titulo', 'precio', 'descripcion', 'imagen', 'fk_idtipopropiedad', 'cantidadhabitaciones', 'cantidadbanios',
+        'idpropiedad', 'titulo', 'precio', 'descripcion', 'imagen', 'fk_idtipopropiedad',
+         'cantidadhabitaciones', 'cantidadbanios',
         'cantidadplantas', 'pais', 'ciudad', 'direccion', 'garage', 'areapropiedad',
     ];
 
