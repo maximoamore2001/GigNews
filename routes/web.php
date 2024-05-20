@@ -167,7 +167,7 @@ Route::get('/admin/cliente/{idcliente}', 'ControladorCliente@editar');
 Route::post('/admin/cliente/{idcliente}', 'ControladorCliente@guardar');
 
 /* --------------------------------------------- */
-/* CONTROLADOR PRODUCTO                           */
+/* CONTROLADOR PROPIEDAD                           */
 /* --------------------------------------------- */
 Route::get('/admin/propiedad/nuevo', 'ControladorPropiedad@nuevo');
 Route::post('/admin/propiedad/nuevo', 'ControladorPropiedad@guardar');

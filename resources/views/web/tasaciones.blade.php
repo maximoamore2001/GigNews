@@ -5,7 +5,7 @@
       <div class="container">
             <div class="row">
                   <div class="col-12">
-                        <h2 >Tasaciones</h2>
+                        <h2>Tasaciones</h2>
                         <p class="m-0 pb-4">Si desea conocer el valor de su propiedad, complete sus datos y describa las características del inmueble. <br> Un tasador de <b>Terranova</b> se pondrá en contacto con usted dentro de las 24 horas.</p>
                   </div>
                   <div class="col-lg-12">

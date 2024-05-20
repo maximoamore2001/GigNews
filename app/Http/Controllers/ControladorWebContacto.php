@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 //entidades
-use App\entidades\sucursal;
-use App\entidades\cliente;
 use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -14,24 +12,21 @@ class ControladorWebContacto extends Controller
 {
     public function index()
     {
-        $sucursal = new sucursal();
-        $aSucursales = $sucursal->obtenerTodos();
-
-        return view("web.contacto", compact("aSucursales"));
+        return view("web.contacto");
     }
 
     public function enviar(Request $request)
     {
-        $sucursal = new sucursal();
-        $aSucursales = $sucursal->obtenerTodos();
+        
 
         // Recopila los datos del formulario
         $nombre = $request->input('txtNombre');
-        $telefono = $request->input('txtTelefono');
+        $apellido = $request->input('txtApellido');
         $correo = $request->input('txtCorreo');
         $mensaje = $request->input('txtTextArea');
+        
 
-        if ($correo != "" && $nombre != "" && $telefono != "" && $mensaje != "") {
+        if ($correo != "" && $nombre != "" && $mensaje != ""  && $apellido != "") {
 
             $data = "Instrucciones";
             // Configura PHPMailer
@@ -55,7 +50,7 @@ class ControladorWebContacto extends Controller
                 // Contenido del correo
                 $mail->isHTML(true);
                 $mail->Subject = 'Nuevo mensaje de contacto';
-                $mail->Body = "Nombre: $nombre<br>Telefono: $telefono<br>Correo: $correo<br>Mensaje: $mensaje";
+                $mail->Body = "Nombre: $nombre<br>Correo: $correo<br>Mensaje: $mensaje<br>Apellido: $apellido";
 
 
 
@@ -63,16 +58,18 @@ class ControladorWebContacto extends Controller
                 //$mail->send();
 
 
-                return view('web.contacto-gracias', compact('aSucursales'));
+                return view('web.contacto-gracias');
             } catch (Exception $e) {
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = "Error al enviar el correo";
-                return view('web.contacto', compact('msg', 'aSucursales'));
+                return view('web.contacto');
+               
             }
         } else {
             $msg["ESTADO"] = MSG_ERROR;
             $msg["MSG"] = "complete todos los datos";
-            return view('web.contacto', compact('msg', 'aSucursales'));
+            return view('web.contacto');
+            
         }
     }
 
