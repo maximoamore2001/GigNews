@@ -7,7 +7,7 @@
     <div>
       <form action="{{ url()->current() }}" method="GET">
         <div class="row pb-3 px-2">
-          <div class="col-11">
+          <div class="col-6 col-sm-11">
             <label for="orden">PRECIO:</label>
             <select class="form-control" name="orden" id="orden">
               <option value="" disabled selected>Seleccionar</option>
@@ -15,7 +15,7 @@
               <option value="desc">Mayor a Menor</option>
             </select>
           </div>
-          <div class="col-1">
+          <div class="col-6 col-sm-1">
             <br>
             <button style="width: 100%; height: 38px;" type="submit">APLICAR</button>
           </div>
