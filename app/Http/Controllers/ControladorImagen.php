@@ -35,8 +35,8 @@ class ControladorImagen extends Controller
 
         $titulo = "Listado de imagenes";
         if (Usuario::autenticado() == true) {
-            if (!Patente::autorizarOperacion("IMAGENESCONSULTA")) {
-                $codigo = "IMAGENESCONSULTA";
+            if (!Patente::autorizarOperacion("SUCURSALCONSULTA")) {
+                $codigo = "SUCURSALCONSULTA";
                 $mensaje = "No tiene permisos para la operación.";
                 return view('sistema.pagina-error', compact('titulo', 'codigo', 'mensaje'));
             } else {

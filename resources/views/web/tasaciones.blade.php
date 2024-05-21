@@ -50,7 +50,7 @@
                                           </div>
                                           <div class="col-lg-12">
                                                 <fieldset>
-                                                      <input type="text" name="txtCorreo" id="txtCorreo" pattern="[^ @]*@[^ @]*" placeholder="correo..." required="">
+                                                      <input type="email" name="txtCorreo" id="txtCorreo" pattern="[^ @]*@[^ @]*" placeholder="correo..." required="">
                                                 </fieldset>
                                           </div>
                                           <div class="col-lg-12">
