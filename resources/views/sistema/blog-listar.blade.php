@@ -25,7 +25,7 @@ if (isset($msg)) {
 ?>
 <table style="background-color: #32753f;"  id="grilla" class="display">
     <thead>
-    <tr style="color: #fff;">
+        <tr style="color: #fff;">
             <th>nombre</th>
         </tr>
     </thead>
