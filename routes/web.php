@@ -38,6 +38,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/contacto', 'ControladorWebContacto@enviar');//HECHO
 
     Route::get('/blog', 'ControladorWebBlog@index');//HECHO
+    Route::post('/blog', 'ControladorWebBlog@enviar');//HECHO
 
     Route::get('/tasaciones', 'ControladorWebTasaciones@index');//HECHO
     Route::post('/tasaciones', 'ControladorWebTasaciones@enviar');//HECHO
@@ -259,3 +260,14 @@ Route::get('/admin/sistema/imagenes/cargarGrilla', 'ControladorImagen@cargarGril
 Route::get('/admin/imagen/eliminar', 'ControladorImagen@eliminar');
 Route::get('/admin/imagen/{idimagen}', 'ControladorImagen@editar');
 Route::post('/admin/imagen/{idimagen}', 'ControladorImagen@guardar');
+
+/* --------------------------------------------- */
+/* CONTROLADOR BLOGS                           */
+/* --------------------------------------------- */
+Route::get('/admin/blog/nuevo', 'ControladorBlog@nuevo');
+Route::post('/admin/blog/nuevo', 'ControladorBlog@guardar');
+Route::get('/admin/blog', 'ControladorBlog@index');
+Route::get('/admin/sistema/blogs/cargarGrilla', 'ControladorBlog@cargarGrilla')->name('blogs.cargarGrilla');
+Route::get('/admin/blog/eliminar', 'ControladorBlog@eliminar');
+Route::get('/admin/blog/{idblog}', 'ControladorBlog@editar');
+Route::post('/admin/blog/{idblog}', 'ControladorBlog@guardar');
