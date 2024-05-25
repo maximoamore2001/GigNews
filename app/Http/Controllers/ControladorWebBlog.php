@@ -9,13 +9,16 @@ class ControladorWebBlog extends Controller
 {
     public function index()
     {
-        $titulo = "Listado de blogs";
+        $titulo = "blogs";
 
         $blog = new blog();
         $aBlogs = $blog->obtenerTodos();
+        
+        $sucursal = new sucursal();
+        $aSucursales = $sucursal->obtenerTodos();
 
 
-        return view("web.blog", compact("aSucursales", 'aCategorias'));
+        return view("web.blog", compact("aSucursales", 'aBlogs'));
     }
 
 }

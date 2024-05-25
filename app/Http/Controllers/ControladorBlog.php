@@ -100,7 +100,6 @@ class ControladorBlog extends Controller
 
         $data = array();
         $cont = 0;
-
         $inicio = $request['start'];
         $registros_por_pagina = $request['length'];
 
