@@ -8,14 +8,16 @@
         <div class="row mt-3">
           <div class="col-8">
             <div class="row">
-              <div class="col-12 card py-3 px-5">
-                <img src="public/files/{{ $blog->imagen }}" alt="">
+              <div class="col-12 card p-3">
+                <img src="/files/{{ $blog->imagen }}" class="mb-2"  alt="">
                   <h1> {{ $blog->titulo }} </h1>
                   <p> {{ $blog->fecha }} </p>
               </div>
             </div>
           </div>
-          <div class="col-4">
+    @endforeach
+
+    <div class="col-4">
             <div class="row">
               <div class="col-12 pt-3" style="font-size: 18px;">
                 <small>{{ $blog->fecha }} |</small>
@@ -24,7 +26,6 @@
             </div>
           </div>
         </div>
-    @endforeach
   </div>
 </div>
 

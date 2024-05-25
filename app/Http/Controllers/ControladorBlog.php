@@ -57,8 +57,17 @@ class ControladorBlog extends Controller
             $entidad = new blog();
             $entidad->cargarDesdeRequest($request);
 
+             //guardar archivo de imágen adjunta
+             if ($_FILES["txtImagen"]["error"] === UPLOAD_ERR_OK) {
+                $extension = pathinfo($_FILES["txtImagen"]["name"], PATHINFO_EXTENSION);
+                $nombre = date("Ymdhmsi") . ".$extension";
+                $archivo = $_FILES["txtImagen"]["tmp_name"];
+                move_uploaded_file($archivo, env('APP_PATH') . "/public/files/$nombre"); //guardar el archivo
+                $entidad->imagen = $nombre;
+            }
+
             //validaciones
-            if ($entidad->nombre == "") {
+            if ($entidad->titulo == "" || $entidad->fecha == "" || $entidad->descripcion == "" || $entidad->imagen == "" || $entidad->segundo_titulo == "" || $entidad->segunda_descripcion == "") {
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = "Complete todos los datos";
             } else {
@@ -106,7 +115,12 @@ class ControladorBlog extends Controller
 
         for ($i = $inicio; $i < count($aBlogs) && $cont < $registros_por_pagina; $i++) {
             $row = array();
-            $row[] = "<a href='/admin/blog/" . $aBlogs[$i]->aBlogs . "'>" . $aBlogs[$i]->nombre . "</a>";
+            $row[] = "<a href='/admin/blog/" . $aBlogs[$i]->idblog . "'>" . $aBlogs[$i]->titulo . "</a>";
+            $row[] = $aBlogs[$i]->fecha;
+            $row[] = $aBlogs[$i]->descripcion;
+            $row[] = $aBlogs[$i]->segundo_titulo;
+            $row[] = $aBlogs[$i]->segunda_descripcion;
+            $row[] = "<img width='100px' src='/files/" . $aBlogs[$i]->imagen . "'>";
             $cont++;
             $data[] = $row;
         }

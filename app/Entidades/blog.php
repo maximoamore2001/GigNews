@@ -78,7 +78,7 @@ class blog extends Model
         descripcion='$this->descripcion',
         imagen='$this->imagen',
         segundo_titulo='$this->segundo_titulo',
-        segunda_descripcion='$this->segunda_descripcion',
+        segunda_descripcion='$this->segunda_descripcion'
           WHERE idblog=?";
         $affected = DB::update($sql, [$this->idblog]);
     }

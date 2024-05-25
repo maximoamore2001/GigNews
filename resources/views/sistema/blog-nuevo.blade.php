@@ -43,7 +43,7 @@ if (isset($msg)) {
 ?>
 <div id = "msg"></div>
 <div class="panel-body">
-      <form id="form1" method="POST">
+      <form id="form1" method="POST" enctype="multipart/form-data">
             <div class="row">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
                   <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
@@ -58,8 +58,16 @@ if (isset($msg)) {
                         <label>Descripcion: *</label>
                         <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control" value="{{ $blog->descripcion }}" required>
 
-                        <label>Imágen: *</label> <br>
-                        <input type="file" id="txtImagen" name="txtImagen" class="" value="{{ $blog->imagen }}" required>
+                        <div class="form-group col-6">
+                        <label for="imagen">Imagen: <span style="color: black;">(Formato: 4:3 )</span>*</label>
+                        <p style="font-size: 1em;"><a href="https://compressnow.com/es/" target="_blank"> Compresor de imágenes</a> (seleccionar <b>70%</b> de compresión)</p>
+                        <input type="file" class="form-control-file" id="txtImagen" name="txtImagen">
+                        <input hidden type="text" class="form-control-file" value="{{ $blog->imagen }}" id="txtImagen" name="txtImagen"> <!-- [solución a problema de la imagen] -->
+                        </div>
+                        <div class="form-group col-12">
+                        <img style="width: 30%; border: solid 4px #84B6F4;" src="/files/{{ $blog->imagen }}" alt="">
+                        <p>{{ $blog->imagen }}</p>
+                  </div>
                         <br>
                         <label>Segundo titulo(opcional): *</label>
                         <input type="text" id="txtSegundoTitulo" name="txtSegundoTitulo" class="form-control" value="{{ $blog->segundo_titulo }}" required>
