@@ -6,19 +6,19 @@ Nueva Categoría
 
 @section('scripts')
 <script>
-      globalId = '<?php echo isset($categoria->idcategoria) && $categoria->idcategoria > 0 ? $categoria->idcategoria : 0; ?>';
-      <?php $globalId = isset($categoria->idcategoria) ? $categoria->idcategoria : "0"; ?>
+      globalId = '<?php echo isset($blog->idblog) && $blog->idblog > 0 ? $blog->idblog : 0; ?>';
+      <?php $globalId = isset($blog->idblog) ? $blog->idblog : "0"; ?>
 </script>
 @endsection
 
 @section('breadcrumb')
 <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-      <li class="breadcrumb-item"><a href="/admin/blogs">Categorías</a></li>
+      <li class="breadcrumb-item"><a href="/admin/blog">Blogs</a></li>
       <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-      <li class="btn-item"><a title="Nuevo" href="/admin/categoria/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+      <li class="btn-item"><a title="Nuevo" href="/admin/blog/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
       <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
       </li>
       @if($globalId > 0)
@@ -28,7 +28,7 @@ Nueva Categoría
 </ol>
 <script>
       function fsalir() {
-            location.href = "/admin/blogs";
+            location.href = "/admin/blog";
       }
 </script>
 @endsection
@@ -49,8 +49,24 @@ if (isset($msg)) {
                   <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
                   
                   <div class="form-group col-6">
-                        <label>Nombre: *</label>
-                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $categoria->nombre }}" required>
+                        <label>Título: *</label>
+                        <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" value="{{ $blog->titulo }}" required>
+
+                        <label>Fecha: *</label>
+                        <input type="date" id="txtFecha" name="txtFecha" class="form-control" value="{{ $blog->fecha }}" required>
+
+                        <label>Descripcion: *</label>
+                        <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control" value="{{ $blog->descripcion }}" required>
+
+                        <label>Imágen: *</label> <br>
+                        <input type="file" id="txtImagen" name="txtImagen" class="" value="{{ $blog->imagen }}" required>
+                        <br>
+                        <label>Segundo titulo(opcional): *</label>
+                        <input type="text" id="txtSegundoTitulo" name="txtSegundoTitulo" class="form-control" value="{{ $blog->segundo_titulo }}" required>
+
+                        <label>Segunda descripción: *</label>
+                        <input type="text" id="txtSegundaDescripcion" name="txtSegundaDescripcion" class="form-control" value="{{ $blog->segunda_descripcion }}" required>
+                        
                   </div>
             </div>
       </form>

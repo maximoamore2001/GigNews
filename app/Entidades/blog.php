@@ -37,13 +37,13 @@ class blog extends Model
                 descripcion,
                 imagen,
                 segundo_titulo,
-                segunda_descripcion,
+                segunda_descripcion
             FROM blogs ORDER BY idblog ASC";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
 
-    public function obtenerPorId($idpropiedad)
+    public function obtenerPorId($idblog)
     {
         $sql = "SELECT
                 idblog,
@@ -52,7 +52,7 @@ class blog extends Model
                 descripcion,
                 imagen,
                 segundo_titulo,
-                segunda_descripcion,
+                segunda_descripcion
                 FROM blogs WHERE idblog = $idblog";
         $lstRetorno = DB::select($sql);
 
@@ -98,7 +98,7 @@ class blog extends Model
                 descripcion,
                 imagen,
                 segundo_titulo,
-                segunda_descripcion,
+                segunda_descripcion
             ) VALUES (?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->titulo,
@@ -106,7 +106,7 @@ class blog extends Model
             $this->descripcion,
             $this->imagen,
             $this->segundo_titulo,
-            $this->segunda_descripcion,
+            $this->segunda_descripcion
         ]);
         return $this->idblog = DB::getPdo()->lastInsertId();
     }
@@ -129,9 +129,9 @@ class blog extends Model
                 descripcion,
                 imagen,
                 segundo_titulo,
-                segunda_descripcion,
+                segunda_descripcion
             FROM blogs WHERE 1=1
-                ";
+            ";
 
         //Realiza el filtrado
         if (!empty($request['search']['value'])) {
