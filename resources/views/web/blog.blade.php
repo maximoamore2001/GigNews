@@ -258,7 +258,7 @@
     <h1>{{ $blog->titulo }}</h1>
     <p>{{ Str::limit($blog->descripcion, 170) }}</p>
     <p class="read-more">
-      <a href="#">Ver más</a>
+      <a href="/noticia-detallada/{{ $blog->idblog }}">Ver más</a>
     </p>
     </div>
   </div>

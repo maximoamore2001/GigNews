@@ -40,6 +40,9 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/blog', 'ControladorWebBlog@index');//HECHO
     Route::post('/blog', 'ControladorWebBlog@enviar');//HECHO
 
+    Route::get('/noticia-detallada', 'ControladorWebNoticiaDetallada@index');//HECHO
+    Route::post('/noticia-detallada', 'ControladorWebNoticiaDetallada@insertar');//HECHO
+
     Route::get('/tasaciones', 'ControladorWebTasaciones@index');//HECHO
     Route::post('/tasaciones', 'ControladorWebTasaciones@enviar');//HECHO
 
@@ -271,3 +274,5 @@ Route::get('/admin/sistema/blogs/cargarGrilla', 'ControladorBlog@cargarGrilla')-
 Route::get('/admin/blog/eliminar', 'ControladorBlog@eliminar');
 Route::get('/admin/blog/{idblog}', 'ControladorBlog@editar');
 Route::post('/admin/blog/{idblog}', 'ControladorBlog@guardar');
+
+Route::get('/noticia-detallada/{idblog}', 'ControladorWebNoticiaDetallada@ver');
