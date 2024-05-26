@@ -53,39 +53,50 @@ if (isset($msg)) {
                   <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
 
                   <div class="form-group col-6">
-                        <label>Título: *</label>
-                        <input type="text" id="txtTitulo" name="txtTitulo" class="form-control"
+
+                        <div class="">
+                              <label>Título: *</label>
+                              <input type="text" id="txtTitulo" name="txtTitulo" class="form-control"
                               value="{{ $blog->titulo }}" required>
+                        </div>
 
-                        <label>Fecha: *</label>
-                        <input type="date" id="txtFecha" name="txtFecha" class="form-control" value="{{ $blog->fecha }}"
+
+                        <div class="mt-3">
+                              <label>Fecha: *</label>
+                              <input type="date" id="txtFecha" name="txtFecha" class="form-control" value="{{ $blog->fecha }}"
                               required>
+                        </div>
 
-                        <label>Descripcion: *</label>
-                        <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control"
-                              value="{{ $blog->descripcion }}" required>
+                        <div class="mt-3">
+                              <label>Descripción: *</label>
+                              <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control"
+                                    value="{{ $blog->descripcion }}" required>
+                        </div>
 
-                        <div class="form-group col-6">
+                        <div class="mt-3">
+                              <label>Segundo título(opcional): *</label>
+                              <input type="text" id="txtSegundoTitulo" name="txtSegundoTitulo" class="form-control"
+                                    value="{{ $blog->segundo_titulo }}" required>
+                        </div>
+                        <div class="mt-3">
+                              <label>Segunda descripción: *</label>
+                              <input type="text" id="txtSegundaDescripcion" name="txtSegundaDescripcion"
+                                    class="form-control" value="{{ $blog->segunda_descripcion }}" required>
+                        </div>
+
+                        <div class="mt-3">
                               <label for="imagen">Imagen: <span style="color: black;">(Formato: 4:3 )</span>*</label>
                               <p style="font-size: 1em;"><a href="https://compressnow.com/es/" target="_blank">
                                           Compresor de imágenes</a> (seleccionar <b>70%</b> de compresión)</p>
                               <input type="file" class="form-control-file" id="txtImagen" name="txtImagen">
                               <input hidden type="text" class="form-control-file" value="{{ $blog->imagen }}"
                                     id="txtImagen" name="txtImagen"> <!-- [solución a problema de la imagen] -->
+                              <div class="form-group col-12">
+                                    <img style="width: 30%; border: solid 4px #84B6F4;" src="/files/{{ $blog->imagen }}"
+                                          alt="">
+                                    <p>{{ $blog->imagen }}</p>
+                              </div>
                         </div>
-                        <div class="form-group col-12">
-                              <img style="width: 30%; border: solid 4px #84B6F4;" src="/files/{{ $blog->imagen }}"
-                                    alt="">
-                              <p>{{ $blog->imagen }}</p>
-                        </div>
-                        <br>
-                        <label>Segundo titulo(opcional): *</label>
-                        <input type="text" id="txtSegundoTitulo" name="txtSegundoTitulo" class="form-control"
-                              value="{{ $blog->segundo_titulo }}" required>
-
-                        <label>Segunda descripción: *</label>
-                        <input type="text" id="txtSegundaDescripcion" name="txtSegundaDescripcion" class="form-control"
-                              value="{{ $blog->segunda_descripcion }}" required>
 
                   </div>
             </div>
