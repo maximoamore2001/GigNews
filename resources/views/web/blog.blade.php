@@ -59,6 +59,7 @@
       background-size: cover;
       background-position: center;
       transition: transform .2s;
+      width: 550px;
     }
 
     .details,
@@ -132,11 +133,11 @@
       h1 {
         line-height: 1;
         margin: 0;
-        font-size: 1.7rem;
+        font-size: 1.9rem;
       }
 
       h2 {
-        font-size: 1rem;
+        font-size: 1.3rem;
         font-weight: 300;
         text-transform: uppercase;
         color: #e2e2e2_dark;
@@ -169,6 +170,7 @@
     }
 
     p {
+      font-size: 1.2rem;
       position: relative;
       margin: 1rem 0 0;
 
@@ -237,33 +239,39 @@
     }
   }
 </style>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12" style="margin: 70px 0px;">
       <h1 style="text-decoration: underline #5ad67d;">Noticias</h1>
     </div>
   </div>
 </div>
-<div class=" p-5" style="background-color: #1e1e1e;">
-  @foreach($aBlogs as $blog)
-  <div class="blog-card">
-    <div class="meta">
-    <img class="photo" src="/files/{{ $blog->imagen }}" alt="">
-    <ul class="details">
-      <li style="color: #1e1e1e; font-weight: 600; font-size: 1.3em;" class="date">{{ $blog->fecha }}</li>
+<div class="container-fluid" style="background-color: #1e1e1e;">
+  <div class="row pt-5" style="background-color: #1e1e1e;">
+    @foreach($aBlogs as $blog)
+    <div class="col-12" style="background-color: #1e1e1e;">
 
-    </ul>
+    <div class="blog-card">
+      <div class="meta">
+      <img class="photo" src="/files/{{ $blog->imagen }}" alt="">
+      <ul class="details">
+        <li style="color: #1e1e1e; font-weight: 600; font-size: 1.3em;" class="date">{{ $blog->fecha }}</li>
+
+      </ul>
+      </div>
+      <div class="description">
+      <h1>{{ Str::limit($blog->titulo, 40) }}</h1>
+      <p style="heigth: 168px;">{{ Str::limit($blog->descripcion, 140) }}</p>
+      <p class="read-more">
+        <a href="/noticia-detallada/{{ $blog->idblog }}">Ver más</a>
+      </p>
+      </div>
     </div>
-    <div class="description">
-    <h1>{{ $blog->titulo }}</h1>
-    <p>{{ Str::limit($blog->descripcion, 170) }}</p>
-    <p class="read-more">
-      <a href="/noticia-detallada/{{ $blog->idblog }}">Ver más</a>
-    </p>
     </div>
+  @endforeach
   </div>
-@endforeach
 </div>
+
 
 
 

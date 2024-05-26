@@ -8,11 +8,11 @@
 
 
 <div class="container">
-      <div class="row mt-5 p-5">
-            <div class="col-12 col-sm-5">
-                  <img src="/files/{{ $blog->imagen }}" alt="">
+      <div class="row mt-5">
+            <div class="col-12 col-sm-6">
+                  <img style="border: solid 4px #1e1e1e;" src="/files/{{ $blog->imagen }}" alt="">
             </div>
-            <div class="col-sm-7 col-12 mt-2">
+            <div class="col-sm-6 col-12 mt-2">
             <h2 class="py-2">{{ $blog->titulo }}</h2>
             <p style="font-size: 19px; max-width: 600px; ">{{ $blog->descripcion }}</p>
             </div>
