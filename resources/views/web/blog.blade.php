@@ -239,13 +239,6 @@
     }
   }
 </style>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12" style="margin: 70px 0px;">
-      <h1 style="text-decoration: underline #5ad67d;">Noticias</h1>
-    </div>
-  </div>
-</div>
 <div class="container-fluid" style="background-color: #1e1e1e;">
   <div class="row pt-5" style="background-color: #1e1e1e;">
     @foreach($aBlogs as $blog)
@@ -256,7 +249,6 @@
       <img class="photo" src="/files/{{ $blog->imagen }}" alt="">
       <ul class="details">
         <li style="color: #1e1e1e; font-weight: 600; font-size: 1.3em;" class="date">{{ $blog->fecha }}</li>
-
       </ul>
       </div>
       <div class="description">
