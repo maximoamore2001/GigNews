@@ -130,19 +130,12 @@
         font-family: Poppins, sans-serif;
       }
 
-      h1 {
+      h2 {
         line-height: 1;
         margin: 0;
-        font-size: 1.9rem;
+        font-size: 1.7rem;
       }
 
-      h2 {
-        font-size: 1.3rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        color: #e2e2e2_dark;
-        margin-top: 5px;
-      }
 
       .read-more {
         text-align: right;
@@ -181,7 +174,6 @@
           content: "";
           position: absolute;
           height: 5px;
-          background: #5ad67d;
           width: 35px;
           top: -0.75rem;
           border-radius: 3px;
@@ -239,11 +231,10 @@
     }
   }
 </style>
-<div class="container-fluid" style="background-color: #1e1e1e;">
+<div class="container-fluid pb-5 mt-5" style="background-color: #1e1e1e;">
   <div class="row pt-5" style="background-color: #1e1e1e;">
     @foreach($aBlogs as $blog)
-    <div class="col-12" style="background-color: #1e1e1e;">
-
+    <div class="col-sm-6 col-12" style="background-color: #1e1e1e;">
     <div class="blog-card">
       <div class="meta">
       <img class="photo" src="/files/{{ $blog->imagen }}" alt="">
@@ -252,7 +243,7 @@
       </ul>
       </div>
       <div class="description">
-      <h1>{{ Str::limit($blog->titulo, 40) }}</h1>
+      <h2>{{ Str::limit($blog->titulo, 35) }}</h2>
       <p style="heigth: 168px;">{{ Str::limit($blog->descripcion, 140) }}</p>
       <p class="read-more">
         <a href="/noticia-detallada/{{ $blog->idblog }}">Ver más</a>
