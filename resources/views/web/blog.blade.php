@@ -6,15 +6,7 @@
 @endphp
 
 <style>
-  h1 {
-    text-decoration: underline #5ad67d;
-  }
 
-  @media (max-width: 768px) {
-    h1 {
-      text-align: center;
-    }
-  }
 
   .blog-card {
     display: flex;
@@ -39,7 +31,7 @@
 
     &:hover {
       .photo {
-        transform: scale(1.3) rotate(3deg);
+        transform: scale(1.5) rotate(3deg);
         opacity: .7;
       }
     }
