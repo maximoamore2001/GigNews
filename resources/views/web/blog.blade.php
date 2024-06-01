@@ -157,7 +157,7 @@
     p {
       font-size: 1.2rem;
       position: relative;
-      margin: 1rem 0 0;
+      margin: 0rem 0 0;
 
       &:first-of-type {
         margin-top: 1.25rem;
@@ -195,13 +195,14 @@
         &:before {
           transform: skewX(-3deg);
           content: "";
-          background: #fff;
+          background-color: #1e1e1e;
           width: 30px;
           position: absolute;
           left: -10px;
           top: 0;
           bottom: 0;
           z-index: -1;
+          
         }
       }
 
@@ -223,10 +224,10 @@
     }
   }
 </style>
-<div class="container-fluid pb-5 mt-5" style="background-color: #1e1e1e;">
-  <div class="row pt-5" style="background-color: #1e1e1e;">
+<div class="container-fluid pb-5 mt-5">
+  <div class="row ">
     @foreach($aBlogs as $blog)
-    <div class="col-sm-6 col-12" style="background-color: #1e1e1e;">
+    <div class="col-12" >
     <div class="blog-card">
       <div class="meta">
       <img class="photo" src="/files/{{ $blog->imagen }}" alt="">
@@ -234,9 +235,9 @@
         <li style="color: #1e1e1e; font-weight: 600; font-size: 1.3em;" class="date">{{ $blog->fecha }}</li>
       </ul>
       </div>
-      <div class="description">
-      <h2>{{ Str::limit($blog->titulo, 35) }}</h2>
-      <p style="heigth: 168px;">{{ Str::limit($blog->descripcion, 140) }}</p>
+      <div class="description" style="background-color: #1e1e1e;">
+      <h2 style="color: #fff;" >{{ Str::limit($blog->titulo, 35) }}</h2>
+      <p style="heigth: 168px; color: #fff;">{{ Str::limit($blog->descripcion, 140) }}</p>
       <p class="read-more">
         <a href="/noticia-detallada/{{ $blog->idblog }}">Ver más</a>
       </p>
