@@ -33,6 +33,7 @@
                                                             <option value="{{ $sucursal->nombre }}">{{ $sucursal->nombre }}</option>
                                                             @endforeach
                                                       </select>
+                                                      
                                                 </fieldset>
                                           </div>
                                           <label for="" style="font-weight: 600;">
