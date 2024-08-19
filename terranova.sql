@@ -62,7 +62,7 @@ INSERT INTO `propiedades` (`idpropiedad`, `titulo`, `precio`, `cantidad`, `descr
 	(58, 'Helado ouch de Los simpsons', 500.00, 2500, 'Helado de crema y banana com-com', '2024011205011253.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	(59, 'Aquarius 500ml sabor pera', 600.00, 2000, 'Bedida saborizada de pera sin gas', '2024011205014754.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
--- Volcando datos para la tabla terranova.sistema_areas: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.sistema_areas: ~0 rows (aproximadamente)
 INSERT INTO `sistema_areas` (`idarea`, `ncarea`, `descarea`, `activo`) VALUES
 	(1, 'SISTEMAS', 'Sistemas', 1);
 
@@ -76,9 +76,9 @@ INSERT INTO `sistema_familias` (`idfamilia`, `nombre`, `descripcion`) VALUES
 	(9, 'Administrador', 'administrador total'),
 	(10, 'admin', 'sdasd');
 
--- Volcando datos para la tabla terranova.sistema_menues: ~32 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.sistema_menues: ~31 rows (aproximadamente)
 INSERT INTO `sistema_menues` (`idmenu`, `url`, `orden`, `nombre`, `id_padre`, `fk_idpatente`, `css`, `activo`) VALUES
-	(7, '', 100, 'Sistema', 0, NULL, 'fa fa-lock fa-fw', 1),
+	(7, '', 100, 'Sistema', 0, NULL, 'fas fa-wrench', 1),
 	(8, '/admin/grupos', 3, 'Áreas de trabajo', 7, NULL, '', 1),
 	(9, '/admin/usuarios', 1, 'Usuarios', 7, NULL, 'fas fa-users', 1),
 	(10, '/admin/permisos', 2, 'Permisos', 7, NULL, '', 1),
@@ -88,28 +88,24 @@ INSERT INTO `sistema_menues` (`idmenu`, `url`, `orden`, `nombre`, `id_padre`, `f
 	(158, '/admin', -1, 'Inicio', 0, NULL, 'fas fa-home', 1),
 	(168, NULL, 1, 'Clientes', 0, NULL, 'fas fa-user', 1),
 	(169, '/admin/clientes', 0, 'Listado de clientes', 168, NULL, '', 1),
-	(198, '/admin/productos', 1, 'Listado de Productos', 200, NULL, 'fas fa-hamburger', 1),
-	(200, '', 2, 'Productos', 0, NULL, 'fas fa-hamburger', 1),
-	(201, '/admin/producto/nuevo', 2, 'Nuevo producto', 200, NULL, 'fas fa-hamburger', 1),
-	(202, NULL, 3, 'Pedidos', 0, NULL, 'fas fa-shopping-cart', 1),
+	(198, '/admin/productos', 1, 'Listado de Propiedades', 200, NULL, 'fas fa-home', 1),
+	(200, '', 2, 'Propiedades', 0, NULL, 'fas fa-hamburger', 1),
+	(201, '/admin/propiedad/nuevo', 2, 'Nueva propiedad', 200, NULL, 'fas fa-home', 1),
 	(203, '/admin/pedidos', 1, 'Listado de pedidos', 202, NULL, NULL, 1),
 	(204, NULL, 4, 'Postulaciones', 0, NULL, 'fas fa-user-plus', 1),
 	(206, '/admin/postulaciones', 1, 'Listado de postulaciones', 204, NULL, NULL, 1),
 	(208, NULL, 6, 'Sucursales', NULL, NULL, 'fas fa-store', 1),
 	(209, '/admin/sucursales', 1, 'Listado de sucursales', 208, NULL, NULL, 1),
-	(210, NULL, 7, 'proveedores', NULL, NULL, 'fas fa-truck', 1),
 	(211, '/admin/proveedores', 1, 'Listado de proveedores', 210, NULL, '', 1),
 	(212, '/admin/provedor/nuevo', 2, 'Nuevo proveedor', 210, NULL, NULL, 1),
 	(213, '/admin/proveedor/nuevo', 2, 'Nuevo proveedor', 210, NULL, NULL, 1),
-	(214, NULL, 8, 'Rubros', NULL, NULL, 'fas fa-landmark', 1),
 	(215, '/admin/rubros', 1, 'Listado de rubros', 214, NULL, NULL, 1),
 	(216, '/admin/rubro/nuevo', 2, 'Nuevo rubro', 214, NULL, NULL, 1),
 	(217, '/admin/sucursal/nuevo', 2, 'Nueva sucursal', 208, NULL, NULL, 1),
 	(218, '/admin/pedido/nuevo', 2, 'Nuevo pedido', 202, NULL, '', 1),
 	(223, '/admin/categorias', 1, 'Listado de Categorías', 226, NULL, '', 1),
 	(224, '/admin/categoria/nuevo', 2, 'Nueva Categoría', 226, NULL, '', 1),
-	(225, '/admin/postulacion/nuevo', 2, 'Nueva Postulación', 204, NULL, NULL, 1),
-	(226, NULL, 8, 'Categorias', NULL, NULL, 'fas fa-list', 1);
+	(225, '/admin/postulacion/nuevo', 2, 'Nueva Postulación', 204, NULL, NULL, 1);
 
 -- Volcando datos para la tabla terranova.sistema_menu_area: ~35 rows (aproximadamente)
 INSERT INTO `sistema_menu_area` (`fk_idmenu`, `fk_idarea`) VALUES
@@ -344,11 +340,11 @@ INSERT INTO `sistema_patente_familia` (`fk_idpatente`, `fk_idfamilia`) VALUES
 	(237, 1),
 	(238, 1);
 
--- Volcando datos para la tabla terranova.sistema_usuarios: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.sistema_usuarios: ~0 rows (aproximadamente)
 INSERT INTO `sistema_usuarios` (`idusuario`, `usuario`, `nombre`, `apellido`, `mail`, `clave`, `ultimo_ingreso`, `token`, `root`, `created_at`, `cantidad_bloqueo`, `areapredeterminada`, `activo`) VALUES
-	(1, 'admin', 'Administrador', '', 'admin@correo.com', '$2y$10$FeFXjlupKImULPF.aVRNueCALrpj55n.fotONLQ1QY3YvlYTelRP2', '2024-01-29 19:44:02', 'current_timestamp()', 1, '2021-09-17 19:05:57', 0, 1, 1);
+	(1, 'admin', 'Administrador', '', 'admin@correo.com', '$2y$10$FeFXjlupKImULPF.aVRNueCALrpj55n.fotONLQ1QY3YvlYTelRP2', '2024-08-19 20:02:50', 'current_timestamp()', 1, '2021-09-17 19:05:57', 0, 1, 1);
 
--- Volcando datos para la tabla terranova.sistema_usuario_familia: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.sistema_usuario_familia: ~0 rows (aproximadamente)
 INSERT INTO `sistema_usuario_familia` (`fk_idusuario`, `fk_idfamilia`, `fk_idarea`) VALUES
 	(1, 1, 1);
 

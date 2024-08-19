@@ -177,7 +177,7 @@ Route::post('/admin/cliente/{idcliente}', 'ControladorCliente@guardar');
 /* --------------------------------------------- */
 Route::get('/admin/propiedad/nuevo', 'ControladorPropiedad@nuevo');
 Route::post('/admin/propiedad/nuevo', 'ControladorPropiedad@guardar');
-Route::get('/admin/productos', 'ControladorPropiedad@index');
+Route::get('/admin/propiedades', 'ControladorPropiedad@index');
 Route::get('/admin/sistema/propiedades/cargarGrilla', 'ControladorPropiedad@cargarGrilla')->name('propiedad.cargarGrilla');
 Route::get('/admin/propiedad/eliminar', 'ControladorPropiedad@eliminar');
 Route::get('/admin/propiedad/{idpropiedad}', 'ControladorPropiedad@editar');
