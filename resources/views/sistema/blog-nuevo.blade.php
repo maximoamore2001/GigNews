@@ -76,12 +76,12 @@ if (isset($msg)) {
                         <div class="mt-3">
                               <label>Segundo título(opcional): *</label>
                               <input type="text" id="txtSegundoTitulo" name="txtSegundoTitulo" class="form-control"
-                                    value="{{ $blog->segundo_titulo }}" required>
+                                    value="{{ $blog->segundo_titulo }}">
                         </div>
                         <div class="mt-3">
                               <label>Segunda descripción: *</label>
                               <input type="text" id="txtSegundaDescripcion" name="txtSegundaDescripcion"
-                                    class="form-control" value="{{ $blog->segunda_descripcion }}" required>
+                                    class="form-control" value="{{ $blog->segunda_descripcion }}">
                         </div>
 
                         <div class="mt-3">

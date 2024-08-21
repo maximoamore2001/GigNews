@@ -5,6 +5,7 @@
 @endsection
 @section("contenido")
 
+<div>
 
 <div class="container-fluid d-none d-sm-none d-md-block">
       <p class="px-5 pt-5" style="tex-align: left; font-size: 25px; color: #fff;"><a style="color: #fff;" href="/blog"><i class="fa-solid fa-left-long bg-dark px-3 py-2" style="border-radius: 10px;"></i></a> </p>
@@ -22,14 +23,8 @@
             <div class="col-12 mt-3">
             <h3 class="py-2">{{ $blog->segundo_titulo }}</h3>
             <p style="font-size: 19px; ">{{ $blog->segunda_descripcion }}</p>
-            </div>
-
-            <div class="col-12 mt-3">
-            <h3 class="py-2">{{ $blog->segundo_titulo }}</h3>
-            <p style="font-size: 19px; ">{{ $blog->segunda_descripcion }}</p>
-            </div>
       </div>
 </div>
-
+</div>
 
 @endsection

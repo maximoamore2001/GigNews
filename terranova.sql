@@ -14,7 +14,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Volcando datos para la tabla terranova.blogs: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.blogs: ~1 rows (aproximadamente)
+INSERT INTO `blogs` (`idblog`, `titulo`, `fecha`, `descripcion`, `imagen`, `segundo_titulo`, `segunda_descripcion`) VALUES
+	(1, 'Ofertas imperdibles en la ciudad de Chicago, IL', '2024-08-15', 'Descubre las mejores oportunidades inmobiliarias en Chicago con nuestras ofertas imperdibles. Mantente al tanto de las últimas tendencias del mercado, propiedades destacadas, y consejos exclusivos para encontrar tu hogar ideal en la Ciudad de los Vientos. Ya sea que estés buscando comprar, vender, o invertir, nuestro blog te brinda la información más actualizada y valiosa para tomar decisiones inteligentes. No te pierdas ninguna oportunidad en una de las ciudades más vibrantes de Estados Unidos.', '2024082110084208.jpg', 'Aprovecha las Mejores Oportunidades Inmobiliarias en Chicago', 'En nuestro blog de noticias, te mantenemos al día con las ofertas más atractivas del mercado inmobiliario en Chicago. Desde elegantes apartamentos en el centro hasta acogedoras casas en los barrios más codiciados, aquí encontrarás las mejores oportunidades para comprar, vender o invertir. Exploramos las tendencias actuales, compartimos análisis detallados y te ofrecemos consejos prácticos para ayudarte a tomar decisiones bien informadas. No dejes pasar estas ofertas exclusivas y haz realidad tu sueño de encontrar la propiedad perfecta en esta increíble ciudad');
 
 -- Volcando datos para la tabla terranova.clientes: ~5 rows (aproximadamente)
 INSERT INTO `clientes` (`idcliente`, `nombre`, `apellido`, `telefono`, `direccion`, `dni`, `clave`, `correo`) VALUES
@@ -32,6 +34,9 @@ INSERT INTO `postulaciones` (`idpostulacion`, `nombre`, `apellido`, `whatsapp`, 
 	(27, 'maximo', 'torres', '3413433540', 'maxi@gmail.com', '2024011211012054.pdf');
 
 -- Volcando datos para la tabla terranova.propiedades: ~0 rows (aproximadamente)
+INSERT INTO `propiedades` (`idpropiedad`, `titulo`, `precio`, `cantidad`, `descripcion`, `imagen`, `cantidadhabitaciones`, `cantidadbanios`, `cantidadplantas`, `pais`, `ciudad`, `direccion`, `garage`, `areapropiedad`, `fk_idtipopropiedad`) VALUES
+	(60, 'Moderna Casa Familiar en Lincoln Park', 850000.00, 0, 'Esta casa moderna en Lincoln Park ofrece un diseño contemporáneo con acabados de alta calidad. Cuenta con amplios espacios abiertos, cocina gourmet, y un patio trasero ideal para entretener. Ubicada cerca de parques, escuelas, y tiendas, es perfecta para una familia que busca vivir en uno de los barrios más deseados de Chicago.', '2024082110085054.jpg', 4, 3, 2, 'Estados Unidos', 'Chicago, IL', '2451 N Halsted St, Chicago, IL 60614', 2, '1100', 1),
+	(61, 'Lujoso Apartamento en el Centro de Chicago', 1200000.00, 0, 'Esta encantadora casa de campo ofrece el refugio perfecto en las afueras de Chicago. Con un amplio jardín, una cocina renovada y múltiples áreas de estar, es ideal para una familia que busca espacio y tranquilidad. La propiedad también cuenta con un sótano terminado y un garaje doble.', '2024082110082258.webp', 3, 2, 1, 'Estados Unidos', 'Naperville, IL', '1204 S Washington St, Naperville, IL 60540', 2, '2000', 1);
 
 -- Volcando datos para la tabla terranova.sistema_areas: ~0 rows (aproximadamente)
 INSERT INTO `sistema_areas` (`idarea`, `ncarea`, `descarea`, `activo`) VALUES
@@ -47,7 +52,7 @@ INSERT INTO `sistema_familias` (`idfamilia`, `nombre`, `descripcion`) VALUES
 	(9, 'Administrador', 'administrador total'),
 	(10, 'admin', 'sdasd');
 
--- Volcando datos para la tabla terranova.sistema_menues: ~31 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.sistema_menues: ~30 rows (aproximadamente)
 INSERT INTO `sistema_menues` (`idmenu`, `url`, `orden`, `nombre`, `id_padre`, `fk_idpatente`, `css`, `activo`) VALUES
 	(7, '', 100, 'Sistema', 0, NULL, 'fas fa-wrench', 1),
 	(8, '/admin/grupos', 3, 'Áreas de trabajo', 7, NULL, '', 1),
@@ -331,7 +336,7 @@ INSERT INTO `sistema_patente_familia` (`fk_idpatente`, `fk_idfamilia`) VALUES
 
 -- Volcando datos para la tabla terranova.sistema_usuarios: ~0 rows (aproximadamente)
 INSERT INTO `sistema_usuarios` (`idusuario`, `usuario`, `nombre`, `apellido`, `mail`, `clave`, `ultimo_ingreso`, `token`, `root`, `created_at`, `cantidad_bloqueo`, `areapredeterminada`, `activo`) VALUES
-	(1, 'admin', 'Administrador', '', 'admin@correo.com', '$2y$10$FeFXjlupKImULPF.aVRNueCALrpj55n.fotONLQ1QY3YvlYTelRP2', '2024-08-21 12:51:51', 'current_timestamp()', 1, '2021-09-17 19:05:57', 0, 1, 1);
+	(1, 'admin', 'Administrador', '', 'admin@correo.com', '$2y$10$FeFXjlupKImULPF.aVRNueCALrpj55n.fotONLQ1QY3YvlYTelRP2', '2024-08-21 12:52:25', 'current_timestamp()', 1, '2021-09-17 19:05:57', 0, 1, 1);
 
 -- Volcando datos para la tabla terranova.sistema_usuario_familia: ~0 rows (aproximadamente)
 INSERT INTO `sistema_usuario_familia` (`fk_idusuario`, `fk_idfamilia`, `fk_idarea`) VALUES

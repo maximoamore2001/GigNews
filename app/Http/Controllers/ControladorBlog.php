@@ -67,7 +67,7 @@ class ControladorBlog extends Controller
             }
 
             //validaciones
-            if ($entidad->titulo == "" || $entidad->fecha == "" || $entidad->descripcion == "" || $entidad->imagen == "" || $entidad->segundo_titulo == "" || $entidad->segunda_descripcion == "") {
+            if ($entidad->titulo == "" || $entidad->fecha == "" || $entidad->descripcion == "" || $entidad->imagen == "") {
                 $msg["ESTADO"] = MSG_ERROR;
                 $msg["MSG"] = "Complete todos los datos";
             } else {
