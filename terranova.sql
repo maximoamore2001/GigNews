@@ -33,7 +33,7 @@ INSERT INTO `postulaciones` (`idpostulacion`, `nombre`, `apellido`, `whatsapp`, 
 
 -- Volcando datos para la tabla terranova.propiedades: ~0 rows (aproximadamente)
 
--- Volcando datos para la tabla terranova.sistema_areas: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.sistema_areas: ~0 rows (aproximadamente)
 INSERT INTO `sistema_areas` (`idarea`, `ncarea`, `descarea`, `activo`) VALUES
 	(1, 'SISTEMAS', 'Sistemas', 1);
 
@@ -57,9 +57,9 @@ INSERT INTO `sistema_menues` (`idmenu`, `url`, `orden`, `nombre`, `id_padre`, `f
 	(137, '/admin/patentes', 2, 'Patentes', 7, NULL, '', 1),
 	(140, '/admin/cliente/nuevo', 2, 'Nuevo cliente', 168, NULL, '', 1),
 	(158, '/admin', -1, 'Inicio', 0, NULL, 'fas fa-home', 1),
-	(168, NULL, 1, 'Clientes', 0, NULL, 'fas fa-user', 1),
+	(168, NULL, 1, 'Clientes', 0, NULL, 'fas fa-users', 1),
 	(169, '/admin/clientes', 0, 'Listado de clientes', 168, NULL, '', 1),
-	(198, '/admin/productos', 1, 'Listado de Propiedades', 200, NULL, 'fas fa-home', 1),
+	(198, '/admin/propiedades', 1, 'Listado de Propiedades', 200, NULL, 'fas fa-home', 1),
 	(200, '', 2, 'Propiedades', 0, NULL, 'fas fa-hotel', 1),
 	(201, '/admin/propiedad/nuevo', 2, 'Nueva propiedad', 200, NULL, 'fas fa-home', 1),
 	(203, '/admin/pedidos', 1, 'Listado de pedidos', 202, NULL, NULL, 1),
@@ -122,7 +122,7 @@ INSERT INTO `sistema_menu_area` (`fk_idmenu`, `fk_idarea`) VALUES
 	(228, 1),
 	(229, 1);
 
--- Volcando datos para la tabla terranova.sistema_patentes: ~83 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.sistema_patentes: ~79 rows (aproximadamente)
 INSERT INTO `sistema_patentes` (`idpatente`, `tipo`, `submodulo`, `nombre`, `modulo`, `log_operacion`, `descripcion`) VALUES
 	(1, 'CONSULTA', 'Permisos', 'PERMISOSCONSULTA', 'Sistema', 1, 'Consulta de permisos'),
 	(2, 'ALTA', 'Permisos', 'PERMISOSALTA', 'Sistema', 1, 'Alta de familia'),
@@ -329,11 +329,11 @@ INSERT INTO `sistema_patente_familia` (`fk_idpatente`, `fk_idfamilia`) VALUES
 	(15, 1),
 	(12, 1);
 
--- Volcando datos para la tabla terranova.sistema_usuarios: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.sistema_usuarios: ~0 rows (aproximadamente)
 INSERT INTO `sistema_usuarios` (`idusuario`, `usuario`, `nombre`, `apellido`, `mail`, `clave`, `ultimo_ingreso`, `token`, `root`, `created_at`, `cantidad_bloqueo`, `areapredeterminada`, `activo`) VALUES
-	(1, 'admin', 'Administrador', '', 'admin@correo.com', '$2y$10$FeFXjlupKImULPF.aVRNueCALrpj55n.fotONLQ1QY3YvlYTelRP2', '2024-08-20 11:35:19', 'current_timestamp()', 1, '2021-09-17 19:05:57', 0, 1, 1);
+	(1, 'admin', 'Administrador', '', 'admin@correo.com', '$2y$10$FeFXjlupKImULPF.aVRNueCALrpj55n.fotONLQ1QY3YvlYTelRP2', '2024-08-21 12:51:51', 'current_timestamp()', 1, '2021-09-17 19:05:57', 0, 1, 1);
 
--- Volcando datos para la tabla terranova.sistema_usuario_familia: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla terranova.sistema_usuario_familia: ~0 rows (aproximadamente)
 INSERT INTO `sistema_usuario_familia` (`fk_idusuario`, `fk_idfamilia`, `fk_idarea`) VALUES
 	(1, 1, 1);
 
