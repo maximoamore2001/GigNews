@@ -224,7 +224,7 @@
     }
   }
 </style>
-<div class="container-fluid pb-5 mt-5">
+<div class="container-fluid mt-5" style="min-height: 500px;">
   <div class="row ">
     @foreach($aBlogs as $blog)
     <div class="col-12" >

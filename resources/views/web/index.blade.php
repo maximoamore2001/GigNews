@@ -50,7 +50,7 @@
               <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmayormenor->areapropiedad }}m<sup>2</sup></li>
             </ul>
             <div class="p-1">
-              <div class="col-12"><span>{{ str_limit($propiedadmayormenor->descripcion, $limit = 150, $end = '...') }}</span></div>
+              <div class="col-12 d-none d-sm-none d-md-block"><span>{{ str_limit($propiedadmayormenor->descripcion, $limit = 150, $end = '...') }}</span></div>
             </div>
             <div class="m-0 pt-3">
               <a class="btn__viewproperties" href="/propiedad-detallada/{{ $propiedadmayormenor->idpropiedad }}"></i> ver propiedad</a>
@@ -89,7 +89,7 @@
               <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmenormayor->areapropiedad }}m<sup>2</sup></li>
             </ul>
             <div class="p-1">
-              <div class="col-12"><span>{{ str_limit($propiedadmenormayor->descripcion, $limit = 150, $end = '...') }}</span></div>
+              <div class="col-12 d-none d-sm-none d-md-block"><span>{{ str_limit($propiedadmenormayor->descripcion, $limit = 150, $end = '...') }}</span></div>
             </div>
             <div class=" m-0 pt-3">
               <a class="btn__viewproperties" href="/propiedad-detallada/{{ $propiedadmenormayor->idpropiedad }}"></i> ver propiedad</a>
