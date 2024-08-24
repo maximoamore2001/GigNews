@@ -40,11 +40,11 @@ https://templatemo.com/tm-591-villa-agency
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="/" class="logo">
-                        <h1 style="color: #fff;">Terra<span class="colour__primary">nova</span></h1>
+                        <h1 style="color: #fff;" class="animated fadeIn ">Terra<span class="colour__primary">nova</span></h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
+                    <ul class="nav ">
                       <li><a href="/"  class="<?php echo (Request::path() == "/") ? 'active' : ""; ?> ">Inicio</a></li>
                       <li><a href="/tasaciones"  class="<?php echo (Request::path() == "tasaciones") ? 'active' : ""; ?> ">Tasaciones</a></li>
                       <li><a href="/empresa"  class="<?php echo (Request::path() == "empresa") ? 'active' : ""; ?> ">Empresa</a></li>

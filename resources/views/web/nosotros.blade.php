@@ -16,10 +16,10 @@
       <div class="col-lg-8">
         <div class="section-heading mb-2">
           <h6>| Acerca de Terranova</h6>
-          <h2 style="color: #1e1e1e;">Expertos en asesoramiento inmobiliario</h2>
+          <h2 class="animated fadeIn " style="color: #1e1e1e;">Expertos en asesoramiento inmobiliario</h2>
         </div>
-        <div class="px-3">
-          <p class="text__description" style="color: #1e1e1e;">Terranova Inmobiliaria es una reconocida empresa del rubro inmobiliario en Rosario. <br> Especializada en la venta y alquiler de propiedades residenciales y comerciales, Terranova se destaca por ofrecer un servicio integral y personalizado a sus clientes.<br> Con una amplia experiencia en el mercado y un equipo de profesionales altamente capacitados, esta inmobiliaria se ha ganado la confianza de quienes buscan comprar, vender o alquilar propiedades en la ciudad. Además de su sólida reputación, Terranova se distingue por su compromiso con la excelencia y la satisfacción del cliente, brindando asesoramiento experto en cada paso del proceso inmobiliario.<br> Si buscas una empresa confiable y comprometida para tus necesidades inmobiliarias en Rosario, Terranova es una excelente opción.</p>
+        <div class="px-3 ">
+          <p class="text__description animated fadeIn " style="color: #1e1e1e;">Terranova Inmobiliaria es una reconocida empresa del rubro inmobiliario en Rosario. <br> Especializada en la venta y alquiler de propiedades residenciales y comerciales, Terranova se destaca por ofrecer un servicio integral y personalizado a sus clientes.<br> Con una amplia experiencia en el mercado y un equipo de profesionales altamente capacitados, esta inmobiliaria se ha ganado la confianza de quienes buscan comprar, vender o alquilar propiedades en la ciudad. Además de su sólida reputación, Terranova se distingue por su compromiso con la excelencia y la satisfacción del cliente, brindando asesoramiento experto en cada paso del proceso inmobiliario.<br> Si buscas una empresa confiable y comprometida para tus necesidades inmobiliarias en Rosario, Terranova es una excelente opción.</p>
         </div>
       </div>
 

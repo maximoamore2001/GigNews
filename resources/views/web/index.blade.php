@@ -26,8 +26,8 @@
     <?php $orden = isset($_GET['orden']) ? $_GET['orden'] : 'asc'; ?>
     @if ($orden == 'desc') 
     @foreach($aPropiedadesMayorMenor as $propiedadmayormenor)
-    <div class="p-2">
-      <div class="row properties__box">
+    <div class=" p-2">
+      <div class=" row properties__box">
         <div class="col-lg-4 col-12 p-0">
           <div class="propertie__img p-0">
             <a <?php echo "href=/propiedad-detallada/$propiedadmayormenor->idpropiedad" ?>><img style="max-width: 412px; max-height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>

@@ -18,28 +18,28 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
               <div class="col-lg-12">
                 <fieldset>
-                  <input type="name" name="txtNombre" id="txtNombre" placeholder="Nombre..." autocomplete="on" required>
+                  <input class="animated fadeIn " type="name" name="txtNombre" id="txtNombre" placeholder="Nombre..." autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <input type="subject" name="txtApellido" id="txtApellido" placeholder="Apellido..." autocomplete="on">
+                  <input class="animated fadeIn " type="subject" name="txtApellido" id="txtApellido" placeholder="Apellido..." autocomplete="on">
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
 
-                  <input type="text" name="txtCorreo" id="txtCorreo" pattern="[^ @]*@[^ @]*" placeholder="Mail..." required="">
+                  <input class="animated fadeIn " type="text" name="txtCorreo" id="txtCorreo" pattern="[^ @]*@[^ @]*" placeholder="Mail..." required="">
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <textarea name="txtTextArea" id="txtTextArea" placeholder="Mensaje"></textarea>
+                  <textarea class="animated fadeIn " name="txtTextArea" id="txtTextArea" placeholder="Mensaje"></textarea>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <button type="submit btn btn-primary" class="orange-button">ENVIAR</button>
+                  <button class="animated fadeIn " type="submit btn btn-primary" class="orange-button">ENVIAR</button>
                 </fieldset>
               </div>
             </div>
