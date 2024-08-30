@@ -36,28 +36,32 @@ class propiedad extends Model
         $this->fk_idtipopropiedad = $request->input('lstTipoPropiedad');
     }
 
-    public function obtenerTodos()
+    public function obtenerTodos($perPage = 15)
     {
         $sql = "SELECT
-                A.idpropiedad,
-                A.cantidadhabitaciones,
-                A.cantidadbanios,
-                A.cantidadplantas,
-                A.pais,
-                A.ciudad,
-                A.direccion,
-                A.areapropiedad,
-                A.garage,
-                A.titulo,
-                A.precio,
-                A.descripcion,
-                A.imagen,
-                A.fk_idtipopropiedad,
-                B.nombre AS tipopropiedad
-            FROM propiedades A
-            INNER JOIN tipo_propiedad B ON A.fk_idtipopropiedad = B.idtipopropiedad
-            ORDER BY idpropiedad ASC";
-        $lstRetorno = DB::select($sql);
+                    A.idpropiedad,
+                    A.cantidadhabitaciones,
+                    A.cantidadbanios,
+                    A.cantidadplantas,
+                    A.pais,
+                    A.ciudad,
+                    A.direccion,
+                    A.areapropiedad,
+                    A.garage,
+                    A.titulo,
+                    A.precio,
+                    A.descripcion,
+                    A.imagen,
+                    A.fk_idtipopropiedad,
+                    B.nombre AS tipopropiedad
+                FROM propiedades A
+                INNER JOIN tipo_propiedad B ON A.fk_idtipopropiedad = B.idtipopropiedad
+                ORDER BY idpropiedad ASC";
+    
+        // Utilizar la paginación de Laravel
+        $lstRetorno = DB::table(DB::raw("($sql) as sub"))
+                        ->paginate($perPage);
+    
         return $lstRetorno;
     }
 

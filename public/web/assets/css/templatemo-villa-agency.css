@@ -127,6 +127,7 @@ font & reset css
   animation-name: bounceInLeft;
 }
 
+
 .animated {
   -webkit-animation-duration: 4s;
   animation-duration: 4s;
@@ -2187,4 +2188,42 @@ body {
   .contact-page .section-heading {
     margin-right: 100px;
   }
+}
+
+
+/* Estilos para el contenedor de paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilos para los elementos de paginación */
+.pagination .page-item {
+  margin: 0 2px;
+}
+
+/* Estilo para los enlaces de paginación */
+.pagination .page-link {
+  color: #ffffff; /* Blanco para el texto */
+  background-color: #1e1e1e; /* Negro para el fondo */
+  border: 1px solid #1e1e1e; /* Negro para el borde */
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Estilo para el enlace activo */
+.pagination .page-item.active .page-link {
+  background-color: #42BC5A; /* Verde para el fondo activo */
+  border-color: #42BC5A; /* Verde para el borde activo */
+  color: #1e1e1e; /* Negro para el texto activo */
+}
+
+/* Estilo para el enlace hover */
+.pagination .page-link:hover {
+  background-color: #333333; /* Gris oscuro para el fondo en hover */
+  color: #ffffff; /* Blanco para el texto en hover */
+  border-color: #333333; /* Gris oscuro para el borde en hover */
 }

@@ -10,24 +10,21 @@ class ControladorWebHome extends Controller
 {
     public function index()
     {
-        $titulo = "Listado de categorias";
-
+        $titulo = "Listado de propiedades";
+    
+        // Número de propiedades por página
+        $perPage = 5;
+    
         $propiedad = new propiedad();
-        $aPropiedades = $propiedad->obtenerTodos();
-
-        $propiedad_mayor_menor = new propiedad();
-        $aPropiedadesMayorMenor = $propiedad_mayor_menor->ordenPrecioMayorMenor();
-
-        $propiedad_menor_mayor = new propiedad();
-        $aPropiedadesMenorMayor = $propiedad_menor_mayor->ordenPrecioMenorMayor();
-
+        $aPropiedades = $propiedad->obtenerTodos($perPage);
+    
         $categoria = new tipo_propiedad();
         $aCategorias = $categoria->obtenerTodos();
-
+    
         $sucursal = new sucursal();
         $aSucursales = $sucursal->obtenerTodos();
-
-        return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades', 'aPropiedadesMayorMenor', 'aPropiedadesMenorMayor'));
+    
+        return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades'));
     }
 
 }
