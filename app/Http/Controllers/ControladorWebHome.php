@@ -13,10 +13,16 @@ class ControladorWebHome extends Controller
         $titulo = "Listado de propiedades";
     
         // Número de propiedades por página
-        $perPage = 5;
+        $perPage = 10;
     
         $propiedad = new propiedad();
         $aPropiedades = $propiedad->obtenerTodos($perPage);
+
+        $propiedad_mayor_menor = new propiedad();
+        $aPropiedadesMayorMenor = $propiedad_mayor_menor->ordenPrecioMayorMenor($perPage);
+
+        $propiedad_menor_mayor = new propiedad();
+        $aPropiedadesMenorMayor = $propiedad_menor_mayor->ordenPrecioMenorMayor($perPage);
     
         $categoria = new tipo_propiedad();
         $aCategorias = $categoria->obtenerTodos();
@@ -24,7 +30,7 @@ class ControladorWebHome extends Controller
         $sucursal = new sucursal();
         $aSucursales = $sucursal->obtenerTodos();
     
-        return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades'));
+        return view("web.index", compact("aSucursales", 'aCategorias', 'aPropiedades', 'aPropiedadesMayorMenor', 'aPropiedadesMenorMayor'));
     }
 
 }

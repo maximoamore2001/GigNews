@@ -56,7 +56,7 @@ class propiedad extends Model
                     B.nombre AS tipopropiedad
                 FROM propiedades A
                 INNER JOIN tipo_propiedad B ON A.fk_idtipopropiedad = B.idtipopropiedad
-                ORDER BY idpropiedad ASC";
+                ORDER BY idpropiedad DESC";
     
         // Utilizar la paginación de Laravel
         $lstRetorno = DB::table(DB::raw("($sql) as sub"))
@@ -228,7 +228,7 @@ class propiedad extends Model
     }
 
 
-    public function ordenPrecioMayorMenor()
+    public function ordenPrecioMayorMenor($perPage = 15)
     {
         $sql = "SELECT
                 A.idpropiedad,
@@ -253,7 +253,7 @@ class propiedad extends Model
         return $lstRetorno;
     }
 
-    public function ordenPrecioMenorMayor()
+    public function ordenPrecioMenorMayor($perPage = 15)
     {
         $sql = "SELECT
                 A.idpropiedad,

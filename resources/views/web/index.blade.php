@@ -22,7 +22,8 @@
         </div>
       </form>
     </div>
-
+    <?php $orden = isset($_GET['orden']) ? $_GET['orden'] : 'asc'; ?>
+    @if ($orden == '') 
     @foreach($aPropiedades as $propiedad)
     <div class="p-2">
       <div class="row properties__box">
@@ -66,6 +67,86 @@
     </div>
     @endforeach
 
+    @elseif ($orden == 'asc')
+
+    @foreach($aPropiedadesMenorMayor as $propiedadmenormayor)
+    <div class="p-2">
+      <div class="row properties__box">
+        <div class="col-lg-4 col-12 p-0">
+          <div class="propertie__img p-0">
+            <a <?php echo "href=/propiedad-detallada/$propiedadmenormayor->idpropiedad" ?>><img style="max-width: 412px; max-height: 267px;" src="/files/{{ $propiedadmenormayor->imagen; }}" alt=""></a>
+          </div>
+        </div>
+        <div class="col-lg-8 col-12 py-4">
+          <div class="propertie__info">
+            <div class="p-1 pt-0 pb-0">
+              <h6 style="font-size: 22px;">${{ number_format($propiedadmenormayor->precio, 0, ',', '.') }}</h6>
+            </div>
+            <div class="p-1 pt-0">
+              <div><a class="propertie__title" <?php echo "href='/propiedad-detallada/" . $propiedadmenormayor->idpropiedad . "'" ?>>{{ $propiedadmenormayor->titulo }}</a></div>
+              <div><b>{{ $propiedadmenormayor->tipopropiedad }} en {{ $propiedadmenormayor->direccion }}.</b></div>
+            </div>
+            <ul class="row m-1 properties__information">
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmenormayor->cantidadhabitaciones }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bath"></i> {{ $propiedadmenormayor->cantidadbanios }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-car-side"></i> {{ $propiedadmenormayor->garage }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmenormayor->cantidadhabitaciones }}</li>
+              <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmenormayor->areapropiedad }}m<sup>2</sup></li>
+            </ul>
+            <div class="p-1">
+              <div class="col-12 d-none d-sm-none d-md-block"><span>{{ str_limit($propiedadmenormayor->descripcion, $limit = 150, $end = '...') }}</span></div>
+            </div>
+            <div class=" m-0 pt-3">
+              <a class="btn__viewproperties" href="/propiedad-detallada/{{ $propiedadmenormayor->idpropiedad }}"></i> ver propiedad</a>
+              <a class="btn__whatsapp"  href="https://web.whatsapp.com/" target="_blank"></i><i class="fa-brands fa-whatsapp"></i> whatsapp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    @endforeach
+
+    @elseif ($orden == 'desc')
+
+@foreach($aPropiedadesMayorMenor as $propiedadmayormenor)
+    <div class=" p-2">
+      <div class=" row properties__box">
+        <div class="col-lg-4 col-12 p-0">
+          <div class="propertie__img p-0">
+            <a <?php echo "href=/propiedad-detallada/$propiedadmayormenor->idpropiedad" ?>><img style="max-width: 412px; max-height: 267px;" src="/files/{{ $propiedadmayormenor->imagen; }}" alt=""></a>
+          </div>
+        </div>
+        <div class="col-lg-8 col-12 py-4">
+          <div class="propertie__info">
+            <div class="p-1 pt-0 pb-0">
+              <h6 style="font-size: 22px;">${{ number_format($propiedadmayormenor->precio, 0, ',', '.') }}</h6>
+            </div>
+            <div class="p-1 pt-0">
+              <div><a class="propertie__title" <?php echo "href='/propiedad-detallada/" . $propiedadmayormenor->idpropiedad . "'" ?>>{{ $propiedadmayormenor->titulo }}</a></div>
+              <div><b>{{ $propiedadmayormenor->tipopropiedad }} en {{ $propiedadmayormenor->direccion }}.</b></div>
+            </div>
+            <ul class="row m-1 properties__information">
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmayormenor->cantidadhabitaciones }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bath"></i> {{ $propiedadmayormenor->cantidadbanios }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-car-side"></i> {{ $propiedadmayormenor->garage }}</li>
+              <li class="p-0 m-0 col-2 col-lg-1"><i class="fa-solid fa-bed"></i> {{ $propiedadmayormenor->cantidadhabitaciones }}</li>
+              <li class="p-0 m-0 col-4 col-lg-8"><i class="fa-solid fa-arrows-up-down-left-right"></i> {{ $propiedadmayormenor->areapropiedad }}m<sup>2</sup></li>
+            </ul>
+            <div class="p-1">
+              <div class="col-12 d-none d-sm-none d-md-block"><span>{{ str_limit($propiedadmayormenor->descripcion, $limit = 150, $end = '...') }}</span></div>
+            </div>
+            <div class="m-0 pt-3">
+              <a class="btn__viewproperties" href="/propiedad-detallada/{{ $propiedadmayormenor->idpropiedad }}"></i> ver propiedad</a>
+              <a class="btn__whatsapp"  href="https://web.whatsapp.com/" target="_blank"></i><i class="fa-brands fa-whatsapp"></i> whatsapp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    @endforeach
+
+
+ @endif
   </div>
   
 </div>
