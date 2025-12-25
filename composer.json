@@ -19,7 +19,7 @@
     },
     "require-dev": {
         "filp/whoops": "~2.0",
-        "fzaninotto/faker": "~1.4",
+        "fakerphp/faker": "^1.19",
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "^9.0"
     },
@@ -39,5 +39,10 @@
         "laravel": {
             "dont-discover": []
         }
-    }    
+    },
+    "config": {
+        "audit": {
+            "block-insecure": false
+        }
+    }
 }
